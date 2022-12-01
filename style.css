@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav {
+    padding: 2px;
+    height: 50px;
+    display: flex;
+}
+.lines {
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.lines  div {
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    margin: 2px 0;
+}
+.left {
+    display: flex;
+    margin-left: 0;
+}
+.left img{
+    padding-top: 10px;
+}
+.search{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 60px;
+    padding-left: 10px;
+    min-width: 800px;
+    height: 40px;
+    margin-top: 4px;
+}
+.right {
+    margin-right: 0;
+    display: flex;
+    justify-content: right;
+}
+.right > *{
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 50%;
+}
+.left,.right{
+    width: 200px;
+}
