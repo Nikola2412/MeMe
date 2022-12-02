@@ -1,6 +1,3 @@
-.container>*, .left{
-    border: 1px solid black;
-}
 html{
     scroll-behavior: smooth;
 }
