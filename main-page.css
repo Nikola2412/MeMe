@@ -1,56 +1,89 @@
-*{
-    margin: 0;
-    padding: 0;
+.container>*, .left{
+    border: 1px solid black;
 }
-.ul{
-    list-style-type: none;
+html{
+    scroll-behavior: smooth;
+}
+li{
+    list-style: none;
 }
 .container{
-    height: 100%;
     display: flex;
+    max-height: calc(100% - 80px);
 }
 .container .levi{
     padding:2px;
-    width: 200px;
-    height: 100%;
     overflow-y: auto;
 }
-.container .desni{
-    
+.produzen{
+    padding:2px;
+    width: 200px;
 }
 .section{
     height: fit-content;
 }
 li img{
     width: 30px;
+}
+
+.produzen ul li img{
     margin-right: 10px;
 }
-.section ul li{
-    list-style: none;
+.produzen ul li ,button{
     display: flex;
     justify-content: left;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 10px;
     padding-left: 10px;
+    padding-right: 10px;
+}
+ul button{
+    width: 100%;
+}
+ul li{
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 .levi .line{
-    height: 1px;
+    height: 2px;
     background-color: black;
-    margin: 2px 0;
+    margin: 2px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 .desni{
-    width: 100%;
-    min-height: 100%;
     padding:20px;
+    width: 100%;
     overflow-y: auto;
-    overflow-x: hidden;
     display: grid;
-    gap: 4px;
+    gap: 10px;
     grid-template-columns: repeat(auto-fill,minmax(40px,1fr));
 }
 .desni img{
     width: 40px;
     height: 40px;
+}
+a{
+    text-decoration: none;
+}
+ul button{
+    background-color: white;
+}
+ul button .kliknuto,ul button:hover{
+    background-color: dimgrey;
+}
+
+.skracen{
+    width: fit-content;
+    height: fit-content;
+}
+.skracen li button{
+    padding: 0;
+    width: 100%;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+}
+.skracen li button img{
+    margin: 20px;
 }
