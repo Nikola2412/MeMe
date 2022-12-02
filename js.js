@@ -1,3 +1,4 @@
+window.alert('Jos nije gotov sajt')
 let desni = document.querySelector('.desni');
 for(let i = 0;i<10;i++){
     let div = document.createElement('div');
