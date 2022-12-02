@@ -1,6 +1,9 @@
 html{
     scroll-behavior: smooth;
 }
+*{
+    transition: 0.5s ease;
+}
 li{
     list-style: none;
 }
@@ -11,6 +14,10 @@ li{
 .container .levi{
     padding:2px;
     overflow-y: auto;
+    overflow-x: hidden;
+}
+.skracen{
+
 }
 .produzen{
     padding:2px;
@@ -27,12 +34,14 @@ li img{
     margin-right: 10px;
 }
 .produzen ul li ,button{
+    height: 50px;
     display: flex;
     justify-content: left;
     align-items: center;
     border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+}
+.produzen ul li img{
+    margin-left: 10px;
 }
 ul button{
     width: 100%;
@@ -75,12 +84,12 @@ ul button .kliknuto,ul button:hover{
     height: fit-content;
 }
 .skracen li button{
-    padding: 0;
     width: 100%;
     font-size: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 .skracen li button img{
-    margin: 20px;
+    padding: 10px;
 }
