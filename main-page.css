@@ -1,15 +1,19 @@
+
 html{
     scroll-behavior: smooth;
 }
 *{
     transition: 0.5s ease;
 }
+:root{
+    --visina:calc(100% - 80px);
+}
 li{
     list-style: none;
 }
 .container{
     display: flex;
-    max-height: calc(100% - 80px);
+    max-height: var(--visina)
 }
 .container .levi{
     padding:2px;
@@ -17,7 +21,8 @@ li{
     overflow-x: hidden;
 }
 .skracen{
-
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .produzen{
     padding:2px;
@@ -40,8 +45,8 @@ li img{
     align-items: center;
     border-radius: 10px;
 }
-.produzen ul li img{
-    margin-left: 10px;
+.produzen ul li button{
+   padding: 10px;
 }
 ul button{
     width: 100%;
@@ -69,9 +74,6 @@ ul li{
     width: 40px;
     height: 40px;
 }
-a{
-    text-decoration: none;
-}
 ul button{
     background-color: white;
 }
@@ -80,8 +82,7 @@ ul button .kliknuto,ul button:hover{
 }
 
 .skracen{
-    width: fit-content;
-    height: fit-content;
+    width: 60px;
 }
 .skracen li button{
     width: 100%;
