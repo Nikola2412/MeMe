@@ -1,0 +1,52 @@
+:root{
+    --videoduzina:300px;
+    --videovisina:300px;
+}
+.divslike{
+    border-radius: 20px;
+    width: var(--videoduzina);
+    height: calc(var(--videoduzina)*9 / 16);
+}
+.divslike img{
+    border-radius: 20px;
+    width:100%;
+}
+.video{
+    width: var(--videoduzina);
+    height: var(--videovisina);
+}
+.naziv{
+    text-align: center;
+}
+.desni{
+    padding:20px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x:hidden;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill,minmax(var(--videoduzina),1fr));
+}
+.logo{
+    border-radius: 50%;
+    width: 40px;
+    margin:5px;
+}
+.opis{
+    padding: 5px;
+    display: flex;
+    width: var(--videoduzina);
+    width: 100%;
+    max-height: 50px;
+    text-overflow:ellipsis;
+
+}
+.naziv{
+    margin-left: 5px;
+    text-align: left;
+}
+.naziv p {
+    word-wrap:break-word;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}

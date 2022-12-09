@@ -1,10 +1,33 @@
 //window.alert('Jos nije gotov sajt')
 let desni = document.querySelector('.desni');
-for(let i = 0;i<0;i++){
+for(let i = 0;i<30;i++){
     let div = document.createElement('div');
+    div.className='video';
+
+    let divslike = document.createElement('div');
+    divslike.className = 'divslike';
+
     let img = document.createElement('img');
-    img.setAttribute("src","./icons/history.png");
-    desni.appendChild(img);
+    img.setAttribute("src","./images/Beerus.png");
+    divslike.appendChild(img);
+
+    let logo = document.createElement('img');
+    logo.className='logo';
+    logo.setAttribute("src","./images/profile.png");
+
+    let opis = document.createElement('div');
+    opis.className='opis';
+    opis.appendChild(logo);
+
+    let p = document.createElement('p');
+    p.className='naziv';
+    p.textContent='test12213123123123dsasdsadfi';
+    opis.appendChild(p);
+
+    div.appendChild(divslike);
+    div.appendChild(opis);
+     
+    desni.appendChild(div); 
 }
 
 

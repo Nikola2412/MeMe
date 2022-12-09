@@ -62,18 +62,7 @@ ul li{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.desni{
-    padding:20px;
-    width: 100%;
-    overflow-y: auto;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fill,minmax(40px,1fr));
-}
-.desni img{
-    width: 40px;
-    height: 40px;
-}
+
 ul button{
     background-color: white;
 }
@@ -91,6 +80,7 @@ ul button .kliknuto,ul button:hover{
     justify-content: center;
     align-items: center;
 }
+
 .skracen li button img{
     padding: 10px;
 }
