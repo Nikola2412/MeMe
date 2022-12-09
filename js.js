@@ -10,6 +10,7 @@ for(let i = 0;i<30;i++){
     let img = document.createElement('img');
     img.setAttribute("src","./images/Beerus.png");
     divslike.appendChild(img);
+    div.appendChild(divslike);
 
     let logo = document.createElement('img');
     logo.className='logo';
@@ -19,12 +20,29 @@ for(let i = 0;i<30;i++){
     opis.className='opis';
     opis.appendChild(logo);
 
-    let p = document.createElement('p');
-    p.className='naziv';
-    p.textContent='test12213123123123dsasdsadfi';
-    opis.appendChild(p);
+    let divopis = document.createElement('div');
+    divopis.className = 'opis2';
 
-    div.appendChild(divslike);
+    let naziv = document.createElement('h3');
+    naziv.className='naziv';
+
+    let kanal = document.createElement('p');
+    kanal.className = 'kanal';
+    kanal.textContent = 'kanal';
+
+    let pregledi = document.createElement('p');
+    pregledi.className = 'pregledi';
+    pregledi.textContent = '8k views'
+    //divopis.appendChild(kanal);
+
+    naziv.textContent=`video: ${i}`;
+    
+    divopis.appendChild(naziv);
+    divopis.appendChild(kanal);
+    divopis.appendChild(pregledi);
+
+    opis.appendChild(divopis)
+
     div.appendChild(opis);
      
     desni.appendChild(div); 
@@ -67,3 +85,17 @@ function resize() {
 if(window.screen.width < min)
     promeni();
 window.onresize = resize;
+
+function search() {
+    let input = document.querySelector('.search').value
+    input = input.toLowerCase();
+    let x = document.querySelectorAll('.video');
+    for (i = 0; i < x.length; i++) { 
+        if (x[i].textContent.toLowerCase().includes(input)) {
+            x[i].style.display="block";
+        }
+        else {
+            x[i].style.display="none";
+        }
+    }
+}
