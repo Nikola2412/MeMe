@@ -110,12 +110,13 @@ if(window.screen.width < min)
     promeni();
 window.onresize = resize;
 
-function search() {
-    let input = document.querySelector('.search').value
+function search(input) {
+    //let input = document.querySelector('.search').value
     input = input.toLowerCase();
     let x = document.querySelectorAll('.video');
+    let y = document.querySelectorAll('.video h3');
     for (i = 0; i < x.length; i++) { 
-        if (x[i].textContent.toLowerCase().includes(input)) {
+        if (y[i].textContent.toLowerCase().includes(input)) {
             x[i].style.display="block";
         }
         else {
