@@ -70,6 +70,6 @@
     }
     .divslike{
         width: 100%;
-        height: calc(100% * 9 /16);
+        height: 100%;
     }
 }
