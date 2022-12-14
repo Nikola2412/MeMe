@@ -61,9 +61,12 @@
     -webkit-box-orient: vertical;
     height: fit-content;
 }
-.video:hover{
-    transform: scale(1.2);
+@media screen and (min-width: 816px){
+    .video:hover{
+        transform: scale(1.2);
+    }
 }
+
 @media screen and (max-width: 816px){
     .video{
         width: 90%;
