@@ -84,3 +84,9 @@ ul button .kliknuto,ul button:hover{
 .skracen li button img{
     padding: 10px;
 }
+
+@media screen and (max-width: 450px){
+    .levi{
+        display: none;
+    }
+}
