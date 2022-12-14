@@ -79,9 +79,9 @@ let levi = document.querySelector('.levi');
 
 document.querySelector('.lines').addEventListener('click',el=>{
 
-    if(window.screen.width < min){
-        return;
-    }
+    //if(window.screen.width < min){
+    //    return;
+    //}
     //console.log(levi.className.split(' ')[1]);
     if(levi.className.split(' ')[1] == 'produzen'){
         promeni();
@@ -108,7 +108,7 @@ function resize() {
 }
 if(window.screen.width < min)
     promeni();
-window.onresize = resize;
+//window.onresize = resize;
 
 function search(input) {
     //let input = document.querySelector('.search').value
