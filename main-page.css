@@ -88,5 +88,6 @@ ul button .kliknuto,ul button:hover{
 @media screen and (max-width: 450px){
     .levi{
         display: none;
+        position: fixed;
     }
 }

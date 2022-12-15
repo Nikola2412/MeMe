@@ -79,9 +79,18 @@ let levi = document.querySelector('.levi');
 
 document.querySelector('.lines').addEventListener('click',el=>{
 
-    //if(window.screen.width < min){
-    //    return;
-    //}
+    if(window.screen.width < 450){
+        console.log(levi.style.display);
+        if(levi.style.display == 'none')
+        {
+            levi.style.display = 'block';
+        }
+        if(levi.style.display == 'block'){
+            levi.style.display = 'none';
+        }
+
+        return;
+    }
     //console.log(levi.className.split(' ')[1]);
     if(levi.className.split(' ')[1] == 'produzen'){
         promeni();
@@ -90,6 +99,7 @@ document.querySelector('.lines').addEventListener('click',el=>{
         levi.className = 'levi produzen'
     }
 });
+
 
 function promeni(){
     levi.className = 'levi skracen';
@@ -124,3 +134,17 @@ function search(input) {
         }
     }
 }
+
+//function out(el){
+//    document.querySelectorAll('.nav div').forEach(div=>{
+//        div.style.display = 'block';
+//    });
+//    el.style.display='none';
+//}
+//
+//document.querySelector('.lupa').addEventListener('click',el=>{
+//    document.querySelector('.search').style.display = 'block';
+//    document.querySelectorAll('.nav > div').forEach(div=>{
+//        div.style.display = 'none';
+//    });
+//});

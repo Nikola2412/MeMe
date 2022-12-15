@@ -24,6 +24,15 @@ html{
     background: #555; 
     border-radius: 30px;
 }
+.levi::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.levi{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 @media screen and (max-width: 450px){
   .desni::-webkit-scrollbar {
     display: none;

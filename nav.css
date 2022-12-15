@@ -39,19 +39,21 @@
     height: 40px;
     margin-top: 4px;
 }
-input[type=text] {
+.search[type=text] {
     width: 30%;
  }
- input[type=text]:focus {
-   width: 50%;
- }
+ .search[type=text]:focus {
+    width: 50%;
+}
 .right {
     margin-right: 0;
     display: flex;
     justify-content: right;
 }
-.right > *{
+.right > .nalog{
     border-radius: 50%;
+}
+.right img{
     margin-right: 20px;
 }
 .left,.right{
