@@ -59,7 +59,7 @@
     -webkit-box-orient: vertical;
 }
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: 815px){
     .video:hover{
         transform: scale(1.15);
         height: fit-content;
@@ -90,10 +90,9 @@
     
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 815px){
     .video{
         width: 90%;
-        height: ;
     }
     .divslike{
         width: 100%;
@@ -101,11 +100,14 @@
         margin-left: auto;
         margin-right: auto;
     }
+    
+}
+@media screen and (max-width: 715px){
     .search{
         display: none;
     }
     .search[type=text]:focus{
-        width: 100%;
+        width: 70%;
     }
     .right{
         margin-left: auto;
