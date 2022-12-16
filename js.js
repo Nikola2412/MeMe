@@ -74,7 +74,6 @@ for(let i = 1;i<=30;i++){
 
 
 
-const min = 734;
 let levi = document.querySelector('.levi');
 
 document.querySelector('.lines').addEventListener('click',el=>{
@@ -115,9 +114,8 @@ function resize() {
     //    console.log('da');
     //});
 }
-if(window.screen.width < min)
+if(window.screen.width < 450)
     promeni();
-//window.onresize = resize;
 
 function search(input) {
     //let input = document.querySelector('.search').value
@@ -147,3 +145,9 @@ document.querySelector('.lupa').addEventListener('click',el=>{
         div.style.display = 'none';
     });
 });
+
+//window.addEventListener("orientationchange", event => {
+//    if (window.screen.width >= 450) {
+//        
+//    }    
+//});

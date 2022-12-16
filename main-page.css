@@ -94,6 +94,10 @@ ul button .kliknuto,ul button:hover{
 @media screen and (min-width: 450px){
     .levi{
         display: block;
-        position: relative;
+    }
+}
+@media screen and (orientation: landscape) and (min-width: 450px){
+    .levi{
+        display: block;
     }
 }
