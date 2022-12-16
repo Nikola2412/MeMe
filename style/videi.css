@@ -7,7 +7,7 @@
     color: black;
 }
 .divslike{
-    border-radius: 20px;
+    border-radius: 15px;
     width: var(--videoduzina);
     height: calc(var(--videoduzina) * 9 / 16);
     
