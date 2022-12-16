@@ -38,7 +38,7 @@ li img{
 .produzen ul li img{
     margin-right: 10px;
 }
-.produzen ul li ,button{
+.produzen ul li a,button{
     height: 50px;
     display: flex;
     justify-content: left;
@@ -66,7 +66,7 @@ ul li{
 ul button{
     background-color: white;
 }
-ul button .kliknuto,ul button:hover{
+.kliknuto,ul button:hover{
     background-color: dimgrey;
 }
 
@@ -81,14 +81,17 @@ ul button .kliknuto,ul button:hover{
     align-items: center;
 }
 
-.skracen li button img{
+.skracen li a button img{
     padding: 10px;
 }
 
 @media screen and (max-width: 450px){
     .levi{
         display: block;
+        background-color: gray;
         position: fixed;
+        z-index: 1;
+
     }
 }
 @media screen and (min-width: 450px){
