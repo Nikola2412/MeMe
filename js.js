@@ -133,6 +133,8 @@ function search(input) {
 }
 
 function out(el){
+    if(window.screen.width > 815)
+        return;
     document.querySelectorAll('.nav div').forEach(div=>{
         div.style.display = 'flex';
     });
@@ -146,8 +148,8 @@ document.querySelector('.lupa').addEventListener('click',el=>{
     });
 });
 
-//window.addEventListener("orientationchange", event => {
-//    if (window.screen.width >= 450) {
-//        
-//    }    
-//});
+window.addEventListener("orientationchange", event => {
+    if (window.screen.width >= 450) {
+        levi.style.display = 'block';
+    }    
+});
