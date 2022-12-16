@@ -10,7 +10,6 @@
     border-radius: 15px;
     width: var(--videoduzina);
     height: calc(var(--videoduzina) * 9 / 16);
-    
 }
 .divslike img,.divslike iframe,.divslike video{
     border-radius: 15px;
@@ -18,14 +17,13 @@
     height: 100%;
 }
 .video{
+    position:relative;
     width: var(--videoduzina);
-    height: fit-content;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-}
-.naziv{
-    text-align: center;
+    border-radius: 20px;
+    height: fit-content;
 }
 .desni{
     padding:20px;
@@ -45,7 +43,6 @@
 .opis{
     padding: 5px;
     display: flex;
-    width: var(--videoduzina);
     width: 100%;
     height: 60px;
 }
@@ -53,17 +50,35 @@
     margin-left: 10px;
 }
 .naziv{
-    
+    height: fit-content;
     text-align: left;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    height: fit-content;
 }
+
 @media screen and (min-width: 815px){
     .video:hover{
         transform: scale(1.15);
+        height: fit-content;
+        background-color: gray;
+        overflow:hidden;
+        z-index: 10;
+    }
+    .video:hover > div{
+        height: fit-content;
+    }
+    .video:hover .divslike{
+        border-radius: 15px;
+        width: var(--videoduzina);
+        height: calc(var(--videoduzina) * 9 / 16);
+    }
+    .video:hover .naziv{
+        height: fit-content;
+        text-align: left;
+        overflow: hidden;
+        display: block;
     }
     .lupa{
         display: none;
