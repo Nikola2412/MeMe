@@ -41,8 +41,8 @@
 }
 .search[type=text] {
     width: 30%;
- }
- .search[type=text]:focus {
+}
+.search[type=text]:focus {
     width: 50%;
 }
 .right {

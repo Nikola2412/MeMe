@@ -81,6 +81,8 @@
     .divslike{
         width: 100%;
         height: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .search{
         display: none;
@@ -98,5 +100,8 @@
 @media screen and (max-width: 400px){
     .yt{
         display: none;
+    }
+    .divslike{
+        max-width: 90%;
     }
 }
