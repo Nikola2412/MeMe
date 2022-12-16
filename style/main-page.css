@@ -8,7 +8,6 @@ html{
 :root{
     --visina:calc(100% - 80px);
 }
-
 li{
     list-style: none;
 }
@@ -85,4 +84,3 @@ ul button{
 .skracen li a button img{
     padding: 10px;
 }
-
