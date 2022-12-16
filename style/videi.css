@@ -12,7 +12,7 @@
     height: calc(var(--videoduzina) * 9 / 16);
     
 }
-.divslike img,.divslike iframe{
+.divslike img,.divslike iframe,.divslike video{
     border-radius: 20px;
     width:100%;
     height: 100%;
