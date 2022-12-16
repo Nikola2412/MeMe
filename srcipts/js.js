@@ -131,7 +131,7 @@ function search(input) {
         }
     }
 }
-
+let close = document.querySelector('.close');
 function out(el){
     if(window.screen.width > 815)
         return;
@@ -139,13 +139,18 @@ function out(el){
         div.style.display = 'flex';
     });
     el.style.display='none';
+    close.style.display = 'none';
 }
 
 document.querySelector('.lupa').addEventListener('click',el=>{
     document.querySelector('.search').style.display = 'block';
+    document.querySelector('.close').style.display = 'block';
     document.querySelectorAll('.nav > div').forEach(div=>{
         div.style.display = 'none';
     });
+});
+close.addEventListener('click',el=>{
+    out(document.querySelector('.search'));
 });
 
 window.addEventListener("orientationchange", event => {
