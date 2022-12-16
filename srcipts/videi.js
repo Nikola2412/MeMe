@@ -20,7 +20,7 @@ const imageArray = [
 
 
 let desni = document.querySelector('.desni');
-for(let i = 1;i<=0;i++){
+for(let i = 1;i<=30;i++){
     let div = document.createElement('div');
     div.className='video';
 

@@ -87,8 +87,8 @@ ul button{
 
 @media screen and (max-width: 450px){
     .levi{
-        background-color: gray;
         position: fixed;
+        background-color: gray;
         z-index: 1;
     }
 }
