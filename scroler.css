@@ -34,7 +34,7 @@ html{
   scrollbar-width: none;  /* Firefox */
 }
 @media screen and (max-width: 450px){
-  .desni::-webkit-scrollbar {
+  .desni::-webkit-scrollbar{
     display: none;
   }
   
