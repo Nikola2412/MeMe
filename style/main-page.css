@@ -8,6 +8,7 @@ html{
 :root{
     --visina:calc(100% - 80px);
 }
+
 li{
     list-style: none;
 }
@@ -85,15 +86,3 @@ ul button{
     padding: 10px;
 }
 
-@media screen and (max-width: 450px){
-    .levi{
-        position: fixed;
-        background-color: gray;
-        z-index: 1;
-    }
-}
-@media screen and (min-width: 450px){
-    .levi{
-        display: block;
-    }
-}
