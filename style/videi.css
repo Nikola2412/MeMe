@@ -63,7 +63,7 @@
 }
 @media screen and (min-width: 815px){
     .video:hover{
-        transform: scale(1.2);
+        transform: scale(1.15);
     }
     .lupa{
         display: none;
