@@ -74,12 +74,12 @@ for(let i = 1;i<=30;i++){
 
 
 
-//let clips = document.querySelectorAll('video').forEach(clip=>{
-//    clip.addEventListener("mouseover", function (e) {
-//        clip.play();
-//    })
-//    clip.addEventListener("mouseout", function (e) {
-//        clip.pause();
-//        clip.currentTime=0;
-//    })
-//});
+let clips = document.querySelectorAll('video').forEach(clip=>{
+    clip.addEventListener("mouseover", function (e) {
+        clip.play();
+    })
+    clip.addEventListener("mouseout", function (e) {
+        clip.pause();
+        clip.currentTime=0;
+    })
+});
