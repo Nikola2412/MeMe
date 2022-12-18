@@ -44,17 +44,13 @@ video{
     text-align: left;
 }
 .next{
-    width: fit-content;
+    width: 300px;
     display: grid;
     grid-template-columns: auto;
     margin-left: auto;
     margin-right: auto;
     overflow-y: auto;
     overflow-x: hidden;
-}
-.divslike{
-    border-radius: 15px;
-    width: var(--videoduzina);
 }
 .nextdivslike video, .nextdivslike img{
     border-radius: 15px;
@@ -100,6 +96,9 @@ video{
     .desni{
         padding-right: 20px;
         display: inline-block;
+    }
+    .next{
+        width: fit-content;
         overflow-y: auto;
     }
     .nextvideo{
