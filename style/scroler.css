@@ -24,12 +24,12 @@ html{
     background: #555; 
     border-radius: 30px;
 }
-.levi::-webkit-scrollbar,.desni::-webkit-scrollbar{
+.levi::-webkit-scrollbar,.desni::-webkit-scrollbar,.next::-webkit-scrollbar{
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.levi,.desni{
+.levi,.desni,.next{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }

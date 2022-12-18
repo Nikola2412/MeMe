@@ -1,24 +1,4 @@
 @media screen and (min-width: 815px){
-    .video:hover{
-        transform: scale(1.15);
-        height: fit-content;
-        background-color: gray;
-        overflow:hidden;
-        z-index: 1;
-    }
-    .video:hover > div{
-        height: fit-content;
-    }
-    .video:hover .divslike{
-        width: var(--videoduzina);
-        height: calc(var(--videoduzina) * 9 / 16);
-    }
-    .video:hover .naziv{
-        height: fit-content;
-        text-align: left;
-        overflow: hidden;
-        display: block;
-    }
     .lupa{
         display: none;
     }
@@ -39,12 +19,6 @@
     }
     .left,.right{
         width: fit-content;
-    }
-    .video{
-        width: 90%;
-        height: fit-content;
-        margin-left: auto;
-        margin-right: auto;
     }
     .video > div{
         height: fit-content;

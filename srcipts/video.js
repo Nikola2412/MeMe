@@ -19,13 +19,13 @@ const imageArray = [
 ];
 
 
-let desni = document.querySelector('.desni');
+let next = document.querySelector('.next');
 for(let i = 1;i<=30;i++){
     let div = document.createElement('div');
-    div.className='video';
+    div.className='nextvideo';
 
     let divslike = document.createElement('div');
-    divslike.className = 'divslike';
+    divslike.className = 'nextdivslike';
 
     let img = document.createElement('img');
     //img.setAttribute("src","./images/Beerus.png");
@@ -37,18 +37,18 @@ for(let i = 1;i<=30;i++){
     div.appendChild(divslike);
 
     let logo = document.createElement('img');
-    logo.className='logo';
+    logo.className='nextlogo';
     logo.setAttribute("src","./images/profile.png");
 
     let opis = document.createElement('div');
-    opis.className='opis';
+    opis.className='nextopis';
     opis.appendChild(logo);
 
     let divopis = document.createElement('div');
-    divopis.className = 'opis2';
+    divopis.className = 'nextopis2';
 
     let naziv = document.createElement('h3');
-    naziv.className='naziv';
+    naziv.className='nextnaziv';
 
     let kanal = document.createElement('p');
     kanal.className = 'kanal';
@@ -69,17 +69,17 @@ for(let i = 1;i<=30;i++){
 
     div.appendChild(opis);
      
-    desni.appendChild(div); 
+    next.appendChild(div); 
 }
 
 
 
-//let clips = document.querySelectorAll('video').forEach(clip=>{
-//    clip.addEventListener("mouseover", function (e) {
-//        clip.play();
-//    })
-//    clip.addEventListener("mouseout", function (e) {
-//        clip.pause();
-//        clip.currentTime=0;
-//    })
-//});
+let clips = document.querySelectorAll('.next video').forEach(clip=>{
+    clip.addEventListener("mouseover", function (e) {
+        clip.play();
+    })
+    clip.addEventListener("mouseout", function (e) {
+        clip.pause();
+        clip.currentTime=0;
+    })
+});
