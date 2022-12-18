@@ -1,17 +1,22 @@
 @media screen and (min-width: 815px){
     .video:hover{
-        transform: scale(1.15);
+        position: relative;
+        transform: scale(1.1);
         height: fit-content;
         background-color: gray;
-        overflow:hidden;
+        overflow: hidden;
         z-index: 1;
     }
     .video:hover > div{
         height: fit-content;
     }
+    .video:hover .opis{
+        height: fit-content;
+    }
     .video:hover .divslike{
         width: var(--videoduzina);
-        height: calc(var(--videoduzina) * 9 / 16);
+        aspect-ratio: 16/9;
+        height: fit-content;
     }
     .video:hover .naziv{
         height: fit-content;

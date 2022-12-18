@@ -26,9 +26,9 @@
     margin-right: auto;
     border-radius: 20px;
     height: fit-content;
+    z-index: 0;
 }
 .desni{
-    z-index: 0;
     padding:20px;
     width: 100%;
     overflow-y: auto;
