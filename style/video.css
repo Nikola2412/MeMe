@@ -15,7 +15,7 @@ video{
 }
 .desni{
     z-index: 0;
-    padding-right: 20px;
+    padding: 20px;
     width: 100%;
     overflow-y: auto;
     overflow-x:hidden;
