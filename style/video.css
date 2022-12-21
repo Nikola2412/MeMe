@@ -9,9 +9,9 @@ video{
     aspect-ratio: 16 / 9;
 }
 .video{
-    max-width: 1280px;
-    margin-bottom: 20px;
+    width: 100%;
     border-radius: 20px;
+    margin-bottom: 50px;
 }
 .desni{
     z-index: 0;
@@ -90,7 +90,7 @@ video{
     border-radius: 20px;
     height: fit-content;
 }
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1400px){
     .desni{
         display: inline-block;
     }
