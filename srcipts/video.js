@@ -71,15 +71,3 @@ for(let i = 1;i<=30;i++){
      
     next.appendChild(div); 
 }
-
-
-
-let clips = document.querySelectorAll('.next video').forEach(clip=>{
-    clip.addEventListener("mouseover", function (e) {
-        clip.play();
-    })
-    clip.addEventListener("mouseout", function (e) {
-        clip.pause();
-        clip.currentTime=0;
-    })
-});

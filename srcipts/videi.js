@@ -19,67 +19,81 @@ const imageArray = [
 ];
 
 
+
 let desni = document.querySelector('.desni');
-for(let i = 1;i<=30;i++){
-    let div = document.createElement('div');
-    div.className='video';
 
-    let divslike = document.createElement('div');
-    divslike.className = 'divslike';
+fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
+.then(res=> res.json())
+.then(data=>{
+    data.forEach(d => {
+        let ime = d.ime;
+        let id = d.id;
+        let id_kanala = d.id_kanala;
 
-    let img = document.createElement('img');
-    //img.setAttribute("src","./images/Beerus.png");
+        let div = document.createElement('div');
+        div.className='video';
 
-    let randomNum = Math.floor(Math.random() * imageArray.length); 
-	img.setAttribute("src", imageArray[randomNum]);
+        let divslike = document.createElement('div');
+        divslike.className = 'divslike';
+        
+        let video = document.createElement('video');
+        video.setAttribute("id",id);
+        video.setAttribute("src",`./videi/${id}.mp4`);
+        //
+        divslike.appendChild(video);
+        div.appendChild(divslike);
+        //
+        let logo = document.createElement('img');
+        logo.className='logo';
+        logo.setAttribute("src","./images/profile.png");
+        logo.setAttribute("id",id_kanala);
+        //
+        let opis = document.createElement('div');
+        opis.className='opis';
+        opis.appendChild(logo);
+        
+        let divopis = document.createElement('div');
+        divopis.className = 'opis2';
+        
+        let naziv = document.createElement('h3');
+        naziv.className='naziv';
+        
+        let kanal = document.createElement('p');
+        kanal.className = 'kanal';
+        kanal.textContent = 'kanal';
+        
+        let pregledi = document.createElement('p');
+        pregledi.className = 'pregledi';
+        pregledi.textContent = '8k views'
+        divopis.appendChild(kanal);
+        
+        naziv.textContent=`${ime}`;
+        
+        divopis.appendChild(naziv);
+        divopis.appendChild(kanal);
+        divopis.appendChild(pregledi);
 
-    divslike.appendChild(img);
-    div.appendChild(divslike);
+        opis.appendChild(divopis)
+        
+        div.appendChild(opis);
+        
+        desni.appendChild(div);
 
-    let logo = document.createElement('img');
-    logo.className='logo';
-    logo.setAttribute("src","./images/profile.png");
-
-    let opis = document.createElement('div');
-    opis.className='opis';
-    opis.appendChild(logo);
-
-    let divopis = document.createElement('div');
-    divopis.className = 'opis2';
-
-    let naziv = document.createElement('h3');
-    naziv.className='naziv';
-
-    let kanal = document.createElement('p');
-    kanal.className = 'kanal';
-    kanal.textContent = 'kanal';
-
-    let pregledi = document.createElement('p');
-    pregledi.className = 'pregledi';
-    pregledi.textContent = '8k views'
-    //divopis.appendChild(kanal);
-
-    naziv.textContent=`video: ${i}`;
-    
-    divopis.appendChild(naziv);
-    divopis.appendChild(kanal);
-    divopis.appendChild(pregledi);
-
-    opis.appendChild(divopis)
-
-    div.appendChild(opis);
-     
-    desni.appendChild(div); 
-}
-
-
-
-let clips = document.querySelectorAll('video').forEach(clip=>{
-    clip.addEventListener("mouseover", function (e) {
-        clip.play();
-    })
-    clip.addEventListener("mouseout", function (e) {
-        clip.pause();
-        clip.currentTime=0;
-    })
+        video.addEventListener("mouseover", function (e) {
+            video.play();
+        });
+        video.addEventListener("mouseout", function (e) {
+            video.pause();
+            video.currentTime=0;
+        });
+        video.addEventListener("click",e=>{
+            let k = video.id;
+            console.log(k);
+            //fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${k}`)
+            //.then(res=> res.json())
+            //.then(data=>{
+            //    console.log(data);
+            //});
+        });
+    });
 });

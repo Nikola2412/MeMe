@@ -1,3 +1,8 @@
+//const express = require('express');
+//const app = express();
+// 
+//app.use(express.json());
+
 let levi = document.querySelector('.levi');
 
 document.querySelector('.lines').addEventListener('click',el=>{
