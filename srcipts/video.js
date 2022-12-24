@@ -16,22 +16,111 @@ const imageArray = [
 	"https://images.unsplash.com/photo-1506017669510-0bcbe8003d70?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9403f5d4ac23a5726bfc3c8308b31c01&auto=format&fit=crop&w=1350&q=80",
 	"https://images.unsplash.com/photo-1489447068241-b3490214e879?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a85cb0d68de38ae2aa00d8a9663a320a&auto=format&fit=crop&w=1350&q=80"
 ];
-let id_videa  = sessionStorage.getItem("id_videa");
-fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${id_videa}`)
+ucitaj(sessionStorage.getItem("id_videa"));
+function ucitaj(id_videa){
+    fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${id_videa}`)
+        .then(res=> res.json())
+        .then(d=>{
+            let ime = d.ime;
+            let id = d.id;
+            let id_kanala = d.id_kanala;
+            let v = document.querySelector('.desni video');
+            v.setAttribute("id",id);
+            v.setAttribute("src",`./videi/${id}.mp4`);
+            document.querySelector('.desni .naziv').textContent = ime;
+            document.querySelector('.desni .logo').setAttribute('id',id_kanala);
+        });
+    let next = document.querySelector('.next');
+    var child = next.firstChild; 
+    while (child) {
+        next.removeChild(child);
+        child = next.firstChild;
+    }
+    fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
     .then(res=> res.json())
-    .then(d=>{
-        let ime = d.ime;
-        let id = d.id;
-        let id_kanala = d.id_kanala;
-        let v = document.querySelector('.desni video');
-        v.setAttribute("id",id);
-        v.setAttribute("src",`./videi/${id}.mp4`);
-        document.querySelector('.desni .naziv').textContent = ime;
-        document.querySelector('.desni .logo').setAttribute('id',id_kanala);
+    .then(data=>{
+        data.forEach(d => {
+            let ime = d.ime;
+            let id = d.id;
+            let id_kanala = d.id_kanala;
+            if(id != id_videa)
+            {
+                let div = document.createElement('div');
+                div.className='nextvideo';
+
+                let divslike = document.createElement('div');
+                divslike.className = 'nextdivslike';
+
+                let video = document.createElement('video');
+                video.setAttribute("id",id);
+                video.setAttribute("src",`./videi/${id}.mp4`);
+
+                let randomNum = Math.floor(Math.random() * imageArray.length); 
+                video.setAttribute("poster",imageArray[randomNum])
+
+
+                divslike.appendChild(video);
+                div.appendChild(divslike);
+
+                let logo = document.createElement('img');
+                logo.className='nextlogo';
+                logo.setAttribute("src","./images/profile.png");
+
+                let opis = document.createElement('div');
+                opis.className='nextopis';
+                opis.appendChild(logo);
+
+                let divopis = document.createElement('div');
+                divopis.className = 'nextopis2';
+
+                let naziv = document.createElement('h3');
+                naziv.className='nextnaziv';
+
+                let kanal = document.createElement('p');
+                kanal.className = 'kanal';
+                kanal.textContent = 'kanal';
+
+                let pregledi = document.createElement('p');
+                pregledi.className = 'pregledi';
+                pregledi.textContent = '8k views'
+                //divopis.appendChild(kanal);
+
+                naziv.textContent=`${ime}`;
+                
+                divopis.appendChild(naziv);
+                divopis.appendChild(kanal);
+                divopis.appendChild(pregledi);
+
+                opis.appendChild(divopis)
+
+                div.appendChild(opis);
+                
+                next.appendChild(div); 
+
+                video.addEventListener("mouseover", function (e) {
+                    video.play();
+                    video.muted = true;
+                });
+                video.addEventListener("mouseout", function (e) {
+                    video.pause();
+                    video.currentTime=0;
+                });
+                video.addEventListener("click",e=>{
+                    ucitaj(video.id);
+                    //console.log(k);
+                    //var favoritemovie = k;
+                    //sessionStorage.setItem("id_videa", favoritemovie);
+                    //fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${k}`)
+                    //.then(res=> res.json())
+                    //.then(data=>{
+                    //    console.log(data);
+                    //});
+                });
+            }
+        });
     });
+};
 
-
-let next = document.querySelector('.next');
 
 //for(let i = 1;i<=30;i++){
 //    let div = document.createElement('div');
@@ -84,87 +173,3 @@ let next = document.querySelector('.next');
 //     
 //    next.appendChild(div); 
 //}
-fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
-.then(res=> res.json())
-.then(data=>{
-    data.forEach(d => {
-        let ime = d.ime;
-        let id = d.id;
-        let id_kanala = d.id_kanala;
-        if(id != id_videa)
-        {
-            let div = document.createElement('div');
-            div.className='nextvideo';
-
-            let divslike = document.createElement('div');
-            divslike.className = 'nextdivslike';
-
-            let video = document.createElement('video');
-            video.setAttribute("id",id);
-            video.setAttribute("src",`./videi/${id}.mp4`);
-
-            let randomNum = Math.floor(Math.random() * imageArray.length); 
-            video.setAttribute("poster",imageArray[randomNum])
-
-
-            divslike.appendChild(video);
-            div.appendChild(divslike);
-
-            let logo = document.createElement('img');
-            logo.className='nextlogo';
-            logo.setAttribute("src","./images/profile.png");
-
-            let opis = document.createElement('div');
-            opis.className='nextopis';
-            opis.appendChild(logo);
-
-            let divopis = document.createElement('div');
-            divopis.className = 'nextopis2';
-
-            let naziv = document.createElement('h3');
-            naziv.className='nextnaziv';
-
-            let kanal = document.createElement('p');
-            kanal.className = 'kanal';
-            kanal.textContent = 'kanal';
-
-            let pregledi = document.createElement('p');
-            pregledi.className = 'pregledi';
-            pregledi.textContent = '8k views'
-            //divopis.appendChild(kanal);
-
-            naziv.textContent=`${ime}`;
-            
-            divopis.appendChild(naziv);
-            divopis.appendChild(kanal);
-            divopis.appendChild(pregledi);
-
-            opis.appendChild(divopis)
-
-            div.appendChild(opis);
-            
-            next.appendChild(div); 
-
-            video.addEventListener("mouseover", function (e) {
-                video.play();
-                video.muted = true;
-            });
-            video.addEventListener("mouseout", function (e) {
-                video.pause();
-                video.currentTime=0;
-            });
-            video.addEventListener("click",e=>{
-                let k = video.id;
-                console.log(k);
-                //  var favoritemovie = k;
-                //  sessionStorage.setItem("id_videa", favoritemovie);
-                //  window.location.href = './video.html';
-                //fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${k}`)
-                //.then(res=> res.json())
-                //.then(data=>{
-                //    console.log(data);
-                //});
-            });
-        }
-    });
-});
