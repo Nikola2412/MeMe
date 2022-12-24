@@ -39,6 +39,8 @@ fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
         let video = document.createElement('video');
         video.setAttribute("id",id);
         video.setAttribute("src",`./videi/${id}.mp4`);
+        let randomNum = Math.floor(Math.random() * imageArray.length); 
+        video.setAttribute("poster",imageArray[randomNum])
         //
         divslike.appendChild(video);
         div.appendChild(divslike);
@@ -81,6 +83,7 @@ fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
 
         video.addEventListener("mouseover", function (e) {
             video.play();
+            video.muted = true;
         });
         video.addEventListener("mouseout", function (e) {
             video.pause();
@@ -89,6 +92,9 @@ fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
         video.addEventListener("click",e=>{
             let k = video.id;
             console.log(k);
+            var favoritemovie = k;
+            sessionStorage.setItem("id_videa", favoritemovie);
+            window.location.href = './video.html';
             //fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${k}`)
             //.then(res=> res.json())
             //.then(data=>{
