@@ -1,6 +1,5 @@
 :root{
     --videoduzina:300px;
-    --videovisina:300px;
 }
 *{
     text-decoration: none;
@@ -51,6 +50,7 @@
 }
 .opis2{
     margin-left: 10px;
+    padding: 5px;
 }
 .naziv{
     height: fit-content;

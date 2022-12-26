@@ -1,0 +1,47 @@
+
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: black;
+    }
+    p,h1,h2,h3,a{
+        color: white;
+    }
+    .lines div{
+        background-color: white;
+    }
+    .levi button{
+        background-color: black;
+        color: white;
+    }
+    .search{
+        border: solid gray;
+        background-color: black;
+        color: gray;
+    }
+    .levi img{
+        filter: invert(100%) sepia(100%) saturate(100%) brightness(100%) contrast(100%);
+    }
+}
+@media (prefers-color-scheme: light) {
+    body{
+        background-color: white;
+    }
+    p,h1,h2,h3,a{
+        color: black;
+    }
+    .lines div{
+        background-color: black;
+    }
+    .levi button{
+        background-color: white;
+        color: black;
+    }
+    .search{
+        border: solid black;
+        background-color: white;
+        color: black;
+    }
+    .levi img{
+
+    }
+}

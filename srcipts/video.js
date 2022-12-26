@@ -80,16 +80,13 @@ function ucitaj(id_videa){
                 kanal.className = 'kanal';
                 kanal.textContent = 'kanal';
 
-                let pregledi = document.createElement('p');
-                pregledi.className = 'pregledi';
-                pregledi.textContent = '8k views'
                 //divopis.appendChild(kanal);
 
                 naziv.textContent=`${ime}`;
                 
                 divopis.appendChild(naziv);
                 divopis.appendChild(kanal);
-                divopis.appendChild(pregledi);
+                //divopis.appendChild(pregledi);
 
                 opis.appendChild(divopis)
 
