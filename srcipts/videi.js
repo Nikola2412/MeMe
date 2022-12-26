@@ -88,10 +88,10 @@ fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
         });
         video.addEventListener("click",e=>{
             let k = video.id;
-            console.log(k);
-            var favoritemovie = k;
-            sessionStorage.setItem("id_videa", favoritemovie);
-            window.location.href = './video.html';
+            //console.log(k);
+            //var favoritemovie = k;
+            //sessionStorage.setItem("id_videa", favoritemovie);
+            window.location.href = `./video.html?${k}`;
             //fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${k}`)
             //.then(res=> res.json())
             //.then(data=>{
