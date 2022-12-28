@@ -67,6 +67,7 @@ ul li{
 
 ul button{
     background-color: white;
+    border: none;
 }
 .kliknuto,ul button:hover{
     background-color: dimgrey;
