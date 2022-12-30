@@ -46,20 +46,14 @@ function resize() {
 if(window.screen.width < 450)
     promeni();
 
-function search(input) {
-    //let input = document.querySelector('.search').value
-    input = input.toLowerCase();
-    let x = document.querySelectorAll('.video');
-    let y = document.querySelectorAll('.video h3');
-    for (i = 0; i < x.length; i++) { 
-        if (y[i].textContent.toLowerCase().includes(input)) {
-            x[i].style.display="block";
-        }
-        else {
-            x[i].style.display="none";
-        }
+var input = document.querySelector('.search');
+input.addEventListener("keypress", el=> {
+    if (el.key === "Enter") {
+        el.preventDefault();
+        alert('Jos je u izradi');
     }
-}
+});
+
 let close = document.querySelector('.close');
 function out(el){
     if(window.screen.width > 815)
@@ -68,6 +62,7 @@ function out(el){
         div.style.display = 'flex';
     });
     el.style.display='none';
+    el.value='';
     close.style.display = 'none';
 }
 

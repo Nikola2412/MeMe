@@ -21,11 +21,14 @@ const imageArray = [
 
 
 let desni = document.querySelector('.desni');
-
+//let max = 5;
+//let n = 0;
 fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
 .then(res=> res.json())
 .then(data=>{
     data.forEach(d => {
+        //if(n>=max)
+        //    return;
         let ime = d.ime;
         let id = d.id;
         let id_kanala = d.id_kanala;
@@ -62,7 +65,12 @@ fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
         
         let kanal = document.createElement('p');
         kanal.className = 'kanal';
-        kanal.textContent = 'kanal';
+        fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/covek/${id_kanala}`)
+        .then(res=> res.json())
+        .then(d=>{
+            kanal.textContent = d.name;
+        });
+        //kanal.textContent = 'kanal';
         
         divopis.appendChild(kanal);
         
@@ -83,20 +91,12 @@ fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
             video.muted = true;
         });
         video.addEventListener("mouseout", function (e) {
-            video.pause();
-            video.currentTime=0;
+            video.load();
         });
         video.addEventListener("click",e=>{
             let k = video.id;
-            //console.log(k);
-            //var favoritemovie = k;
-            //sessionStorage.setItem("id_videa", favoritemovie);
-            window.location.href = `./video.html?${k}`;
-            //fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${k}`)
-            //.then(res=> res.json())
-            //.then(data=>{
-            //    console.log(data);
-            //});
+            window.location.href = `./video.html?${k}&${id_kanala}`;
         });
+        //n++;
     });
 });

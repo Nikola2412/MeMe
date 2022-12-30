@@ -16,8 +16,9 @@ const imageArray = [
 	"https://images.unsplash.com/photo-1506017669510-0bcbe8003d70?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9403f5d4ac23a5726bfc3c8308b31c01&auto=format&fit=crop&w=1350&q=80",
 	"https://images.unsplash.com/photo-1489447068241-b3490214e879?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a85cb0d68de38ae2aa00d8a9663a320a&auto=format&fit=crop&w=1350&q=80"
 ];
+
 let k = window.location.href.split('?')[1];
-ucitaj(k);
+ucitaj(k.split('&')[0]);
 function ucitaj(id_videa){
     fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${id_videa}`)
         .then(res=> res.json())
@@ -29,7 +30,12 @@ function ucitaj(id_videa){
             v.setAttribute("id",id);
             v.setAttribute("src",`./videi/${id}.mp4`);
             document.querySelector('.desni .naziv').textContent = ime;
-            document.querySelector('.desni .logo').setAttribute('id',id_kanala);
+            fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/covek/${id_kanala}`)
+            .then(res=>res.json())
+            .then(d=>{
+                document.querySelector('.opis2 p').textContent = d.name;         
+            });
+            
         });
     let next = document.querySelector('.next');
     var child = next.firstChild; 
@@ -79,7 +85,12 @@ function ucitaj(id_videa){
 
                 let kanal = document.createElement('p');
                 kanal.className = 'kanal';
-                kanal.textContent = 'kanal';
+
+                fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/covek/${id_kanala}`)
+                .then(res=>res.json())
+                .then(d=>{
+                    kanal.textContent = d.name;         
+                });
 
                 //divopis.appendChild(kanal);
 
@@ -105,7 +116,7 @@ function ucitaj(id_videa){
                 });
                 video.addEventListener("click",e=>{
                     let n = video.id;
-                    window.location.href = `./video.html?${n}`;
+                    window.location.href = `./video.html?${n}&${id_kanala}`;
                     //console.log(k);
                     //var favoritemovie = k;
                     //sessionStorage.setItem("id_videa", favoritemovie);

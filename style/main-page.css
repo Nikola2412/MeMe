@@ -2,7 +2,10 @@
 html{
     scroll-behavior: smooth;
 }
-.levi,.desni{
+*{
+    text-decoration: none;
+}
+.levi,.desni,.video,.search{
     transition: 0.5s ease-in-out;
     text-decoration: none;
     color: black;
@@ -69,8 +72,8 @@ ul button{
     background-color: white;
     border: none;
 }
-.kliknuto,ul button:hover{
-    background-color: dimgrey;
+ul button:hover, .sada{
+    background-color: gray !important;
 }
 
 .skracen{

@@ -11,6 +11,11 @@
     .search{
         display: none;
     }
+    .close{
+        position: fixed;
+        right: 0;
+        padding: 10px;
+    }
     .search[type=text]:focus{
         width: 70%;
     }
