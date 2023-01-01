@@ -11,7 +11,7 @@ document.querySelector('.lines').addEventListener('click',el=>{
         //console.log(levi.style.display);
         promeni();
         //alert(levi.style.marginLeft);
-        console.log(levi.style.marginLeft);
+        //console.log(levi.style.marginLeft);
         if(levi.style.marginLeft =='0px')
             levi.style.marginLeft ='-100px';
         else
