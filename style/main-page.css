@@ -36,7 +36,7 @@ li{
 .section{
     height: fit-content;
 }
-li img{
+.levi li img,.desni li img{
     width: 30px;
 }
 
@@ -72,7 +72,7 @@ ul button{
     background-color: white;
     border: none;
 }
-ul button:hover, .sada{
+.levi ul button:hover, .sada{
     background-color: gray !important;
 }
 
@@ -90,4 +90,24 @@ ul button:hover, .sada{
 
 .skracen li a button img{
     padding: 10px;
+}
+.options ul{
+    width: fit-content;
+}
+.options li button{
+    padding: 10px;
+    background-color: black !important;
+}
+.options ul li img{
+    margin-right: 10px;
+}
+.options{
+    transition: 1s ease;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    margin-right: -150px;
+    margin-top: -30px;
+    height: fit-content;
+    width: fit-content;
 }

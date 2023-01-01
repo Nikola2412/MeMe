@@ -9,7 +9,7 @@
     .lines div{
         background-color: white;
     }
-    .levi button{
+    .levi button,.options button{
         background-color: black;
         color: white;
     }
@@ -21,7 +21,7 @@
     .levi .line{
         background-color: black;
     }
-    .lupa,.close,.levi img{
+    .lupa,.close,.levi img,.options img{
         filter: invert(100%);
     }
 }
@@ -35,7 +35,7 @@
     .lines div{
         background-color: black;
     }
-    .levi button{
+    .levi button,.options button{
         background-color: white;
         color: black;
     }

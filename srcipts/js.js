@@ -82,3 +82,25 @@ window.addEventListener("orientationchange", event => {
         levi.style.display = 'block';
     }    
 });
+document.querySelector('.nalog').addEventListener('click',el=>{
+    let options = document.querySelector('.desni .options');
+    //options.style.animation="test 1s linear";
+    if(options.style.marginRight=='20px')
+        options.style.marginRight = '-150px';
+    else{
+        options.style.marginRight = '20px';
+    }
+    //if(options.style.display == 'none'){
+    //    options.style.display = 'block';
+    ////    options.className.split(' ')[1]='opac1'
+    //    options.style.animation="test 1s linear";
+    //}
+    //else{
+    //    options.style.animation ="reverse test 1s linear";
+    ////    options.className.split(' ')[1]='opac0'
+    //    setTimeout(() => {
+    //        options.style.display = 'none';
+    //    }, "1000");
+    //    
+    //}
+});

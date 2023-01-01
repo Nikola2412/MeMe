@@ -45,15 +45,14 @@
 .search[type=text]:focus {
     width: 50%;
 }
-.right {
-    margin-right: 0;
+.right{
     display: flex;
     justify-content: right;
 }
-.right > .nalog{
+.nalog{
     border-radius: 50%;
 }
-.right > img{
+.right img{
     margin-right: 20px;
 }
 .left,.right{
