@@ -87,6 +87,7 @@ close.addEventListener('click',el=>{
 window.addEventListener("orientationchange", event => {
     if (window.screen.width >= 450) {
         levi.style.display = 'block';
+        levi.style.marginLeft ='0px'
     }    
 });
 document.querySelector('.nalog').addEventListener('click',el=>{
