@@ -10,14 +10,21 @@ document.querySelector('.lines').addEventListener('click',el=>{
     if(window.screen.width < 450){
         //console.log(levi.style.display);
         promeni();
-        if (levi.style.display === 'none') {
-            levi.style.display = 'block';
-        }else {
-            levi.style.display = 'none';
-        }
+        //alert(levi.style.marginLeft);
+        console.log(levi.style.marginLeft);
+        if(levi.style.marginLeft =='0px')
+            levi.style.marginLeft ='-100px';
+        else
+            levi.style.marginLeft  = '0'
+        //if (levi.style.display === 'none') {
+        //    levi.style.display = 'block';
+        //}else {
+        //    levi.style.display = 'none';
+        //}
     }
     else{
         //console.log(levi.className.split(' ')[1]);
+        levi.style.marginLeft  = '0'
         if(levi.className.split(' ')[1] == 'produzen'){
             promeni();
         }

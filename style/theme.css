@@ -18,9 +18,7 @@
         background-color: black;
         color: gray;
     }
-    .levi .line{
-        background-color: black;
-    }
+    
     .lupa,.close,.levi img,.options img{
         filter: invert(100%);
     }
@@ -44,8 +42,4 @@
         background-color: white;
         color: black;
     }
-    .levi .line{
-        background-color: black;
-    }
-    
 }

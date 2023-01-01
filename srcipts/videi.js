@@ -41,7 +41,7 @@ fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
         
         let video = document.createElement('video');
         video.setAttribute("id",id);
-        video.setAttribute("src",`./videi/${id%5}.mp4`);
+        video.setAttribute("src",`./videi/${id}.mp4`);
         let randomNum = Math.floor(Math.random() * imageArray.length); 
         video.setAttribute("poster",imageArray[randomNum])
         //
