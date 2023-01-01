@@ -1,17 +1,20 @@
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
     body{
         background-color: black;
     }
     p,h1,h2,h3,a{
         color: white;
     }
+    .levi p{
+        color: black !important;
+    }
     .lines div{
         background-color: white;
     }
     .levi button,.options button{
         background-color: black;
-        color: white;
+        color: gray;
     }
     .search{
         border:2px solid gray;
@@ -42,4 +45,29 @@
         background-color: white;
         color: black;
     }
+}*/
+body{
+    background-color: black;
+}
+p,h1,h2,h3,a{
+    color: white;
+}
+.levi p{
+    color: black !important;
+}
+.lines div{
+    background-color: white;
+}
+.levi button,.options button{
+    background-color: black;
+    color: white;
+}
+.search{
+    border:2px solid gray;
+    background-color: black;
+    color: gray;
+}
+
+.lupa,.close,.levi img,.options img{
+    filter: invert(100%);
 }

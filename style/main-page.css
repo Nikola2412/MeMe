@@ -96,7 +96,7 @@ ul button{
 }
 .options li button{
     padding: 10px;
-    background-color: black !important;
+    background-color: gray !important;
 }
 .options ul li img{
     margin-right: 10px;
