@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/nav.css">
+    <link rel="stylesheet" href="./style/main-page.css">
+    <link rel="stylesheet" href="./style/scroler.css">
+    <link rel="stylesheet" href="./style/video.css">
+    <link rel="stylesheet" href="./style/break.css">
+    <link rel="stylesheet" href="./style/theme.css">
+    <link rel="icon" type="image/x-icon" href="/icons2/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons2/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons2/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons2/apple-touch-icon.png">
+    <link rel="manifest" href="icons2/site.webmanifest">
+    <link rel="mask-icon" href="icons2/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>YT2.0</title>
+</head>
+<body>
+    <div class="fixovanje">
+    <header>
+        <div class="nav">
+                <div class="left">
+                    <div class="lines">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                    </div>
+                    <a href="/">
+                        <img class="yt" src="./images/yt.png" width="100px"height="30px">
+                    </a>                
+                </div>
+                <input class="search" onkeyup="search(this.value)" onfocusout="out(this)" type="text" placeholder="Search..">
+                <img class="close" src="./ico/close.png" style="display: none;" width="35" height="35" alt="" srcset="">
+                <div class="right">
+                    <img class = "lupa" src="./ico/magnifier.png" width="35" height="35" alt="">
+                    <img class="nalog" src="./images/profile.png" width="35" height="35" srcset="">
+                </div>
+            </div>
+    </header>
+    <div class="container">
+        <div class="levi produzen" style="margin-left: 0;">
+            <div class="section 1">
+                <ul>
+                    <li>
+                        <a href="/">
+                            <button class="vidoes">
+                                <img src="./ico/cinema.png" alt="">
+                                Vidoes
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <button class="memes">
+                                <img src="./ico/short-film.png"  alt="">
+                                Memes
+                            </button>
+                        </a>   
+                    </li>
+                </ul>
+            </div>
+            <div class="line"></div>
+        </div>
+        <div class="desni">
+            <div class="options">
+                <ul>
+                    <li>
+                        <a href="">
+                            <button class=""onclick="alert('Jos je u izdadi')">
+                                <img src="./ico/log-in.png" alt="">
+                                Log in
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <button class="" onclick="alert('Jos je u izdadi')">
+                                <img src="./ico/setting.png" alt="">
+                                Settings
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+                
+            </div>
+            <div class="video">
+                <div class="divslike">
+                    <video id = '' src="" controls></video>
+                </div>
+                <div class="opis">
+                    <img class="logo" src="./images/profile.png">
+                    <div class="opis2">
+                        <h3 class="naziv"></h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="next">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="scripte">
+    <script src="./srcipts/js.js"></script>
+    <script src="./srcipts/video.js"></script>
+</div>
+</body>
+</html>
