@@ -70,13 +70,31 @@
             <div class="options">
                 <ul>
                     <li>
-                        <a href="">
-                            <button class=""onclick="alert('Jos je u izdadi')">
+                        <button class=""onclick=''>
+                            <img src="./images/profile.png" alt="" style="border-radius: 50%;">
+                            <%= username%>
+                        </button>
+                    </li>
+                    <% if(!logged){%>
+                    <li>
+                        <a href="/login">
+                            <button class=""onclick=''>
                                 <img src="./ico/log-in.png" alt="">
-                                Log in
+                                login
                             </button>
                         </a>
                     </li>
+                    <% } %>
+                    <% if(logged) {%>
+                    <li>
+                        <a href="/upload">
+                            <button class=""onclick=''>
+                                <img src="./ico/add.png" alt="">
+                                Upload
+                            </button>
+                        </a>
+                    </li>
+                    
                     <li>
                         <a href="">
                             <button class="" onclick="alert('Jos je u izdadi')">
@@ -85,6 +103,15 @@
                             </button>
                         </a>
                     </li>
+                    <li>
+                        <a href="/logout">
+                            <button class=""onclick=''>
+                                <img src="./ico/logout.png" alt="">
+                                logout
+                            </button>
+                        </a>
+                    </li>
+                    <% } %>
                 </ul>
                 
             </div>

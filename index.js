@@ -122,7 +122,13 @@ app.get('/video:id',(req,res)=>{
     const { id } = req.params;
     //console.log(id);
     //const video  = videoList.find((g) => g.id === id);
+    let user = 'User';
+    if(req.session.loggedin)
+        user = req.session.username;
     res.render('video',{
+        username:user,
+        logged: req.session.loggedin,
+        videi: getV(),
         video:getVN(id)
     });
 });
