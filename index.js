@@ -5,10 +5,15 @@ const path = require('path');
 const videoList = require('./videoList.json');
 const kanalList = require('./kanalList.json');
 
+const fs = require('fs');
+const bodyParser = require('body-parser');
+let user = 'User';
 
 const app = express();
 const port = 3001;
-
+const hostname = '0.0.0.0';
+//const port2 = 80;
+app.enable('trust proxy',1)
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -18,13 +23,45 @@ app.set('view engine', 'ejs');
 
 
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(__dirname+'/public'));
 app.listen(port,()=>console.log(`App listen to ${port}`));
+app.use(bodyParser.urlencoded({extended:true}));
+
+//app.listen(port, hostname, () => {
+//    console.log(`Server running at http://${hostname}:80/`);
+//});
 
 
-
+function getVN(index){
+    let k = videoList.find((g) => g.id === index);
+    const name = kanalList.find((g)=>g.id===k.id_kanala).name;
+    //console.log(name);
+    let data={
+        'id':index,
+        'ime': k.ime,
+        'name':name
+    }
+    return data;
+}
+function getV(){
+    const temp = [];
+    for(let i=0;i<Math.min(videoList.length,5);i++){
+        const id_kanala  = videoList[i].id_kanala;
+        let name = kanalList.find((g) => g.id == id_kanala).name;
+        let data = 
+        {
+            'id': videoList[i].id, 
+            'name': name,
+            'ime':videoList[i].ime,
+            'id_kanala':id_kanala
+        };
+        temp.push(data);
+    }
+    return temp;
+}
 
 app.post('/auth', function(request, response) {
 	// Capture the input fields
@@ -38,6 +75,8 @@ app.post('/auth', function(request, response) {
         {
             request.session.loggedin = true;
 			request.session.username = username;
+            request.session.id_kanala = user.id;
+            //console.log(request.session);
             response.redirect('/');
         }
 	} else {
@@ -64,57 +103,56 @@ app.get('/logout',(req,res)=>{
 
 
 app.get('/',(req,res)=>{
-    let user = 'User';
-    if(req.session.loggedin)
-        user = req.session.username;
+    //console.log(req.session);
     res.render('index',{
-        username:user,
-        logged: req.session.loggedin,
+        sesia:req.session,
         videi: getV()
     });
     //res.sendFile(path.join(__dirname,'public','index.ejs'));
     //console.log(path.join(__dirname,'public/login.html'));
 });
-function getVN(index){
-    let k =videoList.find((g) => g.id === index);
-    let data={
-        'id':index,
-        'ime': k.ime,
-        'name':kanalList.find((g)=>g.id===k.id_kanala)
-    }
-    return data;
+function getUser(index){
+    const name = kanalList.find((g)=>g.id===index);
+    return name;
 }
-function getV(){
-    const temp = [];
-    videoList.forEach(el=>{
-        const id_kanala  = el.id_kanala;
-        //console.log(id_kanala);
-        let name = kanalList.find((g) => g.id == id_kanala).name;
-        //console.log(name);
-        let data = 
-        {
-            'id': el.id, 
-            'name': name,
-            'ime':el.ime
-        };
-        temp.push(data);
+function getVbyUser(index){
+    const k = [];
+    videoList.forEach(vid=>{
+        if(index == vid.id_kanala){
+            k.push(vid)
+        }
     });
-    return temp;
+    return k;
 }
+
+app.get('/user:id',(req,res)=>{
+    if(req.params.id=='0')
+        res.redirect('/login');
+    else{
+        res.render('user',{
+            sesia:req.session,
+            data: getUser(req.params.id),
+            videos: getVbyUser(req.params.id)
+        });
+    }
+});
+
 
 app.get('/video',(req,res)=>{
     //res.sendFile(path.join(__dirname,'public','video.html'));
+    //console.log(req.session);
     res.send(getV());
 });
 
 app.get('/memes',(req,res)=>{
-    let user = 'User';
-    if(req.session.loggedin)
-        user = req.session.username;
+    res.redirect('/memes1')
+})
+
+app.get('/memes:id',(req,res)=>{
     res.render('memes',{
-        username:user,
-        logged: req.session.loggedin,
-        videi: getV()
+        sesia:req.session,
+        sad: req.params.id,
+        sl: Math.floor(Math.random() * 7)
     });
 })
 
@@ -125,16 +163,55 @@ app.get('/video:id',(req,res)=>{
     let user = 'User';
     if(req.session.loggedin)
         user = req.session.username;
+    //console.log(req.session.username);
     res.render('video',{
-        username:user,
-        logged: req.session.loggedin,
+        sesia:req.session,
         videi: getV(),
-        video:getVN(id)
+        video: getVN(id)
     });
 });
 
+function getMore(){
+    return videoList[5];
+}
+app.get('/Load',(req,res)=>{
+    
+    //const current = req.body;
+    res.render('videi',{
+        videi:getMore()
+    })
+    //console.log('sadas');
+    //console.log(getV());
+});
+
+app.get('/video:id',(req,res)=>{
+    //https://www.youtube.com/watch?v=ZjBLbXUuyWg&t=331s&ab_channel=AbdisalanCodes
+    const videoPath = `./videi/${id}.mp4`;
+
+    const videoSize = fs.statSync(videoPath).size;
+
+    
+    const CHUNK_SIZE = 10 ** 6;
+    const start = Number(range.replace(/\D/g, ""));
+    const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
+
+    const contentLength = end - start + 1;
+    const headers = {
+        "Content-Range": `bytes ${start}-${end}/${videoSize}`,
+        "Accept-Ranges": "bytes",
+        "Content-Length": contentLength,
+        "Content-Type": "video/mp4",
+    };
+
+    res.writeHead(206, headers);
+
+    const videoStream = fs.createReadStream(videoPath, { start, end });
+
+    videoStream.pipe(res);
+});
+
 app.post('/video',(req,res)=>{
-    console.log(req.body);
+    //console.log(req.body);
     videoList.push(req.body);
     res.send(201);
 });

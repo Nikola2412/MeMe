@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style/nav.css">
     <link rel="stylesheet" href="./style/main-page.css">
     <link rel="stylesheet" href="./style/scroler.css">
-    <link rel="stylesheet" href="./style/videi.css">
+    <link rel="stylesheet" href="./style/user.css">
     <link rel="stylesheet" href="./style/break.css">
     <link rel="stylesheet" href="./style/hover.css">
     <link rel="stylesheet" href="./style/theme.css">
@@ -19,6 +19,7 @@
     <link rel="mask-icon" href="icons2/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>YT2.0</title>
 </head>
 <body>
@@ -51,14 +52,14 @@
                 <ul>
                     <li>
                         <a href="/">
-                            <button class="vidoes sada">
+                            <button class="vidoes">
                                 <img src="./ico/cinema.png" alt="">
                                 Vidoes
                             </button>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/memes">
                             <button class="memes">
                                 <img src="./ico/short-film.png"  alt="">
                                 Memes
@@ -70,62 +71,26 @@
             <div class="line"></div>
         </div>
         <div class="desni">
-            <div class="options">
-                <ul>
-                    <li>
-                        <button class=""onclick=''>
-                            <img src="./images/profile.png" alt="" style="border-radius: 50%;">
-                        </button>
-                    </li>
-                    <li>
-                        <a href="/login">
-                            <button class=""onclick=''>
-                                <img src="./ico/log-in.png" alt="">
-                                <p class="log">login</p>
-                            </button>
-                        </a>
-                    </li>
-                    <li style="display: none;">
-                        <a href="/upload">
-                            <button class=""onclick=''>
-                                <img src="./ico/add.png" alt="">
-                                Upload
-                            </button>
-                        </a>
-                    </li>
-                    
-                    <li style="display: none;">
-                        <a href="">
-                            <button class="" onclick="alert('Jos je u izdadi')">
-                                <img src="./ico/setting.png" alt="">
-                                Settings
-                            </button>
-                        </a>
-                    </li>
-                </ul>
-                
-            </div>
-            <!--
-            <div class="video">
-                <div class="divslike">
-                    <video id = '1' src="./videi/1.mp4" muted></video>
+            <%-include('options')%>
+            <div class="centar">
+                <div class="info">
+                    <img src="./images/profile.png" alt="">
+                    <h1><%=data.name%></h1>
                 </div>
-                <div class="opis">
-                    <img class="logo" src="./images/profile.png">
-                    <div class="opis2">
-                        <h3 class="naziv">test12213123123 123dsasdsadfi dsauhsad dsauihd asd sadiasud</h3>
-                        <p>kanal</p>
-                        <p>8k</p>
-                    </div>
+                <div class="nacin">
+                    <img src="./ico/menu.png" alt="">
+                    <img src="./ico/row.png" alt="">
                 </div>
             </div>
-            -->
+            <div class="videos">
+
+            </div>
+            <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
         </div>
     </div>
 </div>
 <div class="scripte">
     <script src="./srcipts/js.js"></script>
-    <script src="./srcipts/videi.js"></script>
 </div>
 </body>
 </html>

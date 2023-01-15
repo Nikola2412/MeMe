@@ -1,0 +1,18 @@
+.meme{
+    margin-left: auto;
+    margin-right: auto;
+    transition: 1s ease-in-out;
+    height: calc(100vh - 100px);
+    margin-bottom: 10px;
+}
+.meme img{
+    height: 100%;
+    width: 100%;
+    object-fit:contain;
+}
+.desni{
+    display: grid;
+    overflow-y:auto;
+    grid-template-columns: auto;
+    height: calc(100vh - 100px);
+}

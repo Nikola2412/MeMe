@@ -20,29 +20,13 @@ const imageArray = [
 let k = window.location.href.split('video')[1];
 ucitaj(k);
 function ucitaj(id_videa){
-    fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video/${id_videa}`)
-        .then(res=> res.json())
-        .then(d=>{
-            let ime = d.ime;
-            let id = d.id;
-            let id_kanala = d.id_kanala;
-            let v = document.querySelector('.desni video');
-            v.setAttribute("id",id);
-            v.setAttribute("src",`./videi/${id}.mp4`);
-            document.querySelector('.desni .naziv').textContent = ime;
-            fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/covek/${id_kanala}`)
-            .then(res=>res.json())
-            .then(d=>{
-                document.querySelector('.opis2 p').textContent = d.name;         
-            });
-            
-        });
     let next = document.querySelector('.next');
     var child = next.firstChild; 
     while (child) {
         next.removeChild(child);
         child = next.firstChild;
     }
+    /*
     fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
     .then(res=> res.json())
     .then(data=>{
@@ -127,8 +111,11 @@ function ucitaj(id_videa){
                     //});
                 });
             }
+            
         });
+        
     });
+    */
 };
 
 

@@ -7,7 +7,7 @@
 }
 .divslike{
     border-radius: 15px;
-    width: var(--videoduzina);
+    min-width: var(--videoduzina);
 }
 .divslike img,.divslike iframe,.divslike video{
     border-radius: 15px;

@@ -1,0 +1,49 @@
+<div class="options" style="margin-left: -150px;">
+    <ul>
+        <li>
+            <a href="/user<%=sesia.id_kanala || '0'%>">
+                <button>
+                    <img src="./images/profile.png" alt="" style="border-radius: 50%;">
+                    <%= sesia.username || 'User'%>
+                </button>
+            </a>
+        </li>
+        <% if(!sesia.loggedin){%>
+        <li>
+            <a href="/login">
+                <button class=""onclick=''>
+                    <img src="./ico/log-in.png" alt="">
+                    login
+                </button>
+            </a>
+        </li>
+        <% } %>
+        <% if(sesia.loggedin) {%>
+        <li>
+            <a href="/upload">
+                <button class=""onclick=''>
+                    <img src="./ico/add.png" alt="">
+                    Upload
+                </button>
+            </a>
+        </li>
+        
+        <li>
+            <a href="">
+                <button class="" onclick="alert('Jos je u izdadi')">
+                    <img src="./ico/setting.png" alt="">
+                    Settings
+                </button>
+            </a>
+        </li>
+        <li>
+            <a href="/logout">
+                <button class=""onclick=''>
+                    <img src="./ico/logout.png" alt="">
+                    logout
+                </button>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+</div>

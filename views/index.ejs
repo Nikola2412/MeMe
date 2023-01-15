@@ -19,6 +19,7 @@
     <link rel="mask-icon" href="icons2/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>YT2.0</title>
 </head>
 <body>
@@ -71,67 +72,8 @@
         </div>
         <div class="desni">
             
-            <div class="options">
-                <ul>
-                    <li>
-                        <button class=""onclick=''>
-                            <img src="./images/profile.png" alt="" style="border-radius: 50%;">
-                            <%= username%>
-                        </button>
-                    </li>
-                    <% if(!logged){%>
-                    <li>
-                        <a href="/login">
-                            <button class=""onclick=''>
-                                <img src="./ico/log-in.png" alt="">
-                                login
-                            </button>
-                        </a>
-                    </li>
-                    <% } %>
-                    <% if(logged) {%>
-                    <li>
-                        <a href="/upload">
-                            <button class=""onclick=''>
-                                <img src="./ico/add.png" alt="">
-                                Upload
-                            </button>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="">
-                            <button class="" onclick="alert('Jos je u izdadi')">
-                                <img src="./ico/setting.png" alt="">
-                                Settings
-                            </button>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/logout">
-                            <button class=""onclick=''>
-                                <img src="./ico/logout.png" alt="">
-                                logout
-                            </button>
-                        </a>
-                    </li>
-                    <% } %>
-                </ul>
-            </div>
-                <% for(var i=0; i < videi.length; i++) { %>
-                    <div class="video">
-                        <div class="divslike">
-                            <video id="<%=videi[i].id%>" src="./videi/<%=videi[i].id%>.mp4" muted></video>
-                        </div>
-                        <div class="opis">
-                            <img class="logo" src="./images/profile.png">
-                            <div class="opis2">
-                                <h3 class="naziv"><%=videi[i].ime%></h3>
-                                <p><%=videi[i].name%></p>
-                            </div>
-                        </div>
-                    </div>
-                <% } %>
+            <%-include('options')%>
+                <%-include('videi')%>
                 <!--
                 <div class="video">
                     <div class="divslike">
@@ -146,7 +88,7 @@
                     </div>
                 </div>
                 -->
-                
+                <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
         </div>
     </div>
 </div>

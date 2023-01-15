@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Nikola2412/YouTube#readme",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "cheerio": "^1.0.0-rc.12",
     "cookie-parser": "^1.4.6",
     "cookie-session": "^2.0.0",

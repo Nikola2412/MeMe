@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/memes">
                             <button class="memes">
                                 <img src="./ico/short-film.png"  alt="">
                                 Memes
@@ -67,63 +67,16 @@
             <div class="line"></div>
         </div>
         <div class="desni">
-            <div class="options">
-                <ul>
-                    <li>
-                        <button class=""onclick=''>
-                            <img src="./images/profile.png" alt="" style="border-radius: 50%;">
-                            <%= username%>
-                        </button>
-                    </li>
-                    <% if(!logged){%>
-                    <li>
-                        <a href="/login">
-                            <button class=""onclick=''>
-                                <img src="./ico/log-in.png" alt="">
-                                login
-                            </button>
-                        </a>
-                    </li>
-                    <% } %>
-                    <% if(logged) {%>
-                    <li>
-                        <a href="/upload">
-                            <button class=""onclick=''>
-                                <img src="./ico/add.png" alt="">
-                                Upload
-                            </button>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="">
-                            <button class="" onclick="alert('Jos je u izdadi')">
-                                <img src="./ico/setting.png" alt="">
-                                Settings
-                            </button>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/logout">
-                            <button class=""onclick=''>
-                                <img src="./ico/logout.png" alt="">
-                                logout
-                            </button>
-                        </a>
-                    </li>
-                    <% } %>
-                </ul>
-                
-            </div>
+            <%-include('options')%>
             <div class="video">
                 <div class="divslike">
-                    <video id = '' src="" controls></video>
+                    <video id="<%=video.id%>" src="./videi/<%=video.id%>.mp4" controls></video>
                 </div>
                 <div class="opis">
-                    <img class="logo" src="./images/profile.png">
+                    <h3 class="naziv"><%=video.ime%></h3>
                     <div class="opis2">
-                        <h3 class="naziv"></h3>
-                        <p></p>
+                        <img class="logo" src="./images/profile.png">
+                        <p><%=video.name%></p>
                     </div>
                 </div>
             </div>

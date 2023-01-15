@@ -164,9 +164,16 @@ rows.forEach(d => {
         });
 });
 */
+document.querySelectorAll('.desni .logo').forEach(slika =>{
+    slika.addEventListener('click',el=>{
+        this.location.href = `/user${slika.id}`;
+    });
+});
 
+let list=[];
 document.querySelectorAll('video').forEach(video=>{
     //video.setAttribute("src",`./videi/${video.id}.mp4`);
+    list.push(video.id);
     video.addEventListener("mouseover", function (e) {
         video.play();
         video.muted = true;
@@ -179,3 +186,92 @@ document.querySelectorAll('video').forEach(video=>{
         window.location.href = `./video${k}`;
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    //set up the IntersectionObserver to load more images if the footer is visible.
+    //URL - https://gist.githubusercontent.com/prof3ssorSt3v3/1944e7ba7ffb62fe771c51764f7977a4/raw/c58a342ab149fbbb9bb19c94e278d64702833270/infinite.json
+    let options = {
+    root: null,
+    rootMargins: "0px",
+    threshold: 0.5
+    };
+    const observer = new IntersectionObserver(handleIntersect, options);
+    observer.observe(document.querySelector(".linija"));
+    //an initial load of some data
+    //getData();
+});
+function handleIntersect(entries) {
+    if (entries[0].isIntersecting) {
+        //console.log(list);
+        test();
+        //getData().then(data => {
+            //console.log(data);
+        //});
+    }
+}/*
+async function getData(){
+    const url = '/Load';
+    let res = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify([
+            {
+              "id": "1",
+              "name": "Nikola 24",
+              "ime": "imendasuudhasy dasydgasdi dsakdasd dsuhsaidu asdasdhasdiasd dsadhisadu 1"
+            },
+            {
+              "id": "2",
+              "name": "name 2",
+              "ime": "ime 2"
+            },
+            {
+              "id": "3",
+              "name": "name 3",
+              "ime": "ime 3"
+            },
+            {
+              "id": "4",
+              "name": "Nikola 24",
+              "ime": "ime dsadasdsd asdsadasd ds aasd asda sd asd asdsad sd adsa dsadsa dsa d asd sad asdsda d saasd sd sd asd 4"
+            }
+          ]),
+    });
+}
+function getData2(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        // Typical action to be performed when the document is ready:
+            //document.querySelector('.desni').appendChild();
+            //console.log('dasdads');
+        }
+    };
+    xhttp.open("POST", '/Load', true);
+    xhttp.send({
+        "id": "1",
+        "name": "Nikola 24",
+        "ime": "imendasuudhasy dasydgasdi dsakdasd dsuhsaidu asdasdhasdiasd dsadhisadu 1"
+      },
+      {
+        "id": "2",
+        "name": "name 2",
+        "ime": "ime 2"
+      },
+      {
+        "id": "3",
+        "name": "name 3",
+        "ime": "ime 3"
+      },
+      {
+        "id": "4",
+        "name": "Nikola 24",
+        "ime": "ime dsadasdsd asdsadasd ds aasd asda sd asd asdsad sd adsa dsadsa dsa d asd sad asdsda d saasd sd sd asd 4"
+      });
+}
+*/
+function test(){
+    //this.location.href='/Load';
+}
