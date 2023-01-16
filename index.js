@@ -138,7 +138,7 @@ app.get('/user:id',(req,res)=>{
 });
 
 
-app.get('/video',(req,res)=>{
+app.post('/video',(req,res)=>{
     //res.sendFile(path.join(__dirname,'public','video.html'));
     //console.log(req.session);
     res.send(getV());
