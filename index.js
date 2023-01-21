@@ -1,3 +1,4 @@
+//const os = require('os');
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
@@ -11,6 +12,9 @@ let user = 'User';
 
 const app = express();
 const port = 3001;
+//const appip = os.networkInterfaces().en0[2].address;
+//const appadress = 'https://['+appip+']:'+port+'/';
+//console.log(os.networkInterfaces());
 const hostname = '0.0.0.0';
 //const port2 = 80;
 app.enable('trust proxy',1)
@@ -37,12 +41,13 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 function getVN(index){
     let k = videoList.find((g) => g.id === index);
-    const name = kanalList.find((g)=>g.id===k.id_kanala).name;
+    const kanal = kanalList.find((g)=>g.id===k.id_kanala);
     //console.log(name);
     let data={
         'id':index,
         'ime': k.ime,
-        'name':name
+        'name':kanal.name,
+        'id_kanala':kanal.id
     }
     return data;
 }
@@ -54,8 +59,8 @@ function getV(){
         let data = 
         {
             'id': videoList[i].id, 
-            'name': name,
             'ime':videoList[i].ime,
+            'name': name,
             'id_kanala':id_kanala
         };
         temp.push(data);
@@ -126,15 +131,25 @@ function getVbyUser(index){
 }
 
 app.get('/user:id',(req,res)=>{
-    if(req.params.id=='0')
-        res.redirect('/login');
+    if(req.params.id === req.session.id_kanala)
+        res.redirect('/myAcc');
     else{
         res.render('user',{
             sesia:req.session,
             data: getUser(req.params.id),
-            videos: getVbyUser(req.params.id)
+            videos: getVbyUser(req.params.id),
+            myAcc:false
         });
     }
+});
+
+app.get('/myAcc',(req,res)=>{
+    res.render('user',{
+        sesia:req.session,
+        data: getUser(req.session.id_kanala),
+        videos: getVbyUser(req.session.id_kanala),
+        myAcc:true
+    });
 });
 
 
@@ -163,7 +178,7 @@ app.get('/video:id',(req,res)=>{
     let user = 'User';
     if(req.session.loggedin)
         user = req.session.username;
-    //console.log(req.session.username);
+    //console.log(getV());
     res.render('video',{
         sesia:req.session,
         videi: getV(),

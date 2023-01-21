@@ -22,10 +22,10 @@ ucitaj(k);
 function ucitaj(id_videa){
     let next = document.querySelector('.next');
     var child = next.firstChild; 
-    while (child) {
-        next.removeChild(child);
-        child = next.firstChild;
-    }
+    //while (child) {
+    //    next.removeChild(child);
+    //    child = next.firstChild;
+    //}
     /*
     fetch(`https://63a7011359fd83b1bb3c3cf9.mockapi.io/video`)
     .then(res=> res.json())
@@ -170,3 +170,9 @@ function ucitaj(id_videa){
 //     
 //    next.appendChild(div); 
 //}
+
+document.querySelectorAll('.nextdivslike video').forEach(video=>{
+    video.addEventListener('click',el=>{
+        window.location.href = `./video${video.id}`;
+    })
+});

@@ -164,11 +164,7 @@ rows.forEach(d => {
         });
 });
 */
-document.querySelectorAll('.desni .logo').forEach(slika =>{
-    slika.addEventListener('click',el=>{
-        this.location.href = `/user${slika.id}`;
-    });
-});
+
 
 let list=[];
 document.querySelectorAll('video').forEach(video=>{

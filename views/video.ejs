@@ -68,13 +68,13 @@
                 <div class="opis">
                     <h3 class="naziv"><%=video.ime%></h3>
                     <div class="opis2">
-                        <img class="logo" src="./images/profile.png">
+                        <img id="<%=video.id_kanala%>"class="logo" src="./images/profile.png">
                         <p><%=video.name%></p>
                     </div>
                 </div>
             </div>
             <div class="next">
-                
+                <%-include('nextvidei')%>
             </div>
         </div>
     </div>
