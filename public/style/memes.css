@@ -14,5 +14,6 @@
     display: grid;
     overflow-y:auto;
     grid-template-columns: auto;
+    overflow-y: auto;
     height: calc(100vh - 100px);
 }

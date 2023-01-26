@@ -5,6 +5,7 @@ const path = require('path');
 //const cookieSession = require('cookie-session');
 const videoList = require('./videoList.json');
 const kanalList = require('./kanalList.json');
+const MemesList = require('./meme.json')
 
 const fs = require('fs');
 const bodyParser = require('body-parser');
@@ -160,14 +161,17 @@ app.post('/video',(req,res)=>{
 });
 
 app.get('/memes',(req,res)=>{
-    res.redirect('/memes1')
+    res.redirect('/memes'+Math.floor(Math.random() * 7))
 })
+
+function getMemes(){
+    return MemesList;
+}
 
 app.get('/memes:id',(req,res)=>{
     res.render('memes',{
         sesia:req.session,
-        sad: req.params.id,
-        sl: Math.floor(Math.random() * 7)
+        memes: getMemes(),
     });
 })
 

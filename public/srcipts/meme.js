@@ -1,40 +1,42 @@
 let sad = 0;
-var desni = document.querySelector('.desni');
-desni.addEventListener('scroll',el=>{
-    //console.log(el.deltaY);
-    var scrollTop = desni.scrollTop;
-    //function nastavi(a,b){
-    //  if(Math.abs(a,b)>100)
-    //    return true;
-    //  return false;
-    //}
-    console.log('sad: '+sad + ' top: '+scrollTop);
-    if (sad <= scrollTop)
-    {
-      
-      let sl = document.getElementById("sl");
-      let sd = document.getElementById("sd");
-      
-      console.log('dole');
-      sl.scrollIntoView();
-      console.log(document.querySelector('.meme img').id);
-      this.location.href='/memes'+(document.querySelectorAll('.meme img')[1].id);
-    }
-    else{
-      console.log('gore');
-    }
-    sad = scrollTop;
-    console.log('sad: '+sad + ' top: '+scrollTop);
-});
-//input.addEventListener('wheel',el=>{
-//  //console.log(el.deltaY);
-//  if(el.deltaY>0){
-//    console.log('Dole');
-//  }
-//  else{
-//    console.log('Gore');
-//  }
+let element = document.querySelector('.desni');
+//console.log(element.clientHeight);
+//element.addEventListener('scroll',el=>{
+//    var scrollTop = element.scrollTop;
+//    console.log('sad: '+sad + ' top: '+scrollTop);
+//    if (sad < scrollTop)
+//    {
+//      
+//      let sl = document.getElementById("sl");
+//      let sd = document.getElementById("sd");
+//      
+//      console.log('dole');
+//      while(scrollTop!=sad){
+//        element.scrollTop+=5;
+//      }
+//      //element.scrollTo({
+//      //  top:element.clientHeight,
+//      //  behavior:'smooth'
+//      //});
+//      //sl.scrollIntoView();
+//      console.log(document.querySelector('.meme img').id);
+//      //this.location.href='/memes'+(document.querySelectorAll('.meme img')[1].id);
+//    }
+//    else if(sad>scrollTop){
+//      console.log('gore');
+//    }
+//    sad = scrollTop;
+//    console.log('sad: '+sad + ' top: '+scrollTop);
 //});
+////input.addEventListener('wheel',el=>{
+////  //console.log(el.deltaY);
+////  if(el.deltaY>0){
+////    console.log('Dole');
+////  }
+////  else{
+////    console.log('Gore');
+////  }
+////});
 
 //input.addEventListener("keypress", el=> {
 //  console.log(el.keyCode);

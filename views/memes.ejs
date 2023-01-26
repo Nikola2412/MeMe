@@ -64,28 +64,14 @@
         </div>
         <div class="desni">
             <%-include('options')%>
-            <div id="sd" class="meme">
-                <img id="<%= sad%>" src="./memes/<%= sad%>.jpg" alt="">
+            <div class="memes">
+                <% for(var i=0; i < memes.length; i++) { %>
+                <div id="sd" class="meme">
+                    <img id="<%= memes[i].id%>" class="me" src="./memes/<%= memes[i].id%>.jpg" alt="">
+                </div>
+                <% } %> 
             </div>
-            <div id="sl" class="meme">
-                <img id="<%= sl%>" src="./memes/<%= sl%>.jpg" alt="">
-            </div>
-            <!--
-            <div class="opis-mima">
-                <ul>
-                    <li>
-                        <button class="">
-                            <img src="./ico/setting.png" alt="">
-                        </button>
-                    </li>
-                    <li>
-                        <button class="">
-                            <img src="./ico/setting.png" alt="">
-                        </button>
-                    </li>
-                </ul>
-            </div>
-            -->
+            <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
         </div>
     </div>
 </div>
