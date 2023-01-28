@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="./style/nav.css">
     <link rel="stylesheet" href="./style/main-page.css">
     <link rel="stylesheet" href="./style/scroler.css">
-    <link rel="stylesheet" href="./style/video.css">
     <link rel="stylesheet" href="./style/break.css">
+    <link rel="stylesheet" href="./style/hover.css">
     <link rel="stylesheet" href="./style/theme.css">
     <%-include('icons')%>
     <title>Me||Me</title>
@@ -19,19 +19,21 @@
         <div class="nav">
                 <div class="left">
                     <div class="lines">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
                     </div>
                     <a href="/">
                         <img class="yt" src="./images/yt.png" width="100px"height="30px">
-                    </a>                
+                    </a>
                 </div>
-                <input class="search" onkeyup="search(this.value)" onfocusout="out(this)" type="text" placeholder="Search..">
+                <input class="search" onfocusout="out(this)" type="text" placeholder="Search..">
                 <img class="close" src="./ico/close.png" style="display: none;" width="35" height="35" alt="" srcset="">
                 <div class="right">
                     <img class = "lupa" src="./ico/magnifier.png" width="35" height="35" alt="">
-                    <img class="nalog" src="./images/profile.png" width="35" height="35" srcset="">
+                    <ul>
+                        <img class = "nalog" src="./images/profile.png" width="35" height="35" srcset="">
+                    </ul>
                 </div>
             </div>
     </header>
@@ -41,7 +43,7 @@
                 <ul>
                     <li>
                         <a href="/">
-                            <button class="vidoes">
+                            <button class="vidoes sada">
                                 <img src="./ico/cinema.png" alt="">
                                 Vidoes
                             </button>
@@ -61,27 +63,11 @@
         </div>
         <div class="desni">
             <%-include('options')%>
-            <div class="video">
-                <div class="divslike">
-                    <video id="<%=video.id%>" src="./videi/<%=video.id%>.mp4" controls></video>
-                </div>
-                <div class="opis">
-                    <h3 class="naziv"><%=video.ime%></h3>
-                    <div class="opis2">
-                        <img id="<%=video.id_kanala%>"class="logo" src="./images/profile.png">
-                        <p><%=video.name%></p>
-                    </div>
-                </div>
-            </div>
-            <div class="next">
-                <%-include('nextvidei')%>
-            </div>
         </div>
     </div>
 </div>
 <div class="scripte">
     <script src="./srcipts/js.js"></script>
-    <script src="./srcipts/video.js"></script>
 </div>
 </body>
 </html>

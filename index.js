@@ -109,13 +109,10 @@ app.get('/logout',(req,res)=>{
 
 
 app.get('/',(req,res)=>{
-    //console.log(req.session);
     res.render('index',{
         sesia:req.session,
         videi: getV()
     });
-    //res.sendFile(path.join(__dirname,'public','index.ejs'));
-    //console.log(path.join(__dirname,'public/login.html'));
 });
 function getUser(index){
     const name = kanalList.find((g)=>g.id===index);
@@ -138,19 +135,36 @@ app.get('/user:id',(req,res)=>{
         res.render('user',{
             sesia:req.session,
             data: getUser(req.params.id),
-            videos: getVbyUser(req.params.id),
+            videi: getVbyUser(req.params.id),
             myAcc:false
         });
     }
 });
 
 app.get('/myAcc',(req,res)=>{
-    res.render('user',{
-        sesia:req.session,
-        data: getUser(req.session.id_kanala),
-        videos: getVbyUser(req.session.id_kanala),
-        myAcc:true
-    });
+    if(typeof req.session.loggedin =='undefined'){
+        res.redirect('login');
+    }
+    else{
+        res.render('user',{
+            sesia:req.session,
+            data: getUser(req.session.id_kanala),
+            videi: getVbyUser(req.session.id_kanala),
+            myAcc:true
+        });
+    }
+});
+
+app.get('/upload',(req,res)=>{
+    if(typeof req.session.loggedin =='undefined'){
+        res.redirect('login');
+    }
+    else{
+        res.render('upload',{
+            sesia:req.session,
+            nemoj:true
+        });
+    }
 });
 
 

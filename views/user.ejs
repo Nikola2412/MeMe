@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="./style/hover.css">
     <link rel="stylesheet" href="./style/theme.css">
     <%-include('icons')%>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <%-include('title')%>
+    <title>Me||Me</title>
 </head>
 <body>
     <div class="fixovanje">
@@ -72,7 +71,18 @@
                 </div>
             </div>
             <div class="videos">
-
+                <% for(var i=0; i < videi.length; i++) { %>
+                    <div class="video">
+                        <div class="divslike">
+                            <video id="<%=videi[i].id%>" src="./videi/<%=videi[i].id%>.mp4" muted></video>
+                        </div>
+                        <div class="opis">
+                            <div class="opis2">
+                                <h3 class="naziv"><%=videi[i].ime%></h3>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
             </div>
             <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
         </div>
@@ -80,6 +90,7 @@
 </div>
 <div class="scripte">
     <script src="./srcipts/js.js"></script>
+    <script src="./srcipts/user.js"></script>
 </div>
 </body>
 </html>
