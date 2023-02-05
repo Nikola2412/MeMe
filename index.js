@@ -9,6 +9,8 @@ const MemesList = require('./meme.json')
 
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const { stringify } = require('querystring');
+const { append } = require('domutils');
 let user = 'User';
 
 const app = express();
@@ -69,6 +71,33 @@ function getV(){
     return temp;
 }
 
+app.get('/register',(req,res)=>{
+    if(req.session.loggedin && req.session.username !=''){
+        res.redirect('/');
+    }
+    else{
+        res.render('register');
+        //res.sendFile(path.join(__dirname,'public','login.html'));
+    }
+});
+app.post('/create',(req,res)=>{
+    let username = req.body.username;
+	let password = req.body.password;
+    let id = kanalList.length+1;
+    let data = 
+        {
+            'name':username,
+            'password':password,
+            'id':id
+        };
+    kanalList.push(data);
+    //console.log(data);
+    req.session.loggedin = true;
+	req.session.username = username;
+    req.session.id_kanala = id;
+    res.redirect('/');
+})
+
 app.post('/auth', function(request, response) {
 	// Capture the input fields
 	let username = request.body.username;
@@ -82,8 +111,10 @@ app.post('/auth', function(request, response) {
             request.session.loggedin = true;
 			request.session.username = username;
             request.session.id_kanala = user.id;
-            //console.log(request.session);
             response.redirect('/');
+        }
+        else{
+            response.redirect('/login');    
         }
 	} else {
 		response.send('Please enter Username and Password!');
