@@ -170,6 +170,7 @@ let list=[];
 document.querySelectorAll('video').forEach(video=>{
     //video.setAttribute("src",`./videi/${video.id}.mp4`);
     list.push(video.id);
+    video.disablePictureInPicture = true;
     video.addEventListener("mouseover", function (e) {
         video.play();
         video.muted = true;
