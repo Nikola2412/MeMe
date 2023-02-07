@@ -56,14 +56,15 @@ video{
 }
 .next{
     width: 300px;
-    display: grid;
-    grid-template-columns: auto;
+    display: block;
+    justify-content: center;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
     overflow-y: auto;
     overflow-x: hidden;
 }
-.nextdivslike video, .nextdivslike img{
+.nextdivslike video{
     border-radius: 15px;
     width:100%;
     height: 100%;
@@ -74,7 +75,7 @@ video{
     height: 40px;
     margin:5px;
 }
-.nextdivslike img,.nextdivslike video{
+.nextdivslike video{
     aspect-ratio: 16/9;
     width: 100%;
 }
