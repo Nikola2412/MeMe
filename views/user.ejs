@@ -74,8 +74,10 @@
                 <% for(var i=0; i < videi.length; i++) { %>
                     <div class="video">
                         <div class="divslike">
-                            <video id="<%=videi[i].id%>" src="./videi/<%=videi[i].id%>.mp4" muted></video>
-                        </div>
+                            <a href="/video<%=videi[i].id%>">
+                                <img src="./thubnails/<%=videi[i].id%>.jpg" alt="">
+                                <video src="./videi/<%=videi[i].id%>.mp4" muted disablePictureInPicture></video>
+                            </a>                         </div>
                         <div class="opis">
                             <div class="opis2">
                                 <h3 class="naziv"><%=videi[i].ime%></h3>
