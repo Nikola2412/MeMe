@@ -1,7 +1,10 @@
 <% for(var i=0; i < videi.length; i++) { %>
     <div class="video">
         <div class="divslike">
-            <a href="/video<%=videi[i].id%>"><video src="./videi/<%=videi[i].id%>.mp4" muted disablePictureInPicture></video></a> 
+            <a href="/video<%=videi[i].id%>">
+                <img src="./thubnails/<%=videi[i].id%>.jpg" alt="">
+                <video src="./videi/<%=videi[i].id%>.mp4" muted disablePictureInPicture></video>
+            </a> 
         </div>
         <div class="opis">
             <img id="<%=videi[i].id_kanala%>" class="logo" src="./images/profile.png">

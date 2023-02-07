@@ -5,6 +5,12 @@
     text-decoration: none;
     color: black;
 }
+.divslike img{
+    display: block;
+    position: absolute;
+    width: 100%;
+    border-radius: 20px;
+}
 .divslike{
     min-width: var(--videoduzina);
 }

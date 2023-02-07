@@ -172,18 +172,11 @@ function ucitaj(id_videa){
 //}
 
 document.querySelectorAll('.nextdivslike video').forEach(video=>{
-    video.addEventListener('click',el=>{
-        window.location.href = `./video${video.id}`;
-    })
     video.addEventListener("mouseover", function (e) {
         video.play();
     });
     video.addEventListener("mouseout", function (e) {
         video.currentTime = 0;
-        video.load();
-    });
-    video.addEventListener("click",e=>{
-        let k = video.id;
-        window.location.href = `./video${k}`;
+        video.pause();
     });
 });
