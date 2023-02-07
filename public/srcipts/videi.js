@@ -168,17 +168,11 @@ rows.forEach(d => {
 
 document.querySelectorAll('video').forEach(video=>{
     //video.setAttribute("src",`./videi/${video.id}.mp4`);
-    video.controls= false;
-    video.muted = true;
     video.addEventListener("mouseover", function (e) {
         video.play();
     });
     video.addEventListener("mouseout", function (e) {
         video.load();
-    });
-    video.addEventListener("click",e=>{
-        let k = video.id;
-        window.location.href = `./video${k}`;
     });
 });
 
