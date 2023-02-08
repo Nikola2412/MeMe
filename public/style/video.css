@@ -111,10 +111,6 @@
 @media screen and (max-width: 1280px){
     .desni{
         display: inline-block;
-        position: relative;
-    }
-    .desni > div{
-        position: relative;
     }
     .next{
         width: 100%;
