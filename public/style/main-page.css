@@ -125,3 +125,6 @@ ul button{
     padding:20px;
     width: 100%;
 }
+video{
+    pointer-events: none;
+}
