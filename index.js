@@ -7,6 +7,9 @@ const videoList = require('./videoList.json');
 const kanalList = require('./kanalList.json');
 const MemesList = require('./meme.json')
 
+//const multer  = require('multer');
+//const upload = multer({ dest: os.tmpdir() });
+
 const fs = require('fs');
 const bodyParser = require('body-parser');
 //const { stringify } = require('querystring');
@@ -111,7 +114,7 @@ app.post('/auth', function(request, response) {
             request.session.loggedin = true;
 			request.session.username = username;
             request.session.id_kanala = user.id;
-            response.redirect('/');
+            response.redirect('/upload');
         }
         else{
             response.redirect('/login');    
@@ -121,8 +124,8 @@ app.post('/auth', function(request, response) {
 		response.end();
 	}
 });
-app.post('/upload',(req,res)=>{
-    console.log(req);
+app.post('/upload', (req, res) =>{
+    console.log(req.body.data);
 });
 
 app.get('/login',(req,res)=>{

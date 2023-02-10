@@ -3,6 +3,7 @@ const preview = document.getElementById("preview");
 const progressBar = document.getElementById("progress-bar");
 const progress = document.getElementById("progress");
 
+
 dropzone.addEventListener("dragover", (event) => {
   event.preventDefault();
 });
@@ -19,6 +20,7 @@ dropzone.addEventListener("drop", (event) => {
         // Determine if file is an image
         if (file.type.match(/image.*/)) {
           const img = document.createElement("img");
+          img.className = 'imgpre'
           img.src = event.target.result;
           preview.appendChild(img);
         } else {
@@ -33,11 +35,11 @@ dropzone.addEventListener("drop", (event) => {
   });
 
 function Upload(){
-    for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const reader = new FileReader();
-  
-        reader.readAsDataURL(file);
+    const imgs = document.querySelectorAll('.imgpre')
+    //console.log(imgs);
+    for (let i = 0; i < imgs.length; i++) {
+        const img = imgs[i];
+                  
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "/upload", true);
         xhr.upload.addEventListener("progress", (event) => {
@@ -46,6 +48,7 @@ function Upload(){
             progress.style.width = `${percentComplete}%`;
           }
         });
-        xhr.send(file);
+        xhr.send(img);
+        
     }
 }
