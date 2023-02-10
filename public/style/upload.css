@@ -1,0 +1,26 @@
+.desni{
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+}
+#dropzone{
+    width: 200px;
+    height: 100px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+#dropzone p{
+    color: white;
+}
+#preview{
+    width: 200px;
+    height: fit-content;
+}
+#preview img{
+    width: 100%;
+    height: fit-content;
+}

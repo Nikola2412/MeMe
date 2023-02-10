@@ -9,8 +9,8 @@ const MemesList = require('./meme.json')
 
 const fs = require('fs');
 const bodyParser = require('body-parser');
-const { stringify } = require('querystring');
-const { append } = require('domutils');
+//const { stringify } = require('querystring');
+//const { append } = require('domutils');
 let user = 'User';
 
 const app = express();
@@ -121,8 +121,9 @@ app.post('/auth', function(request, response) {
 		response.end();
 	}
 });
-
-
+app.post('/upload',(req,res)=>{
+    console.log(req);
+});
 
 app.get('/login',(req,res)=>{
     if(req.session.loggedin && req.session.username !=''){
