@@ -165,7 +165,7 @@ function getVbyUser(index){
     return k;
 }
 
-app.get('/user:id',(req,res)=>{
+app.get('/user=:id',(req,res)=>{
     if(req.params.id === req.session.id_kanala)
         res.redirect('/myAcc');
     else{
@@ -212,8 +212,8 @@ app.post('/video',(req,res)=>{
 });
 
 app.get('/memes',(req,res)=>{
-    res.redirect('/memes'+Math.floor(Math.random() * 9))
-})
+    res.redirect('/memes1');
+});
 
 function getMemes(){
     return MemesList;
@@ -244,16 +244,6 @@ app.get('/video:id',(req,res)=>{
 function getMore(){
     return videoList[5];
 }
-app.get('/Load',(req,res)=>{
-    
-    //const current = req.body;
-    res.render('videi',{
-        videi:getMore()
-    })
-    //console.log('sadas');
-    //console.log(getV());
-});
-
 app.get('/video:id',(req,res)=>{
     //https://www.youtube.com/watch?v=ZjBLbXUuyWg&t=331s&ab_channel=AbdisalanCodes
     const videoPath = `./videi/${id}.mp4`;
