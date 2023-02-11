@@ -7,14 +7,16 @@ const videoList = require('./videoList.json');
 const kanalList = require('./kanalList.json');
 const MemesList = require('./meme.json')
 
-//const multer  = require('multer');
+const multer  = require('multer');
+const upload = multer({ dest: 'public/memes' })
+
 //const upload = multer({ dest: os.tmpdir() });
 
 const fs = require('fs');
 const bodyParser = require('body-parser');
 //const { stringify } = require('querystring');
 //const { append } = require('domutils');
-let user = 'User';
+//let user = 'User';
 
 const app = express();
 const port = 3001;
@@ -124,8 +126,8 @@ app.post('/auth', function(request, response) {
 		response.end();
 	}
 });
-app.post('/upload', (req, res) =>{
-    console.log(req.body.data);
+app.post('/upload', upload.array(), (req, res) => {
+    console.log('test');
 });
 
 app.get('/login',(req,res)=>{
@@ -210,7 +212,7 @@ app.post('/video',(req,res)=>{
 });
 
 app.get('/memes',(req,res)=>{
-    res.redirect('/memes'+Math.floor(Math.random() * 8))
+    res.redirect('/memes'+Math.floor(Math.random() * 9))
 })
 
 function getMemes(){

@@ -3,14 +3,13 @@ const preview = document.getElementById("preview");
 const progressBar = document.getElementById("progress-bar");
 const progress = document.getElementById("progress");
 
-
 dropzone.addEventListener("dragover", (event) => {
   event.preventDefault();
 });
-
+let files;
 dropzone.addEventListener("drop", (event) => {
     event.preventDefault();
-    const files = event.dataTransfer.files;
+    files = event.dataTransfer.files;
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
@@ -19,15 +18,29 @@ dropzone.addEventListener("drop", (event) => {
       reader.addEventListener("load", (event) => {
         // Determine if file is an image
         if (file.type.match(/image.*/)) {
+          const div = document.createElement('div');
+          div.id = 'spoj';
           const img = document.createElement("img");
+          const btn = document.createElement('button');
+          btn.className = 'btn';
+          const close = document.createElement('img');
+          close.className='close2';
+          close.src = './ico/close.png';
+          btn.appendChild(close);
           img.className = 'imgpre'
+          img.id = 'slika';
           img.src = event.target.result;
-          preview.appendChild(img);
-        } else {
+          div.appendChild(btn);
+          div.appendChild(img);
+          btn.addEventListener('click',el=>{
+            btn.parentElement.remove();
+          });
+          preview.appendChild(div);
+        } /*else {
           const para = document.createElement("p");
           para.textContent = "File preview not available.";
           preview.appendChild(para);
-        }
+        }*/
       });
 
       reader.readAsDataURL(file);
@@ -35,10 +48,9 @@ dropzone.addEventListener("drop", (event) => {
   });
 
 function Upload(){
-    const imgs = document.querySelectorAll('.imgpre')
     //console.log(imgs);
-    for (let i = 0; i < imgs.length; i++) {
-        const img = imgs[i];
+    for (let i = 0; i < files.length; i++) {
+        const img = files[i];
                   
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "/upload", true);

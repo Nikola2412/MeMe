@@ -22,6 +22,8 @@
     color: white;
     justify-content: center;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 #dropzone{
     width: 200px;
@@ -40,7 +42,29 @@
     width: 200px;
     height: fit-content;
 }
-#preview img{
+#spoj {
+    position: relative;
+    margin-bottom: 20px;
+}
+#spoj img{
     width: 100%;
     height: fit-content;
+    position: relative;
+    border: 1px solid white;
+
+}
+.close2{
+    display: block;
+    width: 100%;
+    filter: invert(100%);
+}
+.btn{
+    height: fit-content;
+    border: 0px;
+    background-color: transparent;
+    z-index: 1;
+    margin-right: 0;
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
 }
