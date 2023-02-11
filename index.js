@@ -210,7 +210,7 @@ app.post('/video',(req,res)=>{
 });
 
 app.get('/memes',(req,res)=>{
-    res.redirect('/memes'+Math.floor(Math.random() * 7))
+    res.redirect('/memes'+Math.floor(Math.random() * 8))
 })
 
 function getMemes(){
