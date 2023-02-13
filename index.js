@@ -2,13 +2,15 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+const fileUpload = require('express-fileupload')
 //const cookieSession = require('cookie-session');
 const videoList = require('./videoList.json');
 const kanalList = require('./kanalList.json');
-const MemesList = require('./meme.json')
+const MemesList = require('./meme.json');
 
-const multer  = require('multer');
-const upload = multer({ dest: 'public/memes' })
+
+//const multer  = require('multer');
+//const upload = multer({ dest: 'public/memes' })
 
 //const upload = multer({ dest: os.tmpdir() });
 
@@ -32,7 +34,7 @@ app.use(session({
 	saveUninitialized: true
 }));
 app.set('view engine', 'ejs');
-
+app.use(fileUpload())
 
 
 
@@ -126,8 +128,22 @@ app.post('/auth', function(request, response) {
 		response.end();
 	}
 });
-app.post('/upload', upload.array(), (req, res) => {
-    console.log('test');
+app.post('/upload', (req, res) => {
+    //console.log(req.name);
+    //res.send(req.body);
+    const meme = req.body.meme;
+    const name = req.body.name;
+    console.log(meme);
+    console.log(name);
+    /*
+    const filePath = path.join(__dirname, 'public', 'images')
+    console.log(filePath);
+    
+    meme.mv(filePath, err => {
+        if (err) return res.status(500).send(err)
+        res.redirect('/')
+    })
+    */
 });
 
 app.get('/login',(req,res)=>{

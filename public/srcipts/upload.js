@@ -51,16 +51,28 @@ function Upload(){
     //console.log(imgs);
     for (let i = 0; i < files.length; i++) {
         const img = files[i];
-                  
+        /*         
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "/upload", true);
+        
         xhr.upload.addEventListener("progress", (event) => {
           if (event.lengthComputable) {
             const percentComplete = (event.loaded / event.total) * 100;
             progress.style.width = `${percentComplete}%`;
           }
         });
-        xhr.send(img);
         
+        xhr.send(JSON.stringify({
+          "meme":"img",
+          "name":"teststsdsd"
+        }));
+        */
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        var theUrl = "/upload";
+        xmlhttp.open("POST", theUrl);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(JSON.stringify({
+           "meme": img 
+        }));
     }
 }
