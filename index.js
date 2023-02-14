@@ -4,9 +4,10 @@ const session = require('express-session');
 const path = require('path');
 const fileUpload = require('express-fileupload')
 //const cookieSession = require('cookie-session');
+const { v4: uuidv4 } = require('uuid');
+
 const videoList = require('./videoList.json');
 const kanalList = require('./kanalList.json');
-const MemesList = require('./meme.json');
 
 
 //const multer  = require('multer');
@@ -132,18 +133,26 @@ app.post('/upload', (req, res) => {
     //console.log(req.name);
     //res.send(req.body);
     const meme = req.body.meme;
-    const name = req.body.name;
-    console.log(meme);
-    console.log(name);
-    /*
-    const filePath = path.join(__dirname, 'public', 'images')
-    console.log(filePath);
+    //console.log(meme);
     
-    meme.mv(filePath, err => {
-        if (err) return res.status(500).send(err)
-        res.redirect('/')
-    })
-    */
+    //const filePath = path.join(__dirname, 'public', 'images')
+    //console.log(filePath);
+
+    const id = uuidv4();
+    const date = new Date();
+
+    var data = fs.readFileSync("meme.json");
+    var myObject = JSON.parse(data);
+    
+    let newData = {
+        "id":id,
+        "date":date
+    }
+    myObject.push(newData);
+    var newData2 = JSON.stringify(myObject);
+    console.log(newData);
+
+    fs.writeFileSync("meme.json", newData2);
 });
 
 app.get('/login',(req,res)=>{
@@ -232,6 +241,7 @@ app.get('/memes',(req,res)=>{
 });
 
 function getMemes(){
+    const MemesList = require('./meme.json');
     return MemesList;
 }
 
