@@ -6,7 +6,7 @@
 :root{
     --videoduzina:300px;
 }
-.centar{
+.info{
     padding: 5px;
 }
 .info img{
@@ -28,7 +28,7 @@
 .divslike video{
     border-radius: 20px;
     width:100%;
-    
+    height: fit-content;
 }
 .divslike video,.divslike img{
     aspect-ratio: 16 / 9;
@@ -42,11 +42,14 @@
     height: fit-content;
     z-index: 0;
 }
+.desni{
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
 .videos{
     padding:20px;
     width: 100%;
-    height: 100%;
-    overflow-y: auto;
+    height: fit-content;
     overflow-x:hidden;
     display: grid;
     gap: 10px;
@@ -56,8 +59,10 @@
     display: flex;
     width: 100%;
     height: 60px;
+    height: fit-content;
 }
 .opis2{
+    height: fit-content;
     padding-top: 5px;
 }
 .naziv{
