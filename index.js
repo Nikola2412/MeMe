@@ -67,7 +67,7 @@ function getV(){
     const temp = [];
     const kanalList = require('./baza/kanalList.json')
     const videoList = require('./baza/videoList.json');
-    for(let i=0;i<Math.min(videoList.length,5);i++){
+    for(let i=0;i<Math.min(videoList.length,20);i++){
         const id_kanala  = videoList[i].id_kanala;
         let name = kanalList.find((g) => g.id == id_kanala).name;
         let data = 
@@ -79,6 +79,7 @@ function getV(){
         };
         temp.push(data);
     }
+    console.log(temp);
     return temp;
 }
 
