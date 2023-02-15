@@ -206,7 +206,7 @@ function getVbyUser(index){
 }
 
 app.get('/chanal',(req,res)=>{
-    console.log(req.query.id);
+    //console.log(req.query.id);
     const id = req.query.id;
     if(id === req.session.id_kanala)
         res.redirect('/myAcc');
