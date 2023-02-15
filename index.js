@@ -79,7 +79,7 @@ function getV(){
         };
         temp.push(data);
     }
-    console.log(temp);
+    //console.log(temp);
     return temp;
 }
 

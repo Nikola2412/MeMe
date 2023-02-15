@@ -9,7 +9,9 @@
     "start:dev": "nodemon index.js"
   },
   "nodemonConfig": {
-    "ignore": ["./baze"]
+    "ignore": [
+      "./baze"
+    ]
   },
   "repository": {
     "type": "git",
