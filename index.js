@@ -6,8 +6,7 @@ const fileUpload = require('express-fileupload')
 //const cookieSession = require('cookie-session');
 const { v4: uuidv4 } = require('uuid');
 
-const videoList = require('./videoList.json');
-const kanalList = require('./kanalList.json');
+//const videoList = require('./videoList.json');
 
 
 //const multer  = require('multer');
@@ -51,6 +50,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 function getVN(index){
+    const videoList = require('./baza/videoList.json');
     let k = videoList.find((g) => g.id === index);
     const kanal = kanalList.find((g)=>g.id===k.id_kanala);
     //console.log(name);
@@ -64,6 +64,8 @@ function getVN(index){
 }
 function getV(){
     const temp = [];
+    const kanalList = require('./baza/kanalList.json')
+    const videoList = require('./baza/videoList.json');
     for(let i=0;i<Math.min(videoList.length,5);i++){
         const id_kanala  = videoList[i].id_kanala;
         let name = kanalList.find((g) => g.id == id_kanala).name;
@@ -91,19 +93,26 @@ app.get('/register',(req,res)=>{
 app.post('/create',(req,res)=>{
     let username = req.body.username;
 	let password = req.body.password;
-    let id = kanalList.length+1;
-    let data = 
+    const id = uuidv4();
+    let newData = 
         {
             'name':username,
             'password':password,
             'id':id
         };
-    kanalList.push(data);
-    //console.log(data);
+
+    var data = fs.readFileSync("./baza/kanalList.json");
+    var myObject = JSON.parse(data);
+    myObject.push(newData);
+    var newData2 = JSON.stringify(myObject);
+    fs.writeFileSync("./baza/kanalList.json", newData2);
     req.session.loggedin = true;
 	req.session.username = username;
     req.session.id_kanala = id;
-    res.redirect('/');
+    res.render('index',{
+        sesia:req.session,
+        videi: getV()
+    });
 })
 
 app.post('/auth', function(request, response) {
@@ -141,7 +150,7 @@ app.post('/upload', (req, res) => {
     const id = uuidv4();
     const date = new Date();
 
-    var data = fs.readFileSync("meme.json");
+    var data = fs.readFileSync("./baza/meme.json");
     var myObject = JSON.parse(data);
     
     let newData = {
@@ -150,9 +159,7 @@ app.post('/upload', (req, res) => {
     }
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
-    console.log(newData);
-
-    fs.writeFileSync("meme.json", newData2);
+    fs.writeFileSync("./baza/meme.json", newData2);
 });
 
 app.get('/login',(req,res)=>{
@@ -177,11 +184,14 @@ app.get('/',(req,res)=>{
     });
 });
 function getUser(index){
+    const kanalList = require('./baza/kanalList.json')
     const name = kanalList.find((g)=>g.id===index);
     return name;
 }
 function getVbyUser(index){
     const k = [];
+    const kanalList = require('./baza/kanalList.json')
+    const videoList = require('./baza/videoList.json');
     videoList.forEach(vid=>{
         if(index == vid.id_kanala){
             k.push(vid)
@@ -241,7 +251,7 @@ app.get('/memes',(req,res)=>{
 });
 
 function getMemes(){
-    const MemesList = require('./meme.json');
+    const MemesList = require('./baza/meme.json');
     return MemesList;
 }
 
@@ -268,6 +278,7 @@ app.get('/video:id',(req,res)=>{
 });
 
 function getMore(){
+    const videoList = require('./baza/videoList.json');
     return videoList[5];
 }
 app.get('/video:id',(req,res)=>{
@@ -298,6 +309,8 @@ app.get('/video:id',(req,res)=>{
 
 app.post('/video',(req,res)=>{
     //console.log(req.body);
+    const videoList = require('./baza/videoList.json');
+
     videoList.push(req.body);
     res.send(201);
 });

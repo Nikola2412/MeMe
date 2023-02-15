@@ -8,6 +8,9 @@
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
+  "nodemonConfig": {
+    "ignore": ["./baze"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nikola2412/YouTube.git"
