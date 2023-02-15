@@ -51,6 +51,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 function getVN(index){
     const videoList = require('./baza/videoList.json');
+    const kanalList = require('./baza/kanalList.json')
     let k = videoList.find((g) => g.id === index);
     const kanal = kanalList.find((g)=>g.id===k.id_kanala);
     //console.log(name);
@@ -121,6 +122,8 @@ app.post('/auth', function(request, response) {
 	let password = request.body.password;
 	// Ensure the input fields exists and are not empty
 	if (username && password) {
+        const kanalList = require('./baza/kanalList.json')
+
 		// Execute SQL query that'll select the account from the database based on the specified username and password
 		const user = kanalList.find((g) => g.name === username);
         if(user.password===password)
@@ -141,6 +144,8 @@ app.post('/auth', function(request, response) {
 app.post('/upload', (req, res) => {
     //console.log(req.name);
     //res.send(req.body);
+    const byteContent = req.file
+    console.log(byteContent);
     const meme = req.body.meme;
     //console.log(meme);
     
@@ -200,14 +205,16 @@ function getVbyUser(index){
     return k;
 }
 
-app.get('/user=:id',(req,res)=>{
-    if(req.params.id === req.session.id_kanala)
+app.get('/chanal',(req,res)=>{
+    console.log(req.query.id);
+    const id = req.query.id;
+    if(id === req.session.id_kanala)
         res.redirect('/myAcc');
     else{
         res.render('user',{
             sesia:req.session,
-            data: getUser(req.params.id),
-            videi: getVbyUser(req.params.id),
+            data: getUser(id),
+            videi: getVbyUser(id),
             myAcc:false
         });
     }
@@ -233,12 +240,10 @@ app.get('/upload',(req,res)=>{
     }
     else{
         res.render('upload',{
-            sesia:req.session,
-            nemoj:true
+            sesia:req.session
         });
     }
 });
-
 
 app.post('/video',(req,res)=>{
     //res.sendFile(path.join(__dirname,'public','video.html'));
@@ -247,23 +252,33 @@ app.post('/video',(req,res)=>{
 });
 
 app.get('/memes',(req,res)=>{
-    res.redirect('/memes1');
+    const date = new Date();
+    const day = date.getDate();
+    res.redirect(`/newest-memes`);
 });
-
+/*
+app.get("/getUsers", (req, res) => {
+    const reqQueryObject = req.query // returns object with all parameters
+    const userId = req.query.userId // returns "12354411"
+    const name = req.query.name // returns "Billy"
+    console.log(userId);
+    
+})
+*/
 function getMemes(){
     const MemesList = require('./baza/meme.json');
     return MemesList;
 }
 
-app.get('/memes:id',(req,res)=>{
+app.get('/newest-memes',(req,res)=>{
     res.render('memes',{
         sesia:req.session,
         memes: getMemes(),
     });
 })
 
-app.get('/video:id',(req,res)=>{
-    const { id } = req.params;
+app.get('/video',(req,res)=>{
+    const id = req.query.id;
     //console.log(id);
     //const video  = videoList.find((g) => g.id === id);
     let user = 'User';
@@ -281,7 +296,8 @@ function getMore(){
     const videoList = require('./baza/videoList.json');
     return videoList[5];
 }
-app.get('/video:id',(req,res)=>{
+app.get('/video',(req,res)=>{
+    const id = req.query.id;
     //https://www.youtube.com/watch?v=ZjBLbXUuyWg&t=331s&ab_channel=AbdisalanCodes
     const videoPath = `./videi/${id}.mp4`;
 

@@ -47,7 +47,7 @@ dropzone.addEventListener("drop", (event) => {
     }
   });
 
-function Upload(){
+async function  Upload(){
     //console.log(imgs);
     for (let i = 0; i < files.length; i++) {
         const img = files[i];
@@ -74,5 +74,12 @@ function Upload(){
         xmlhttp.send(JSON.stringify({
            "meme": img 
         }));
-    }
+        
+       /*
+        const formData = new FormData()
+        formData.append('file', img)
+      
+        const { data: result } = await axios.post(`/upload`, formData)
+        */
+  }
 }

@@ -3,7 +3,9 @@
     margin-right: auto;
     transition: 1s ease-in-out;
     height: calc(100vh - 100px);
+    width: fit-content;
     margin-bottom: 10px;
+    pointer-events: none;
 }
 .meme img{
     height: 100%;
@@ -15,6 +17,5 @@
     display: grid;
     overflow-y:auto;
     grid-template-columns: auto;
-    overflow-y: auto;
     height: calc(100vh - 100px);
 }

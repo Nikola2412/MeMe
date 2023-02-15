@@ -1,5 +1,5 @@
-let sad = 0;
-let element = document.querySelector('.desni');
+//let sad = 0;
+//let element = document.querySelector('.desni');
 //console.log(element.clientHeight);
 //element.addEventListener('scroll',el=>{
 //    var scrollTop = element.scrollTop;

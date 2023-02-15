@@ -107,8 +107,10 @@ document.querySelector('.nalog').addEventListener('click',el=>{
     //    
     //}
 });
+/*
 document.querySelectorAll('.desni .logo').forEach(slika =>{
     slika.addEventListener('click',el=>{
-        this.location.href = `/user=${slika.id}`;
+        this.location.href = `/chanal?id=${slika.id}`;
     });
 });
+*/
