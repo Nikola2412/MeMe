@@ -2,7 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     transition: 1s ease-in-out;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 80px);
     width: fit-content;
     margin-bottom: 10px;
     pointer-events: none;
@@ -17,5 +17,5 @@
     display: grid;
     overflow-y:auto;
     grid-template-columns: auto;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 80px);
 }
