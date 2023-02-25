@@ -3,7 +3,7 @@
     margin-right: auto;
     transition: 1s ease-in-out;
     height: calc(100vh - 80px);
-    width: fit-content;
+    
     margin-bottom: 10px;
     pointer-events: none;
 }
