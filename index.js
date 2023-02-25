@@ -2,7 +2,7 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const fileUpload = require('express-fileupload')
+//const fileUpload = require('express-fileupload')
 //const cookieSession = require('cookie-session');
 const { v4: uuidv4 } = require('uuid');
 
@@ -34,7 +34,7 @@ app.use(session({
 	saveUninitialized: true
 }));
 app.set('view engine', 'ejs');
-app.use(fileUpload())
+//app.use(fileUpload())
 
 
 
@@ -155,14 +155,13 @@ app.post('/upload', (req, res) => {
 
     const id = uuidv4();
     const date = new Date();
-
     var data = fs.readFileSync("./baza/meme.json");
     var myObject = JSON.parse(data);
-    
-    let newData = {
+    let newData = { 
         "id":id,
-        "date":date
+        "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
     }
+    console.log(newData);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
     fs.writeFileSync("./baza/meme.json", newData2);

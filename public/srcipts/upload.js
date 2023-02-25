@@ -51,6 +51,7 @@ async function  Upload(){
     //console.log(imgs);
     for (let i = 0; i < files.length; i++) {
         const img = files[i];
+        console.log(img);
         /*         
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "/upload", true);
