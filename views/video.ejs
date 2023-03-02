@@ -63,9 +63,12 @@
             <%-include('options')%>
             <div class="video">
                 <div class="divslike">
+                    <video src="/id_videa=<%=video.id%>" controls></video>
+                    <!--
                     <video id="videoPlayer" controls autoplay>
-                        <source src="./id_videa=<%=video.id%>" type="video/mp4" />
+                        <source src="" type="video/mp4" />
                     </video>
+                    -->
                 </div>
                 <div class="opis">
                     <h3 class="naziv"><%=video.ime%></h3>
