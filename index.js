@@ -64,7 +64,7 @@ function getVN(index){
     return data;
 }
 function getChunks(index,req,res){
-    console.log(index);
+    //console.log(index);
     //https://www.youtube.com/watch?v=ZjBLbXUuyWg&t=331s&ab_channel=AbdisalanCodes
     let range = req.headers.range;
     //console.log(req.range());
