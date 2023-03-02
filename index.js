@@ -63,6 +63,45 @@ function getVN(index){
     }
     return data;
 }
+function getChunks(index,req,res){
+    console.log(index);
+    //https://www.youtube.com/watch?v=ZjBLbXUuyWg&t=331s&ab_channel=AbdisalanCodes
+    let range = req.headers.range;
+    //console.log(req.range());
+    if (!range) {
+        range = 'bytes=0-'
+    }
+
+    // get video stats (about 61MB)
+    const videoPath = `videi/${index}.mp4`;
+    const videoSize = fs.statSync(videoPath).size;
+
+    // Parse Range
+    // Example: "bytes=32324-"
+    const CHUNK_SIZE = 10 ** 6; // 1MB
+    const start = Number(range.replace(/\D/g, ""));
+    const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
+
+    // Create headers
+    const contentLength = end - start + 1;
+    const headers = {
+        "Content-Range": `bytes ${start}-${end}/${videoSize}`,
+        "Accept-Ranges": "bytes",
+        "Content-Length": contentLength,
+        "Content-Type": "video/mp4",
+    };
+
+    // HTTP Status 206 for Partial Content
+    
+    res.writeHead(206, headers);
+
+    // create video read stream for this particular chunk
+    const videoStream = fs.createReadStream(videoPath, { start, end });
+
+    // Stream the video chunk to the client
+    videoStream.pipe(res);
+    
+}
 function getV(){
     const temp = [];
     const kanalList = require('./baza/kanalList.json')
@@ -161,7 +200,7 @@ app.post('/upload', (req, res) => {
         "id":id,
         "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
     }
-    console.log(newData);
+    //console.log(newData);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
     fs.writeFileSync("./baza/meme.json", newData2);
@@ -245,11 +284,11 @@ app.get('/upload',(req,res)=>{
     }
 });
 
-app.post('/video',(req,res)=>{
-    //res.sendFile(path.join(__dirname,'public','video.html'));
-    //console.log(req.session);
-    res.send(getV());
-});
+//app.post('/video',(req,res)=>{
+//    //res.sendFile(path.join(__dirname,'public','video.html'));
+//    //console.log(req.session);
+//    res.send(getV());
+//});
 
 app.get('/memes',(req,res)=>{
     const date = new Date();
@@ -292,36 +331,15 @@ app.get('/video',(req,res)=>{
     });
 });
 
+app.get('/id_videa=:id',(req,res)=>{
+    const id = req.params.id;
+    getChunks(id,req,res);
+});
+
 function getMore(){
     const videoList = require('./baza/videoList.json');
     return videoList[5];
 }
-app.get('/video',(req,res)=>{
-    const id = req.query.id;
-    //https://www.youtube.com/watch?v=ZjBLbXUuyWg&t=331s&ab_channel=AbdisalanCodes
-    const videoPath = `./videi/${id}.mp4`;
-
-    const videoSize = fs.statSync(videoPath).size;
-
-    
-    const CHUNK_SIZE = 10 ** 6;
-    const start = Number(range.replace(/\D/g, ""));
-    const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
-
-    const contentLength = end - start + 1;
-    const headers = {
-        "Content-Range": `bytes ${start}-${end}/${videoSize}`,
-        "Accept-Ranges": "bytes",
-        "Content-Length": contentLength,
-        "Content-Type": "video/mp4",
-    };
-
-    res.writeHead(206, headers);
-
-    const videoStream = fs.createReadStream(videoPath, { start, end });
-
-    videoStream.pipe(res);
-});
 
 app.post('/video',(req,res)=>{
     //console.log(req.body);
