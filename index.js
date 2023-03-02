@@ -223,7 +223,7 @@ app.get('/logout',(req,res)=>{
 
 app.get('/',(req,res)=>{
     res.render('index',{
-        sesia:req.session,
+        sesia: req.session,
         videi: getV()
     });
 });
@@ -320,9 +320,9 @@ app.get('/video',(req,res)=>{
     const id = req.query.id;
     //console.log(id);
     //const video  = videoList.find((g) => g.id === id);
-    let user = 'User';
-    if(req.session.loggedin)
-        user = req.session.username;
+    //let user = 'User';
+    //if(req.session.loggedin)
+    //    user = req.session.username;
     //console.log(getV());
     res.render('video',{
         sesia:req.session,
