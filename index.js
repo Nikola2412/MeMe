@@ -309,6 +309,29 @@ function getMemes(){
     return MemesList;
 }
 
+function sendImg(imgPath,res,extension){
+    fs.readFile(imgPath+extension, function(err, data) {
+        if(err){
+            console.log('test');
+            sendImg(imgPath,res,'png');
+        }
+        else{
+            // Set the content type to image/png
+            res.writeHead(200, {'Content-Type': 'image/' + extension});
+            // Send the image data in the response
+            res.end(data);
+        }
+      });
+}
+
+app.get('/id_memea=:id',(req,res)=>{
+    const id = req.params.id;
+
+    const imgPath = `memes/${id}.`;
+    
+    sendImg(imgPath,res,'jpg');
+})
+
 app.get('/newest-memes',(req,res)=>{
     res.render('memes',{
         sesia:req.session,
