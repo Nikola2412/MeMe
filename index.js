@@ -7,10 +7,10 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
 //const videoList = require('./videoList.json');
+const multer  = require('multer');
 
+const upload = multer({ dest: 'uploads/'});
 
-//const multer  = require('multer');
-//const upload = multer({ dest: 'public/memes' })
 
 //const upload = multer({ dest: os.tmpdir() });
 
@@ -181,14 +181,12 @@ app.post('/auth', function(request, response) {
 		response.end();
 	}
 });
-app.post('/upload', (req, res) => {
+app.post('/upload',upload.single('meme'),(req, res) => {
     //console.log(req.name);
     //res.send(req.body);
-    const byteContent = req.file
-    console.log(byteContent);
-    const meme = req.body.meme;
-    //console.log(meme);
-    
+    //const byteContent = req.file.size
+    //console.log(byteContent);
+    console.log(req.file, req.body)
     //const filePath = path.join(__dirname, 'public', 'images')
     //console.log(filePath);
 
@@ -200,10 +198,11 @@ app.post('/upload', (req, res) => {
         "id":id,
         "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
     }
-    //console.log(newData);
+    //console.log(req.session.id_kanala);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
     fs.writeFileSync("./baza/meme.json", newData2);
+    res.redirect('/');
 });
 
 app.get('/login',(req,res)=>{
@@ -284,12 +283,6 @@ app.get('/upload',(req,res)=>{
     }
 });
 
-//app.post('/video',(req,res)=>{
-//    //res.sendFile(path.join(__dirname,'public','video.html'));
-//    //console.log(req.session);
-//    res.send(getV());
-//});
-
 app.get('/memes',(req,res)=>{
     const date = new Date();
     const day = date.getDate();
@@ -312,7 +305,6 @@ function getMemes(){
 function sendImg(imgPath,res,extension){
     fs.readFile(imgPath+extension, function(err, data) {
         if(err){
-            console.log('test');
             sendImg(imgPath,res,'png');
         }
         else{
@@ -321,7 +313,7 @@ function sendImg(imgPath,res,extension){
             // Send the image data in the response
             res.end(data);
         }
-      });
+    });
 }
 
 app.get('/id_memea=:id',(req,res)=>{
@@ -341,12 +333,6 @@ app.get('/newest-memes',(req,res)=>{
 
 app.get('/video',(req,res)=>{
     const id = req.query.id;
-    //console.log(id);
-    //const video  = videoList.find((g) => g.id === id);
-    //let user = 'User';
-    //if(req.session.loggedin)
-    //    user = req.session.username;
-    //console.log(getV());
     res.render('video',{
         sesia:req.session,
         videi: getV(),

@@ -17,32 +17,33 @@ dropzone.addEventListener("drop", (event) => {
 
       reader.addEventListener("load", (event) => {
         // Determine if file is an image
-        if (file.type.match(/image.*/)) {
+        const extension = file.name.split('.')
+        const n = extension.length;
+        if (file.type.match(/image.*/) && (extension[n-1]=='jpg' || extension[n-1]=='png')) {
           const div = document.createElement('div');
           div.id = 'spoj';
-          const img = document.createElement("img");
+          const img = document.createElement("input");
           const btn = document.createElement('button');
           btn.className = 'btn';
           const close = document.createElement('img');
           close.className='close2';
           close.src = './ico/close.png';
           btn.appendChild(close);
-          img.className = 'imgpre'
+          img.className = 'imgpre';
           img.id = 'slika';
           img.src = event.target.result;
+          img.setAttribute('type','image');
+          img.setAttribute('name','meme');
           div.appendChild(btn);
           div.appendChild(img);
           btn.addEventListener('click',el=>{
             btn.parentElement.remove();
           });
           preview.appendChild(div);
-        } /*else {
-          const para = document.createElement("p");
-          para.textContent = "File preview not available.";
-          preview.appendChild(para);
-        }*/
+        }else {
+          alert('Samo slike u jpg ili png formatu')
+        }
       });
-
       reader.readAsDataURL(file);
     }
   });

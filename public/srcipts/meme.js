@@ -60,3 +60,30 @@
 //    
 //      el.preventDefault();
 //});
+
+
+
+async function load_pic() {
+    const memeDiv = document.querySelector('.meme');
+    const xhr = new XMLHttpRequest();
+    const url = 'http://localhost:3001/sendmeme'; 
+    const options = {
+        method: "GET"
+    }
+
+  let response = await fetch(url, options)
+
+  if (response.status === 200) {
+      
+      const imageBlob = await response.blob()
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+
+      const image = document.createElement('img')
+      image.src = imageObjectURL
+
+      memeDiv.append(image)
+  }
+  else {
+      console.log("HTTP-Error: " + response.status)
+  }
+}

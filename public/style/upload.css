@@ -52,7 +52,7 @@
     position: relative;
     margin-bottom: 20px;
 }
-#spoj img{
+#spoj img,#spoj input{
     width: 100%;
     height: fit-content;
     position: relative;
