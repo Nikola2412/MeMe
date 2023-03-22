@@ -47,12 +47,32 @@ dropzone.addEventListener("drop", (event) => {
       reader.readAsDataURL(file);
     }
   });
+  
+function imageToByteArray(file) {
+  return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsArrayBuffer(file);
+      reader.onload = () => {
+        const buffer = reader.result;
+        const byteArray = new Uint8Array(buffer);
+        resolve(byteArray);
+      };
+    reader.onerror = () => {
+      reject(new Error('Failed to read image file'));
+        };
+  });
+}
+  
 
 async function  Upload(){
     //console.log(imgs);
     for (let i = 0; i < files.length; i++) {
         const img = files[i];
-        console.log(img);
+        imageToByteArray(img).then(byteArray => {
+          alert(byteArray);
+        }).catch(error => {
+          console.error(error);
+        });
         /*         
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "/upload", true);
@@ -69,13 +89,13 @@ async function  Upload(){
           "name":"teststsdsd"
         }));
         */
-        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        var theUrl = "/upload";
-        xmlhttp.open("POST", theUrl);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.send(JSON.stringify({
-           "meme": img 
-        }));
+        //var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        //var theUrl = "/upload";
+        //xmlhttp.open("POST", theUrl);
+        //xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        //xmlhttp.send(JSON.stringify({
+        //   "meme": img 
+        //}));
         
        /*
         const formData = new FormData()

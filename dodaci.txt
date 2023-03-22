@@ -1,0 +1,12 @@
+https://stackoverflow.com/questions/20756042/how-to-display-an-image-stored-as-byte-array-in-html-javascript
+
+function byteArrayToImage(byteArray) {
+  const blob = new Blob([byteArray], { type: 'image/png' }); // Replace 'image/png' with the MIME type of your image
+  const url = URL.createObjectURL(blob);
+  const img = document.createElement('img');
+  img.src = url;
+  document.body.appendChild(img); // Replace `document.body` with the element you want to append the image to
+}
+
+const byteArray = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 64, 0, 0, 0, 64, 8, 6, 0, 0, 0]);
+byteArrayToImage(byteArray);
