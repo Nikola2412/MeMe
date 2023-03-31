@@ -5,11 +5,13 @@ const path = require('path');
 //const fileUpload = require('express-fileupload')
 //const cookieSession = require('cookie-session');
 const { v4: uuidv4 } = require('uuid');
+//const sharp = require('sharp');
+//const jimp = require('jimp');
 
 //const videoList = require('./videoList.json');
-const multer  = require('multer');
+//const multer  = require('multer');
 
-const upload = multer({ dest: 'uploads/'});
+//const upload = multer({ dest: 'uploads/'});
 
 
 //const upload = multer({ dest: os.tmpdir() });
@@ -38,7 +40,7 @@ app.set('view engine', 'ejs');
 
 
 
-app.use(express.json());
+app.use(express.json({limit:"10mb"}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname+'/public'));
 app.listen(port,()=>console.log(`App listen to ${port}`));
@@ -181,16 +183,27 @@ app.post('/auth', function(request, response) {
 		response.end();
 	}
 });
-app.post('/upload',upload.single('meme'),(req, res) => {
-    //console.log(req.name);
-    //res.send(req.body);
-    //const byteContent = req.file.size
-    //console.log(byteContent);
-    console.log(req.file, req.body)
-    //const filePath = path.join(__dirname, 'public', 'images')
-    //console.log(filePath);
+
+function byteArrayToImage(byteArray) {
+    const blob = new Blob([byteArray], { type: 'image/jpg' }); // Replace 'image/png' with the MIME type of your image
+    //const url = URL.createObjectURL(blob);
+    //const img = document.createElement('img');
+    //img.src = url;
+    //document.body.appendChild(img); // Replace `document.body` with the element you want to append the image to
+}
+
+app.post('/upload',(req, res) => {
 
     const id = uuidv4();
+
+    console.log(id);
+
+    var bitmap = new Buffer.from(Object.values(req.body.meme),'base64');
+    
+    const filepath = "memes/"+id+".jpg";
+
+    fs.appendFileSync(filepath,bitmap);
+    
     const date = new Date();
     var data = fs.readFileSync("./baza/meme.json");
     var myObject = JSON.parse(data);
@@ -305,7 +318,10 @@ function getMemes(){
 function sendImg(imgPath,res,extension){
     fs.readFile(imgPath+extension, function(err, data) {
         if(err){
-            sendImg(imgPath,res,'png');
+            if(extension == 'png')
+                res.end();
+            else
+                sendImg(imgPath,res,'png');
         }
         else{
             // Set the content type to image/png
@@ -318,9 +334,7 @@ function sendImg(imgPath,res,extension){
 
 app.get('/id_memea=:id',(req,res)=>{
     const id = req.params.id;
-
     const imgPath = `memes/${id}.`;
-    
     sendImg(imgPath,res,'jpg');
 })
 
@@ -329,7 +343,7 @@ app.get('/newest-memes',(req,res)=>{
         sesia:req.session,
         memes: getMemes(),
     });
-})
+});
 
 app.get('/video',(req,res)=>{
     const id = req.query.id;

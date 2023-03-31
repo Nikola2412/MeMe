@@ -69,9 +69,17 @@ async function  Upload(){
     for (let i = 0; i < files.length; i++) {
         const img = files[i];
         imageToByteArray(img).then(byteArray => {
-          alert(byteArray);
+          //console.log(byteArray);
+          var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+          var theUrl = "/upload";
+          xmlhttp.open("POST", theUrl);
+          xmlhttp.setRequestHeader("Content-Type", "application/json");
+          xmlhttp.send(JSON.stringify({
+             "meme": byteArray 
+          }));
+
         }).catch(error => {
-          console.error(error);
+          alert(error);
         });
         /*         
         const xhr = new XMLHttpRequest();
@@ -89,13 +97,7 @@ async function  Upload(){
           "name":"teststsdsd"
         }));
         */
-        //var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-        //var theUrl = "/upload";
-        //xmlhttp.open("POST", theUrl);
-        //xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        //xmlhttp.send(JSON.stringify({
-        //   "meme": img 
-        //}));
+       
         
        /*
         const formData = new FormData()
