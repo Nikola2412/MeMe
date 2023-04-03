@@ -66,8 +66,12 @@
             <%-include('options')%>
             <div class="memes">
                 <% for(var i=0; i < memes.length; i++) { %>
-                <div class="meme">
-                    <img src="./id_memea=<%=memes[i].id%>" alt="">
+                <div class="canvas">
+                    <img class="meme" src="./id_memea=<%=memes[i].id%>" alt="">
+                    <a href="/chanal?id=<%=memes[i].id_kanala%>&mode=meme">
+                        <img class="logo" src="./images/profile.png" alt="">
+                        <p><%=memes[i].name%></p>
+                    </a>
                 </div>
                 <% } %> 
             </div>

@@ -76,3 +76,22 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
+
+.meni{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+}
+.meni button{
+    width: 200px;
+    justify-content: center;
+    align-content: center;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+.meni button:hover{
+    background-color: gray;
+}

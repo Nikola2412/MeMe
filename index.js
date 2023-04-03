@@ -258,7 +258,7 @@ function getVbyUser(index){
 }
 
 app.get('/chanal',(req,res)=>{
-    //console.log(req.query.id);
+    //console.log(req.query.mode);
     const id = req.query.id;
     if(id === req.session.id_kanala)
         res.redirect('/myAcc');
@@ -312,8 +312,22 @@ app.get("/getUsers", (req, res) => {
 })
 */
 function getMemes(){
+    const temp = [];
     const MemesList = require('./baza/meme.json');
-    return MemesList;
+    const kanalList = require('./baza/kanalList.json')
+    for(let i=0;i<MemesList.length;i++){
+        const id_kanala  = MemesList[i].id_kanala;
+        let name = kanalList.find((g) => g.id == id_kanala).name;
+        let data = 
+        {
+            'id': MemesList[i].id,
+            'name': name,
+            'id_kanala':id_kanala
+        };
+        temp.push(data);
+    }
+    //console.log(temp);
+    return temp;
 }
 
 function sendImg(imgPath,res,extension){

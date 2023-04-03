@@ -1,1 +1,157 @@
-[{"id":0,"date":"26.1.2023","id_kanala":1},{"id":1,"date":"26.1.2023","id_kanala":1},{"id":2,"date":"26.1.2023","id_kanala":1},{"id":3,"date":"26.1.2023","id_kanala":1},{"id":4,"date":"26.1.2023","id_kanala":1},{"id":5,"date":"26.1.2023","id_kanala":1},{"id":6,"date":"26.1.2023","id_kanala":1},{"id":7,"date":"10.2.2023","id_kanala":1},{"id":8,"date":"11.2.2023","id_kanala":1},{"id":9,"date":"11.2.2023","id_kanala":1},{"id":10,"date":"15.2.2023","id_kanala":1},{"id":11,"date":"15.2.2023","id_kanala":1},{"id":12,"date":"15.2.2023","id_kanala":1},{"id":13,"date":"15.2.2023","id_kanala":1},{"id":14,"date":"15.2.2023","id_kanala":1},{"id":"6c5c2cef-7849-4e26-95b7-05c826c68ed1","date":"31/3/2023","id_kanala":1},{"id":"ab342813-d328-4300-81a3-a4df9e950f08","date":"31/3/2023","id_kanala":1},{"id":"f0cac872-ca57-4cfe-b166-7c28168f3907","date":"31/3/2023","id_kanala":1},{"id":"3c927b2a-03fe-4b30-b4df-b00036bdf97f","date":"3/4/2023","id_kanala":"1"},{"id":"dee2dbeb-0fca-4fb8-9702-34529bbd4cba","date":"3/4/2023","id_kanala":"1"},{"id":"ab36df1a-8a9a-4b0d-94b6-548891ed7d68","date":"3/4/2023","id_kanala":"1"},{"id":"eece7d06-2a56-4bd8-9c00-0bcfee1ed284","date":"3/4/2023","id_kanala":"1"},{"id":"47290682-2ec0-4dd2-89a0-f0ba74f8ae59","date":"3/4/2023","id_kanala":"1"},{"id":"42210b31-e8c2-43a5-a91a-4a209d1a6554","date":"3/4/2023"},{"id":"37847488-7ca3-4aaf-827c-7711dd9b7034","date":"3/4/2023"},{"id":"d8eede87-4d4c-4158-a200-af0f7e1372d5","date":"3/4/2023","id_kanala":"1"},{"id":"2451f201-28d5-46b3-90ce-bf057d253493","date":"3/4/2023","id_kanala":"1"},{"id":"b9c7f740-bfc8-48da-ba7d-ae4d661a72ea","date":"3/4/2023","id_kanala":"1"},{"id":"a7da6d5f-8ac2-4ed6-bbed-26a986d21eff","date":"3/4/2023","id_kanala":"1"},{"id":"eaf972ac-1b5a-46da-b1f6-95f1c40d0b3f","date":"3/4/2023","id_kanala":"1"},{"id":"a97711c7-0794-42d7-b963-e790c6e278af","date":"3/4/2023","id_kanala":"1"}]
+[
+    {
+      "id": 0,
+      "date": "26.1.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 1,
+      "date": "26.1.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 2,
+      "date": "26.1.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 3,
+      "date": "26.1.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 4,
+      "date": "26.1.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 5,
+      "date": "26.1.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 6,
+      "date": "26.1.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 7,
+      "date": "10.2.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 8,
+      "date": "11.2.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 9,
+      "date": "11.2.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 10,
+      "date": "15.2.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 11,
+      "date": "15.2.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 12,
+      "date": "15.2.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 13,
+      "date": "15.2.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": 14,
+      "date": "15.2.2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "6c5c2cef-7849-4e26-95b7-05c826c68ed1",
+      "date": "31/3/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "ab342813-d328-4300-81a3-a4df9e950f08",
+      "date": "31/3/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "f0cac872-ca57-4cfe-b166-7c28168f3907",
+      "date": "31/3/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "3c927b2a-03fe-4b30-b4df-b00036bdf97f",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "dee2dbeb-0fca-4fb8-9702-34529bbd4cba",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "ab36df1a-8a9a-4b0d-94b6-548891ed7d68",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "eece7d06-2a56-4bd8-9c00-0bcfee1ed284",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "47290682-2ec0-4dd2-89a0-f0ba74f8ae59",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "42210b31-e8c2-43a5-a91a-4a209d1a6554",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "37847488-7ca3-4aaf-827c-7711dd9b7034",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "d8eede87-4d4c-4158-a200-af0f7e1372d5",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "2451f201-28d5-46b3-90ce-bf057d253493",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "b9c7f740-bfc8-48da-ba7d-ae4d661a72ea",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "a7da6d5f-8ac2-4ed6-bbed-26a986d21eff",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "eaf972ac-1b5a-46da-b1f6-95f1c40d0b3f",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    },
+    {
+      "id": "a97711c7-0794-42d7-b963-e790c6e278af",
+      "date": "3/4/2023",
+      "id_kanala": 1
+    }
+  ]

@@ -36,7 +36,7 @@
     width: 100%;
     height: 60px;
 }
-.opis2{
+.opis2 a{
     height: fit-content;
     display: flex;
     padding: 5px;
@@ -46,6 +46,7 @@
 .opis2 p{
     height: fit-content;
     margin-left: 10px;
+    margin-right: 10px;
 }
 .naziv{
     height: fit-content;

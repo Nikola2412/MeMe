@@ -70,6 +70,10 @@
                     <h1><%=data.name%></h1>
                 </div>
             </div>
+            <div class="meni">
+                <button class="vid sada">videos</button>
+                <button class="mim">memes</button>
+            </div>
             <div class="videos">
                 <% for(var i=0; i < videi.length; i++) { %>
                     <div class="video">
@@ -85,8 +89,11 @@
                         </div>
                     </div>
                 <% } %>
+                <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
             </div>
-            <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
+            <div class="memes">
+                <!-- da se mimovi preko js ubace -->
+            </div>
         </div>
     </div>
 </div>

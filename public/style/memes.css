@@ -1,21 +1,44 @@
-.meme{
+.canvas{
     margin-left: auto;
     margin-right: auto;
     transition: 1s ease-in-out;
-    height: calc(100vh - 80px);
-    
+    height: calc(100vh - 90px);
     margin-bottom: 10px;
-    pointer-events: none;
+    display: flex;
+    position: relative;
+    flex-direction:column-reverse;
 }
-.meme img{
+.canvas .meme{
     height: 100%;
     width: 100%;
     object-fit:contain;
     pointer-events: none;
+    position:absolute;
+}
+.canvas a{
+    background-color: black;
+    border: 1px solid gray;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin:5px;
 }
 .desni{
     display: grid;
     overflow-y:auto;
     grid-template-columns: auto;
     height: calc(100vh - 80px);
+}
+.canvas a p{
+    height: fit-content;
+    margin-left: 10px;
+    margin-right: 10px;
 }
