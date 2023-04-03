@@ -209,13 +209,14 @@ app.post('/upload',(req, res) => {
     var myObject = JSON.parse(data);
     let newData = { 
         "id":id,
-        "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
+        "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear(),
+        "id_kanala":req.session.id_kanala
     }
     //console.log(req.session.id_kanala);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
     fs.writeFileSync("./baza/meme.json", newData2);
-    res.redirect('/');
+    res.status(200).send('Picture has been receved!!');
 });
 
 app.get('/login',(req,res)=>{

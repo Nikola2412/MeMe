@@ -77,33 +77,11 @@ async function  Upload(){
           xmlhttp.send(JSON.stringify({
              "meme": byteArray 
           }));
+          //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/status
 
         }).catch(error => {
           alert(error);
         });
-        /*         
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "/upload", true);
-        
-        xhr.upload.addEventListener("progress", (event) => {
-          if (event.lengthComputable) {
-            const percentComplete = (event.loaded / event.total) * 100;
-            progress.style.width = `${percentComplete}%`;
-          }
-        });
-        
-        xhr.send(JSON.stringify({
-          "meme":"img",
-          "name":"teststsdsd"
-        }));
-        */
-       
-        
-       /*
-        const formData = new FormData()
-        formData.append('file', img)
-      
-        const { data: result } = await axios.post(`/upload`, formData)
-        */
   }
+  this.location.href = '/';
 }
