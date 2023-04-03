@@ -2,11 +2,11 @@
     margin-left: auto;
     margin-right: auto;
     transition: 1s ease-in-out;
-    height: calc(100vh - 90px);
-    margin-bottom: 10px;
+    height: calc(100vh - 76px);
     display: flex;
     position: relative;
     flex-direction:column-reverse;
+    border: 1px solid white;
 }
 .canvas .meme{
     height: 100%;
