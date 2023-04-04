@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./style/nav.css">
     <link rel="stylesheet" href="./style/main-page.css">
     <link rel="stylesheet" href="./style/scroler.css">
-    <link rel="stylesheet" href="./style/memes.css">
+    <link rel="stylesheet" href="./style/meme.css">
     <link rel="stylesheet" href="./style/break.css">
     <link rel="stylesheet" href="./style/hover.css">
     <link rel="stylesheet" href="./style/theme.css">
@@ -61,29 +61,15 @@
                 </ul>
             </div>
             <div class="line"></div>
-            <div class="section2">
-                <input id="slider" orient="vertical" type="range" min="10" max="80" value="100">
-            </div>
-            <div class="line"></div>
         </div>
         <div class="desni">
             <%-include('options')%>
-            <div class="app">
-                <div class="canvas">
-                    <% for(var i=0; i < memes.length; i++) { %>
-                        <a href="./id_memea=<%=memes[i].id%>">
-                        <img class="meme" src="./id_memea=<%=memes[i].id%>" alt="">
-                        </a>
-                    <% } %> 
-                </div>
-            </div>
-            <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
+            
         </div>
     </div>
 </div>
 <div class="scripte">
     <script src="./srcipts/js.js"></script>
-    <script src="./srcipts/meme.js"></script>
 </div>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/*
 .canvas{
     margin-left: auto;
     margin-right: auto;
@@ -42,4 +43,40 @@
     height: fit-content;
     margin-left: 10px;
     margin-right: 10px;
+}
+*/
+.desni{
+    height: calc(100vh - 150px);
+    overflow-y: auto;
+}
+.app{
+    width: 100%;
+}
+.canvas{
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    row-gap: 50px;
+}
+.canvas a{
+    width: 80%;
+    height: fit-content;
+    margin: auto;
+}
+.meme{
+    width: 100%;
+    height: fit-content;
+    object-fit: contain;
+    border-radius: 15px;
+}
+input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* Chromium */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
 }
