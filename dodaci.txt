@@ -21,7 +21,11 @@ kresa za fon
     flex-direction: row;
     flex-wrap: wrap;
 
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(auto,1fr));
 
+
+    
 
 .desni{
     width: 100%;

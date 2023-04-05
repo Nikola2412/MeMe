@@ -37,7 +37,7 @@ function phone(){
 }
 
 function computer(){
-    canvas.columns = '4 32px';
+    canvas.columns = '4 12rem';
     canvas.gap='5px';
     
 }
@@ -66,7 +66,8 @@ window.onload = (event) => {
 
 var slider = document.getElementById("slider");
 slider.oninput = function() {
-    slike.forEach(slika => {
-        slika.style.width=this.value + '%';
-    });
+    let br = parseInt(this.value) +  20;
+    document.querySelectorAll('.meme').forEach(slika=>{
+        slika.style.borderRadius = (br * 20 /100)+'px';
+    })
 } 
