@@ -24,7 +24,7 @@ html{
     background: #555; 
     border-radius: 30px;
 }
-.levi::-webkit-scrollbar,.desni::-webkit-scrollbar,.next::-webkit-scrollbar,.container2::-webkit-scrollbar{
+.levi::-webkit-scrollbar,.desni::-webkit-scrollbar,.next::-webkit-scrollbar,.container2::-webkit-scrollbar,.app::-webkit-scrollbar{
   display: none;
 }
 

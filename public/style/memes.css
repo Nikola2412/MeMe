@@ -59,18 +59,24 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 50px;
-    row-gap: 50px;
 }
 .canvas a{
-    width: 80%;
-    height: fit-content;
     margin: auto;
 }
 .meme{
+    position: relative;
+    z-index: 0;
     width: 100%;
-    height: fit-content;
+    height: 100%;
     object-fit: contain;
     border-radius: 15px;
+    transition: 1s ease-in-out;
+    pointer-events: none;
+}
+.meme:hover{
+    z-index: 2;
+    position: relative;
+    transform: scale(1.1);
 }
 input[type=range][orient=vertical]
 {

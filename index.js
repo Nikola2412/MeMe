@@ -347,6 +347,14 @@ function sendImg(imgPath,res,extension){
     });
 }
 
+app.get('/see',(req,res)=>{
+    const id = req.query.meme;
+    res.render('meme',{
+        sesia:req.session,
+        meme: id
+    });
+})
+
 app.get('/id_memea=:id',(req,res)=>{
     const id = req.params.id;
     const imgPath = `memes/${id}.`;

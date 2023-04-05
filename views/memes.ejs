@@ -62,7 +62,7 @@
             </div>
             <div class="line"></div>
             <div class="section2">
-                <input id="slider" orient="vertical" type="range" min="10" max="80" value="100">
+                <input id="slider" orient="vertical" type="range" min="10" max="80" value="80">
             </div>
             <div class="line"></div>
         </div>
@@ -71,8 +71,8 @@
             <div class="app">
                 <div class="canvas">
                     <% for(var i=0; i < memes.length; i++) { %>
-                        <a href="./id_memea=<%=memes[i].id%>">
-                        <img class="meme" src="./id_memea=<%=memes[i].id%>" alt="">
+                        <a href="./see?meme=<%=memes[i].id%>">
+                            <img class="meme" src="./id_memea=<%=memes[i].id%>" alt="">
                         </a>
                     <% } %> 
                 </div>
