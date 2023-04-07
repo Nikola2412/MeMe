@@ -18,6 +18,8 @@ const { v4: uuidv4 } = require('uuid');
 
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const bodyParserErrorHandler = require('express-body-parser-error-handler')
+
 //const { stringify } = require('querystring');
 //const { append } = require('domutils');
 //let user = 'User';
@@ -40,8 +42,11 @@ app.set('view engine', 'ejs');
 
 
 
-app.use(express.json({limit:"10mb"}));
+app.use(express.json({limit:"50mb"}));
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+app.use(bodyParserErrorHandler());
 app.use(express.static(__dirname+'/public'));
 app.listen(port,()=>console.log(`App listen to ${port}`));
 app.use(bodyParser.urlencoded({extended:true}));
