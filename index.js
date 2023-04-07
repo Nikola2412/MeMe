@@ -196,7 +196,7 @@ app.post('/upload',(req, res) => {
 
     const id = uuidv4();
 
-    console.log(id);
+    //console.log(id);
 
     var bitmap = new Buffer.from(Object.values(req.body.meme),'base64');
     
@@ -311,24 +311,12 @@ app.get("/getUsers", (req, res) => {
     
 })
 */
+
 function getMemes(){
-    const temp = [];
     const MemesList = require('./baza/meme.json');
-    const kanalList = require('./baza/kanalList.json')
-    for(let i=0;i<MemesList.length;i++){
-        const id_kanala  = MemesList[i].id_kanala;
-        let name = kanalList.find((g) => g.id == id_kanala).name;
-        let data = 
-        {
-            'id': MemesList[i].id,
-            'name': name,
-            'id_kanala':id_kanala
-        };
-        temp.push(data);
-    }
-    //console.log(temp);
-    return temp;
+    return MemesList;
 }
+
 
 function sendImg(imgPath,res,extension){
     fs.readFile(imgPath+extension, function(err, data) {
@@ -347,11 +335,29 @@ function sendImg(imgPath,res,extension){
     });
 }
 
+
+function getMeme(index){
+    const MemesList = require('./baza/meme.json');
+    const kanalList = require('./baza/kanalList.json')
+    let k = MemesList.find((g) => g.id == index);
+    //console.log(k);
+    
+    const kanal = kanalList.find((g)=>g.id == k.id_kanala);
+    //console.log(kanal.name);
+    let data={
+        'id':index,
+        'name':kanal.name,
+        'id_kanala':kanal.id
+    }
+    
+    return data;
+    
+}
 app.get('/see',(req,res)=>{
     const id = req.query.meme;
     res.render('meme',{
         sesia:req.session,
-        meme: id
+        meme: getMeme(id)
     });
 })
 

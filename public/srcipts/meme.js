@@ -70,4 +70,4 @@ slider.oninput = function() {
     document.querySelectorAll('.meme').forEach(slika=>{
         slika.style.borderRadius = (br * 20 /100)+'px';
     })
-} 
+}

@@ -1,12 +1,32 @@
 .app{
     height: 100%;
-    width: 100%;
+    width: fit-content;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 }
 .meme{
     width: 100%;
     height: 100%;
     object-fit: contain;
     margin: auto;
+}
+.opis{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.opis p{
+    height: fit-content;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.profile{
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
 }

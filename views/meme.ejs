@@ -65,7 +65,11 @@
         <div class="desni">
             <%-include('options')%>
             <div class="app">
-                <img class="meme" src="./id_memea=<%=meme%>" alt="">
+                <img class="meme" src="./id_memea=<%=meme.id%>" alt="">
+                <a class="opis" href="./chanal?id=<%=meme.id_kanala%>&mode=meme">
+                    <img class="profile" src="./images/profile.png" alt="">
+                    <p><%=meme.name%></p>
+                </a>
             </div>
         </div>
     </div>
