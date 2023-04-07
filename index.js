@@ -46,7 +46,7 @@ app.use(express.json({limit:"50mb"}));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-app.use(bodyParserErrorHandler());
+//app.use(bodyParserErrorHandler());
 app.use(express.static(__dirname+'/public'));
 app.listen(port,()=>console.log(`App listen to ${port}`));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -198,7 +198,7 @@ function byteArrayToImage(byteArray) {
 }
 
 app.post('/upload',(req, res) => {
-
+    //console.log('test');
     const id = uuidv4();
 
     //console.log(id);
