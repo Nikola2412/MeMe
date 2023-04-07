@@ -65,6 +65,7 @@ dropzone.addEventListener(
 
   imgInp.onchange = evt => {
     const [file] = imgInp.files
+    console.log(file);
     if (file) {
       const div = document.createElement('div');
       div.id = 'spoj';
@@ -86,6 +87,7 @@ dropzone.addEventListener(
         btn.parentElement.remove();
       });
       preview.appendChild(div);
+      files.push(file);
     }
   }
 
