@@ -173,7 +173,12 @@ app.post('/auth', function(request, response) {
 
 		// Execute SQL query that'll select the account from the database based on the specified username and password
 		const user = kanalList.find((g) => g.name === username);
-        if(user.password===password)
+        if(typeof(user) == 'undefined')
+        {
+            response.status(202)
+            response.end();
+        }
+        else if(user.password===password)
         {
             request.session.loggedin = true;
 			request.session.username = username;
@@ -181,21 +186,11 @@ app.post('/auth', function(request, response) {
             response.redirect('/upload');
         }
         else{
-            response.redirect('/login');    
+            response.status(202)
+            response.end(); 
         }
-	} else {
-		response.send('Please enter Username and Password!');
-		response.end();
 	}
 });
-
-function byteArrayToImage(byteArray) {
-    const blob = new Blob([byteArray], { type: 'image/jpg' }); // Replace 'image/png' with the MIME type of your image
-    //const url = URL.createObjectURL(blob);
-    //const img = document.createElement('img');
-    //img.src = url;
-    //document.body.appendChild(img); // Replace `document.body` with the element you want to append the image to
-}
 
 app.post('/upload',(req, res) => {
     //console.log('test');
