@@ -52,8 +52,10 @@
 #spoj {
     position: relative;
     margin-bottom: 20px;
+    transition: 0.3s ease-in-out;
 }
 #spoj img,#spoj input{
+    transition: 1s ease-in-out;
     width: 100%;
     height: fit-content;
     position: relative;
