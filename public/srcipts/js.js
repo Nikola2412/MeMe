@@ -114,3 +114,6 @@ document.querySelectorAll('.desni .logo').forEach(slika =>{
     });
 });
 */
+window.onorientationchange = (event) => {
+    promeni();
+  };
