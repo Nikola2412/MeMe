@@ -41,15 +41,14 @@ dropzone.addEventListener("drop", (event) => {
             btn.parentElement.remove();
           });
           preview.appendChild(div);
-          for (var i = 0;i < dFiles.length; i++) {
-            files.push(dFiles[i]);
-          }
+          files.push(dFiles[i]);
         }else {
           alert('Samo slike u jpg ili png formatu')
         }
       });
       reader.readAsDataURL(file);
     }
+    console.log(files.length);
     
   });
 const imgInp = document.getElementById('imgInp');
@@ -108,6 +107,7 @@ function imageToByteArray(file) {
   
 
 async function  Upload(){
+  //console.log(files.length);
     for (let i = 0; i < files.length; i++) {
         const img = files[i];
         imageToByteArray(img).then(byteArray => {
@@ -123,6 +123,6 @@ async function  Upload(){
           alert(error);
         });
   }
-  this.location.href = '/';
+  //this.location.href = '/';
 }
 

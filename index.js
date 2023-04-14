@@ -42,10 +42,10 @@ app.set('view engine', 'ejs');
 
 
 
-app.use(express.json({limit:"50mb"}));
-app.use(express.urlencoded({ extended: true ,limit:"50mb"}));
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+app.use(express.json({limit:"100mb"}));
+app.use(express.urlencoded({ extended: true ,limit:"100mb"}));
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 //app.use(bodyParserErrorHandler());
 app.use(express.static(__dirname+'/public'));
 app.listen(port,()=>console.log(`App listen to ${port}`));
@@ -193,10 +193,10 @@ app.post('/auth', function(request, response) {
 });
 
 app.post('/upload',(req, res) => {
-    //console.log('test');
+    console.log('test');
     const id = uuidv4();
 
-    //console.log(id);
+    console.log(id);
 
     var bitmap = new Buffer.from(Object.values(req.body.meme),'base64');
     
