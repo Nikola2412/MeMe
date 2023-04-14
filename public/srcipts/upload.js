@@ -121,7 +121,7 @@ function imageToByteArray(file) {
 }
   
 
-function  Upload(){
+async function  Upload(){
   let n = 0;
   console.log(files);
     for (let i = 0; i < files.length; i++) {
