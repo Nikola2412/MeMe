@@ -47,9 +47,7 @@ dropzone.addEventListener("drop", (event) => {
         }
       });
       reader.readAsDataURL(file);
-    }
-    console.log(files.length);
-    
+    }  
   });
 const imgInp = document.getElementById('imgInp');
 dropzone.addEventListener(
@@ -107,7 +105,7 @@ function imageToByteArray(file) {
   
 
 async function  Upload(){
-  //console.log(files.length);
+  console.log(files.length);
     for (let i = 0; i < files.length; i++) {
         const img = files[i];
         imageToByteArray(img).then(byteArray => {
@@ -123,6 +121,6 @@ async function  Upload(){
           alert(error);
         });
   }
-  //this.location.href = '/';
+  this.location.href = '/';
 }
 
