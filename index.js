@@ -193,10 +193,10 @@ app.post('/auth', function(request, response) {
 });
 
 app.post('/upload',(req, res) => {
-    console.log('test');
+    //console.log('test');
     const id = uuidv4();
 
-    console.log(id);
+    //console.log(id);
 
     var bitmap = new Buffer.from(Object.values(req.body.meme),'base64');
     
