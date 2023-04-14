@@ -18,7 +18,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const fs = require('fs');
 const bodyParser = require('body-parser');
-const bodyParserErrorHandler = require('express-body-parser-error-handler')
+//const bodyParserErrorHandler = require('express-body-parser-error-handler')
 
 //const { stringify } = require('querystring');
 //const { append } = require('domutils');
@@ -29,7 +29,7 @@ const port = 3001;
 //const appip = os.networkInterfaces().en0[2].address;
 //const appadress = 'https://['+appip+']:'+port+'/';
 //console.log(os.networkInterfaces());
-const hostname = '0.0.0.0';
+//const hostname = '0.0.0.0';
 //const port2 = 80;
 app.enable('trust proxy',1)
 app.use(session({
@@ -43,7 +43,7 @@ app.set('view engine', 'ejs');
 
 
 app.use(express.json({limit:"50mb"}));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true ,limit:"50mb"}));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 //app.use(bodyParserErrorHandler());
