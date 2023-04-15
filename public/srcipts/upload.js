@@ -121,32 +121,38 @@ function imageToByteArray(file) {
 }
   
 
-async function  Upload(){
+function  Upload(){
   let n = 0;
-  console.log(files);
-    for (let i = 0; i < files.length; i++) {
-        const img = files[i].Slika;
-        const id = files[i].id;
-        //console.log(document.getElementById('slika ' + id).parentElement);
-        //console.log(id);
-        
-        imageToByteArray(img).then(byteArray => {
-          var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-          var theUrl = "/upload";
-          xmlhttp.open("POST", theUrl);
-          xmlhttp.setRequestHeader("Content-Type", "application/json");
-          xmlhttp.send(JSON.stringify({
-             "meme": byteArray 
-          }));
-          //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/status
-        }).catch(error => {
-          alert(error);
-        }).finally(el=>{
-            const indexToDelete = files.findIndex(obj => obj.id == id);
-            files.splice(indexToDelete, 1);
-            document.getElementById('slika ' + id).parentElement.remove();
-        });
-        
+  //console.log(files);
+  for (let i = 0; i < files.length; i++) {
+    const img = files[i].Slika;
+    const id = files[i].id;
+    //console.log(document.getElementById('slika ' + id).parentElement);
+    //console.log(id);
+    
+    imageToByteArray(img).then(async byteArray => {
+      var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+      var theUrl = "/upload";
+      xmlhttp.open("POST", theUrl);
+      xmlhttp.setRequestHeader("Content-Type", "application/json");
+      xmlhttp.send(JSON.stringify({
+         "meme": byteArray 
+      }));
+      xmlhttp.onloadend = function() {
+        if (xmlhttp.status == 200) {
+          const indexToDelete = files.findIndex(obj => obj.id == id);
+          files.splice(indexToDelete, 1);
+          document.getElementById('slika ' + id).parentElement.remove();
+        } else {
+          window.alert("error " + this.status)
+        }
+      };
+      
+      //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/status
+    }).catch(error => {
+      alert(error);
+    });
+    
   }
   //this.location.href = '/';
 }

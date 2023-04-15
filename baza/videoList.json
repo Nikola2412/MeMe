@@ -48,5 +48,20 @@
         "id_kanala": "1",
         "ime": "policija",
         "id": "10"
+    },
+    {
+        "id_kanala": "1",
+        "ime": "kamper",
+        "id": "11"
+    },
+    {
+        "id_kanala": "1",
+        "ime": "polifdsfacija",
+        "id": "12"
+    },
+    {
+        "id_kanala": "1",
+        "ime": "dsaduiasd",
+        "id": "13"
     }
 ]

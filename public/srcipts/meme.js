@@ -63,7 +63,7 @@ window.onload = (event) => {
     //window.alert(finalOs)
 
 }
-
+/*
 var slider = document.getElementById("slider");
 slider.oninput = function() {
     let br = parseInt(this.value) +  20;
@@ -71,3 +71,4 @@ slider.oninput = function() {
         slika.style.borderRadius = (br * 20 /100)+'px';
     })
 }
+*/
