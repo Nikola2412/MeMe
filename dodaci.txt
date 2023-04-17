@@ -1,53 +1,85 @@
-https://stackoverflow.com/questions/20756042/how-to-display-an-image-stored-as-byte-array-in-html-javascript
+js
+var rgtClickContextMenu = document.getElementById('div-context-menu');
 
-function byteArrayToImage(byteArray) {
-  const blob = new Blob([byteArray], { type: 'image/png' }); // Replace 'image/png' with the MIME type of your image
-  const url = URL.createObjectURL(blob);
-  const img = document.createElement('img');
-  img.src = url;
-  document.body.appendChild(img); // Replace `document.body` with the element you want to append the image to
+/** close the right click context menu on click anywhere else in the page*/
+document.onclick = function(e) {
+  rgtClickContextMenu.style.display = 'none';
 }
 
-const byteArray = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 0, 64, 0, 0, 0, 64, 8, 6, 0, 0, 0]);
-byteArrayToImage(byteArray);
-
-kresa za fon
-    -webkit-columns: 4 12rem;
-    columns: 4 32px;
-    gap: 5px;
-
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(auto,1fr));
-
-
-    
-
-.desni{
-    width: 100%;
-    height: calc(100vh - 80px);
-    overflow-y: auto;
+/**
+ present the right click context menu ONLY for the elements having the right class
+ by replacing the 0 or any digit after the "to-" string with the element id , which
+ triggered the event
+*/
+document.oncontextmenu = function(e) {
+  //alert(e.target.id)
+  var elmnt = e.target
+  if (elmnt.className.startsWith("cls-context-menu")) {
+    e.preventDefault();
+    var eid = elmnt.id.replace(/link-/, "")
+    rgtClickContextMenu.style.left = e.pageX + 'px'
+    rgtClickContextMenu.style.top = e.pageY + 'px'
+    rgtClickContextMenu.style.display = 'block'
+    var toRepl = "to=" + eid.toString()
+    rgtClickContextMenu.innerHTML = rgtClickContextMenu.innerHTML.replace(/to=\d+/g, toRepl)
+    //alert(rgtClickContextMenu.innerHTML.toString())
+  }
 }
-.app{
-    width: 100%;
+css
+.cls-context-menu-link {
+  display: block;
+  padding: 20px;
+  background: #ECECEC;
 }
-.canvas{
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    -webkit-columns: 4 12rem;
-    columns: 4 12rem;
-    gap: 5px;
+
+.cls-context-menu {
+  position: absolute;
+  display: none;
 }
-.canvas img{
-    width: 50%;
-    height: fit-content;
-    object-fit:contain;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 15px;
+
+.cls-context-menu ul,
+#context-menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: white;
 }
+
+.cls-context-menu {
+  border: solid 1px #CCC;
+}
+
+.cls-context-menu li {
+  border-bottom: solid 1px #CCC;
+}
+
+.cls-context-menu li:last-child {
+  border: none;
+}
+
+.cls-context-menu li a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: blue;
+}
+
+.cls-context-menu li a:hover {
+  background: blue;
+  color: #FFF;
+}
+
+html
+<!-- those are the links which should present the dynamic context menu -->
+<a id="link-1" href="#" class="cls-context-menu-link">right click link-01</a>
+<a id="link-2" href="#" class="cls-context-menu-link">right click link-02</a>
+
+<!-- this is the context menu -->
+<!-- note the string to=0 where the 0 is the digit to be replaced -->
+<div id="div-context-menu" class="cls-context-menu">
+  <ul>
+    <li><a href="#to=0">link-to=0 -item-1 </a></li>
+    <li><a href="#to=0">link-to=0 -item-2 </a></li>
+    <li><a href="#to=0">link-to=0 -item-3 </a></li>
+  </ul>
+</div>
