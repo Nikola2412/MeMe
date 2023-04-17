@@ -4,18 +4,14 @@
         height: fit-content;
         background-color: black;
         overflow: hidden;
-        z-index: 1;
+        z-index: 1000;
     }
     .video:hover > div{
         height: fit-content;
-        z-index: 1;
-    }
-    .video:hover .opis{
-        height: fit-content;
-        z-index: 1;
+        z-index: 1000;
     }
     .video:hover .divslike{
-        width: var(--videoduzina);
+        width: 100%;
         aspect-ratio: 16/9;
         height: fit-content;
         z-index: 1;
@@ -26,22 +22,5 @@
         overflow: hidden;
         display: block;
         z-index: 1;
-    }
-}
-@media screen and (max-width: 815px){
-    .video{
-        width: 90%;
-        height: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .video > div{
-        height: fit-content;
-    }
-    .video .divslike{
-        width: 100%;
-    }
-    .video .naziv{
-        height: fit-content;
     }
 }

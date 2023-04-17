@@ -5,9 +5,11 @@
     .search{
         display: block;
     }
-    
+    .close{
+        display: none;
+    }
 }
-@media screen and (max-width: 815px){
+@media screen and (max-width: 816px){
     .search{
         display: none;
     }
@@ -24,15 +26,6 @@
     }
     .left,.right{
         width: fit-content;
-    }
-    .video > div{
-        height: fit-content;
-    }
-    .video .divslike{
-        width: 100%;
-    }
-    .video .naziv{
-        height: fit-content;
     }
 }
 @media screen and (max-width: 250px){

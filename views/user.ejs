@@ -9,35 +9,13 @@
     <link rel="stylesheet" href="./style/scroler.css">
     <link rel="stylesheet" href="./style/user.css">
     <link rel="stylesheet" href="./style/break.css">
-    <link rel="stylesheet" href="./style/hover.css">
     <link rel="stylesheet" href="./style/theme.css">
     <%-include('icons')%>
     <title>Me||Me</title>
 </head>
 <body>
     <div class="fixovanje">
-    <header>
-        <div class="nav">
-                <div class="left">
-                    <div class="lines">
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                        <div class="line3"></div>
-                    </div>
-                    <a href="/">
-                        <img class="logo" src="./images/logo.png" width="100px"height="30px">
-                    </a>
-                </div>
-                <input class="search" onfocusout="out(this)" type="text" placeholder="Search..">
-                <img class="close" src="./ico/close.png" style="display: none;" width="35" height="35" alt="" srcset="">
-                <div class="right">
-                    <img class = "lupa" src="./ico/magnifier.png" width="35" height="35" alt="">
-                    <ul>
-                        <img class = "nalog" src="./images/profile.png" width="35" height="35" srcset="">
-                    </ul>
-                </div>
-            </div>
-    </header>
+        <%-include('nav')%>
     <div class="container">
         <div class="levi produzen" style="margin-left: 0;">
             <div class="section 1">
@@ -83,9 +61,7 @@
                             </a>
                         </div>
                         <div class="opis">
-                            <div class="opis2">
-                                <h3 class="naziv"><%=videi[i].ime%></h3>
-                            </div>
+                            <h3 class="naziv"><%=videi[i].ime%></h3>
                         </div>
                     </div>
                 <% } %>
