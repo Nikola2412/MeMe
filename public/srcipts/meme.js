@@ -1,3 +1,4 @@
+var lista_mimova = [];
 async function load_pic() {
     const memeDiv = document.querySelector('.meme');
     const xhr = new XMLHttpRequest();
@@ -42,27 +43,7 @@ function computer(){
     
 }
 
-window.onload = (event) => {
-    let os = navigator.userAgent;
-    //let finalOs="";
-    if (os.search('Windows')!==-1){
-        //finalOs="Windows";
-        //computer();
-    }
-    else if (os.search('Mac')!==-1){
-        //finalOs="MacOS";
-    }
-    else if (os.search('Linux')!==-1 && os.search('X11')!==-1){
-        //finalOs="Linux"
-    }
-    else if (os.search('Android')!==-1){
-        //finalOs="Android";
-        //phone();
-    }
-    
-    //window.alert(finalOs)
 
-}
 /*
 var slider = document.getElementById("slider");
 slider.oninput = function() {

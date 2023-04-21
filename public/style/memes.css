@@ -1,52 +1,5 @@
-/*
-.canvas{
-    margin-left: auto;
-    margin-right: auto;
-    transition: 1s ease-in-out;
-    height: calc(100vh - 76px);
-    min-height: fit-content;
-    display: flex;
-    position: relative;
-    flex-direction:column-reverse;
-    border: 1px solid white;
-}
-.canvas .meme{
-    width: 100%;
-    height: 100%;
-    object-fit:contain;
-    pointer-events: none;
-    position:absolute;
-}
-.canvas a{
-    background-color: black;
-    border: 1px solid gray;
-    width: fit-content;
-    height: fit-content;
-    position: absolute;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-.logo{
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin:5px;
-}
 .desni{
-    display: grid;
-    overflow-y:auto;
-    grid-template-columns: auto;
-    height: calc(100vh - 80px);
-}
-.canvas a p{
-    height: fit-content;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-*/
-.desni{
-    height: calc(100vh - 150px);
+    height: calc(100vh - 130px);
     overflow-y: auto;
 }
 .app{
@@ -75,17 +28,4 @@
     border-radius: 15px;
     transition: 1s ease-in-out;
     pointer-events: none;
-}
-a:hover .meme{
-    z-index: 2;
-    position: relative;
-    transform: scale(1.05);
-}
-input[type=range][orient=vertical]
-{
-    writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* Chromium */
-    width: 8px;
-    height: 175px;
-    padding: 0 5px;
 }

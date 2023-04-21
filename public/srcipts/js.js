@@ -82,15 +82,16 @@ window.onorientationchange = (event) => {
 };
 
 window.onload = (event) => {
-  let os = navigator.userAgent;
-  if (os.search('Windows')!==-1){
-  }
-  else if (os.search('Mac')!==-1){
-  }
-  else if (os.search('Linux')!==-1 && os.search('X11')!==-1){
-  }
-  else if (os.search('Android')!==-1){
-  }
+    let os = navigator.userAgent;
+    if (os.search('Windows')!==-1){
+        document.head.innerHTML+='    <link rel="stylesheet" href="./style/hover.css"> '
+    }
+    else if (os.search('Mac')!==-1){
+    }
+    else if (os.search('Linux')!==-1 && os.search('X11')!==-1){
+    }
+    else if (os.search('Android')!==-1){
+    }
 }
 /*
 window.onresize = (event) =>{
