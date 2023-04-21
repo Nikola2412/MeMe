@@ -71,11 +71,14 @@
             <%-include('options')%>
             <div class="app">
                 <div class="canvas">
+                    <button class="desno" onclick="plusDivs(-1)">&#10094;</button>
+
                     <% for(var i=0; i < memes.length; i++) { %>
-                        <a href="./see?meme=<%=memes[i].id%>">
+                        <a class="link" href="./see?meme=<%=memes[i].id%>">
                             <img class="meme" src="./id_memea=<%=memes[i].id%>" alt="">
                         </a>
-                    <% } %> 
+                    <% } %>
+                    <button class="levo" onclick="plusDivs(1)">&#10095;</button>
                 </div>
             </div>
             <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
@@ -85,6 +88,32 @@
 <div class="scripte">
     <script src="./srcipts/js.js"></script>
     <script src="./srcipts/meme.js"></script>
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+        
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("link");
+          if (n > x.length) 
+          {
+            slideIndex = 1
+            //treba da se pozovu novi
+            }
+          if (n < 1) {
+            slideIndex = x.length
+            //slideIndex+=1;
+        }
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          x[slideIndex-1].style.display = "block";  
+        }
+        </script>
 </div>
 </body>
 </html>

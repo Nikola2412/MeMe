@@ -8,15 +8,13 @@
 .canvas{
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 50px auto 50px;
 }
 .canvas a{
-    margin: auto;
-    height: fit-content;
-    width: fit-content;
-    max-height: calc(100vh - 130px);
+    width: 100%;
+    height: 100%;
+    display: none;
 }
 .meme{
     position: relative;
@@ -25,7 +23,18 @@
     height: 100%;
     max-height: calc(100vh - 130px);
     object-fit: contain;
-    border-radius: 15px;
-    transition: 1s ease-in-out;
     pointer-events: none;
+}
+.canvas button{
+    border: 1px solid gray;
+    padding:8px 16px;
+    text-decoration:none;
+    color:white;
+    background-color:black;
+    text-align:center;
+    white-space:nowrap;
+    width:50px;
+    text-align:left;
+    padding:8px 16px;
+    height: 100%;
 }
