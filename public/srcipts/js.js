@@ -84,7 +84,6 @@ window.onorientationchange = (event) => {
 window.onload = (event) => {
     let os = navigator.userAgent;
     if (os.search('Windows')!==-1){
-        document.head.innerHTML+='    <link rel="stylesheet" href="./style/hover.css"> '
     }
     else if (os.search('Mac')!==-1){
     }

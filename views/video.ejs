@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./style/break.css">
     <link rel="stylesheet" href="./style/theme.css">
     <%-include('icons')%>
-    <title><%=video.ime%></title>
+    <title><%=video.ime + ' Me||Me'%></title>
 </head>
 <body>
     <div class="fixovanje">
@@ -64,11 +64,6 @@
             <div class="video">
                 <div class="divslike">
                     <video src="/id_videa=<%=video.id%>" controls></video>
-                    <!--
-                    <video id="videoPlayer" controls autoplay>
-                        <source src="" type="video/mp4" />
-                    </video>
-                    -->
                 </div>
                 <div class="opis">
                     <h3 class="naziv"><%=video.ime%></h3>

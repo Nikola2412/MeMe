@@ -55,17 +55,13 @@ function getChunks(index,req,res){
         range = 'bytes=0-'
     }
 
-    // get video stats (about 61MB)
     const videoPath = `videi/${index}.mp4`;
     const videoSize = fs.statSync(videoPath).size;
 
-    // Parse Range
-    // Example: "bytes=32324-"
     const CHUNK_SIZE = 10 ** 6; // 1MB
     const start = Number(range.replace(/\D/g, ""));
     const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
 
-    // Create headers
     const contentLength = end - start + 1;
     const headers = {
         "Content-Range": `bytes ${start}-${end}/${videoSize}`,
@@ -140,6 +136,7 @@ app.post('/create',(req,res)=>{
 
 app.post('/auth', function(request, response) {
 	// Capture the input fields
+    console.log(request);
 	let username = request.body.username;
 	let password = request.body.password;
 	// Ensure the input fields exists and are not empty
@@ -360,6 +357,7 @@ app.get('/video',(req,res)=>{
 
 app.get('/id_videa=:id',(req,res)=>{
     const id = req.params.id;
+    //console.log(req.headers.range);
     getChunks(id,req,res);
 });
 
