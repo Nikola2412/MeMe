@@ -1,6 +1,7 @@
 @media screen and (min-width: 815px){
     .video:hover{
-        transform: scale(1.1);
+        /*transform: scale(1.1);*/
+        border-radius: 0;
         height: fit-content;
         background-color: black;
         overflow: hidden;
@@ -11,16 +12,20 @@
         z-index: 1000;
     }
     .video:hover .divslike{
+        border-radius: 0;
         width: 100%;
         aspect-ratio: 16/9;
         height: fit-content;
         z-index: 1;
+    }
+    .video:hover .divslike img{
+        border-radius: 0;
     }
     .video:hover .naziv{
         height: fit-content;
         text-align: left;
         overflow: hidden;
         display: block;
-        z-index: 1;
+        z-index: 1000;
     }
 }

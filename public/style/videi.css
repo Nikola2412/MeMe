@@ -8,6 +8,7 @@
     width: 100%;
     border-radius: 20px;
     height: 100%;
+    transition: 0.3s ease-in-out;
 }
 .divslike{
     width: 100%;
