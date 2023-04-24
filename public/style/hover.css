@@ -1,11 +1,12 @@
 @media screen and (min-width: 815px){
     .video:hover{
         /*transform: scale(1.1);*/
-        border-radius: 0;
+        border-radius: 10px;
         height: fit-content;
         background-color: black;
         overflow: hidden;
         z-index: 1000;
+        border: 2px solid gray;
     }
     .video:hover > div{
         height: fit-content;
@@ -16,10 +17,10 @@
         width: 100%;
         aspect-ratio: 16/9;
         height: fit-content;
-        z-index: 1;
+        z-index: 1000;
     }
     .video:hover .divslike img{
-        border-radius: 0;
+        border-radius: 10px;
     }
     .video:hover .naziv{
         height: fit-content;
