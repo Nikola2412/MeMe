@@ -27,7 +27,6 @@
   "homepage": "https://github.com/Nikola2412/YouTube#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
-    "cheerio": "^1.0.0-rc.12",
     "cookie-parser": "^1.4.6",
     "cookie-session": "^2.0.0",
     "ejs": "^3.1.8",
@@ -35,9 +34,6 @@
     "express-body-parser-error-handler": "^1.0.4",
     "express-fileupload": "^1.4.0",
     "express-session": "^1.17.3",
-    "mongodb": "^4.13.0",
-    "mongoose": "^6.8.2",
-    "multer": "^1.4.5-lts.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
