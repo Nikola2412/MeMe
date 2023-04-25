@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const fs = require('fs');
 const { readFileSync } = require('fs');
+const { writeFileSync } = require('fs');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -124,7 +125,7 @@ app.post('/create',(req,res)=>{
     var myObject = JSON.parse(data);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
-    fs.writeFileSync("./baza/kanalList.json", newData2);
+    writeFileSync("./baza/kanalList.json", newData2);
     req.session.loggedin = true;
 	req.session.username = username;
     req.session.id_kanala = id;
@@ -187,7 +188,7 @@ app.post('/upload',(req, res) => {
     //console.log(req.session.id_kanala);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
-    fs.writeFileSync("./baza/meme.json", newData2);
+    writeFileSync("./baza/meme.json", newData2);
     res.status(200).send('Picture has been receved!!');
 });
 
