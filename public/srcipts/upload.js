@@ -119,8 +119,6 @@ function imageToByteArray(file) {
         };
   });
 }
-  
-
 function  Upload(){
   let n = 0;
   //console.log(files);
