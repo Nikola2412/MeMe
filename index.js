@@ -137,7 +137,7 @@ app.post('/create',(req,res)=>{
 
 app.post('/auth', function(request, response) {
 	// Capture the input fields
-    console.log(request);
+    //console.log(request);
 	let username = request.body.username;
 	let password = request.body.password;
 	// Ensure the input fields exists and are not empty
@@ -230,16 +230,21 @@ function getVbyUser(index){
     return k;
 }
 
+app.post('/chanal',(req,res)=>{
+    const id = req.query.id;
+    res.send(getVbyUser(id))
+});
+
 app.get('/chanal',(req,res)=>{
     //console.log(req.query.mode);
     const id = req.query.id;
     if(id === req.session.id_kanala)
-        res.redirect('/myAcc');
+        res.redirect('/myAcc?mode=video');
     else{
         res.render('user',{
             sesia:req.session,
             data: getUser(id),
-            videi: getVbyUser(id),
+            //videi: getVbyUser(id),
             myAcc:false
         });
     }
