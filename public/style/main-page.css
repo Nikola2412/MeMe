@@ -33,6 +33,7 @@ li{
     padding:2px;
     overflow-y: auto;
     overflow-x: hidden;
+    z-index: 4;
 }
 .skracen{
     overflow-y: auto;
@@ -100,6 +101,9 @@ ul button{
 
 .skracen li a button img{
     padding: 10px;
+}
+.options{
+    z-index: 4;
 }
 .options ul{
     width: fit-content;

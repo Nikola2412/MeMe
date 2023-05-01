@@ -5,19 +5,19 @@
         height: fit-content;
         background-color: black;
         overflow: hidden;
-        z-index: 1000;
+        z-index: 2;
         border: 2px solid gray;
     }
     .video:hover > div{
         height: fit-content;
-        z-index: 1000;
+        z-index: 2;
     }
     .video:hover .divslike{
         border-radius: 0;
         width: 100%;
         aspect-ratio: 16/9;
         height: fit-content;
-        z-index: 1000;
+        z-index: 2;
     }
     .video:hover .divslike img{
         border-radius: 10px;
@@ -27,6 +27,6 @@
         text-align: left;
         overflow: hidden;
         display: block;
-        z-index: 1000;
+        z-index: 2;
     }
 }

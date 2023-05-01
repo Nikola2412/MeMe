@@ -2,6 +2,7 @@
     height: 80px;
     display: flex;
     align-items: center;
+    margin-top: 20px;
 }
 .info{
     padding: 5px;
@@ -43,8 +44,10 @@
     height: calc(100vh - 100px);
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 0;
 }
 .videos{
+    margin: 20px;
     padding:20px 0 20px 0;
     width: 100%;
     height: fit-content;
@@ -68,16 +71,17 @@
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    z-index: 1000;
+    z-index: 3;
 }
 .meni{
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
-    z-index: 1000;
+    z-index: 3;
     width: 100%;
     height: fit-content;
     margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
