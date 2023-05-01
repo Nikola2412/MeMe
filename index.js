@@ -238,14 +238,14 @@ function getMbyUser(index){
             k.push(vid)
         }
     });
-    console.log(k);
+    //console.log(k);
     return k;
 }
 
 app.post('/myAcc',(req,res)=>{
     const id = req.session.id_kanala;
     const mode = req.query.mode;
-    console.log(id);
+    //console.log(id);
     if(mode == 'video')
         res.send(getVbyUser(id))
     else
@@ -344,7 +344,7 @@ function getMeme(index){
     const MemesList = JSON.parse(readFileSync('./baza/meme.json'));
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
     let k = MemesList.find((g) => g.id == index);
-    console.log(k);
+    //console.log(k);
     
     const kanal = kanalList.find((g)=>g.id == k.id_kanala);
     //console.log(kanal.name);
