@@ -71,11 +71,18 @@
     z-index: 1000;
 }
 .meni{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
     width: 100%;
+    height: fit-content;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow-x: auto;
+    background-color: black;
 }
 .meni button{
     width: 200px;

@@ -49,10 +49,11 @@
                 </div>
             </div>
             <div class="meni">
-                <button class="vid sada">videos</button>
-                <button class="mim">memes</button>
+                <button class="vid" onclick="change('video')">videos</button>
+                <button class="mim" onclick="change('meme')">memes</button>
+                <button class="about" onclick="change('about')" disabled>about</button>
             </div>
-            <div class="videos">
+            <div class="videos" style="display: none;">
                 <!--
                 < for(var i=0; i < videi.length; i++) { %>
                     <div class="video">
@@ -72,6 +73,12 @@
             </div>
             <div class="memes">
                 <!-- da se mimovi preko js ubace -->
+                
+                <% for(var i=0; i < videi.length; i++) { %>
+                    <a href="./see?meme=<%=videi[i].id%>">
+                        <img src="./id_memea=<%=videi[i].id%>" alt="">
+                    </a>
+                <% } %>
             </div>
         </div>
     </div>

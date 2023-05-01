@@ -219,7 +219,7 @@ function getUser(index){
     return name;
 }
 function getVbyUser(index){
-    const k = [];
+    let k = [];
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
     const videoList = JSON.parse(readFileSync('./baza/videoList.json'))
     videoList.forEach(vid=>{
@@ -229,14 +229,40 @@ function getVbyUser(index){
     });
     return k;
 }
+function getMbyUser(index){
+    let k = [];
+    const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
+    const MemesList = JSON.parse(readFileSync('./baza/meme.json'))
+    MemesList.forEach(vid=>{
+        if(index == vid.id_kanala){
+            k.push(vid)
+        }
+    });
+    console.log(k);
+    return k;
+}
 
-app.post('/chanal',(req,res)=>{
+app.post('/myAcc',(req,res)=>{
+    const id = req.session.id_kanala;
+    const mode = req.query.mode;
+    console.log(id);
+    if(mode == 'video')
+        res.send(getVbyUser(id))
+    else
+        res.send(getMbyUser(id))
+})
+
+app.post('/chanel',(req,res)=>{
+    //console.log('dasdasd');
     const id = req.query.id;
-    res.send(getVbyUser(id))
+    const mode = req.query.mode;
+    if(mode == 'video')
+        res.send(getVbyUser(id))
+    else
+        res.send(getMbyUser(id))
 });
 
-app.get('/chanal',(req,res)=>{
-    //console.log(req.query.mode);
+app.get('/chanel',(req,res)=>{
     const id = req.query.id;
     if(id === req.session.id_kanala)
         res.redirect('/myAcc?mode=video');
@@ -244,7 +270,7 @@ app.get('/chanal',(req,res)=>{
         res.render('user',{
             sesia:req.session,
             data: getUser(id),
-            //videi: getVbyUser(id),
+            videi: getMbyUser(id),
             myAcc:false
         });
     }
@@ -318,7 +344,7 @@ function getMeme(index){
     const MemesList = JSON.parse(readFileSync('./baza/meme.json'));
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
     let k = MemesList.find((g) => g.id == index);
-    //console.log(k);
+    console.log(k);
     
     const kanal = kanalList.find((g)=>g.id == k.id_kanala);
     //console.log(kanal.name);
