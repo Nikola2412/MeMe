@@ -6,7 +6,6 @@
         background-color: black;
         overflow: hidden;
         z-index: 2;
-        border: 2px solid gray;
     }
     .video:hover > div{
         height: fit-content;

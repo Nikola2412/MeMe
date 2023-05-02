@@ -23,6 +23,7 @@
     aspect-ratio: 16 / 9;
 }
 .video{
+    transition: 0.3s ease-in-out;
     position:relative;
     width: 100%;
     margin-bottom: 20px;
@@ -31,6 +32,9 @@
     height: fit-content;
     z-index: 0;
     border-radius: 15px;
+}
+.video div{
+    transition: 0.3s ease-in-out;
 }
 .desni{
     padding:20px;
@@ -52,10 +56,12 @@
     display: flex;
     width: 100%;
     height: 60px;
+    height: fit-content;
 }
 .opis2{
     margin-left: 10px;
     padding: 5px;
+    height: fit-content;
 }
 .naziv{
     height: fit-content;

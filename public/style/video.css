@@ -5,15 +5,15 @@
     width:100%;
     height: 100%;
     aspect-ratio: 16 / 9;
+    object-fit: contain;
 }
 .video{
     height: fit-content;
     width: 100%;
     border-radius: 20px;
     margin-bottom: 50px;
-    aspect-ratio: 16 / 9;
 }
-.video div{
+.video .opis{
     height: fit-content;
 }
 .desni{
@@ -55,7 +55,9 @@
     padding-left: 10px;
 }
 .next{
-    width: 100%;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
     overflow-y: auto;
     overflow-x:hidden;
     display: grid;
@@ -74,10 +76,12 @@
     border-radius: 20px;
     height: 100%;
     aspect-ratio: 16/9;
+    transition: 0.3s ease-in-out;
 }
 .nextdivslike video{
     border-radius: 20px;
     width:100%;
+    height: fit-content;
 }
 .nextlogo{
     border-radius: 50%;
@@ -90,9 +94,11 @@
     display: flex;
     width: 100%;
     height: 60px;
+    height: fit-content;
 }
 .nextopis2{
     margin-left: 10px;
+    height: fit-content;
 }
 .nextnaziv{
     height: fit-content;
@@ -103,15 +109,45 @@
     -webkit-box-orient: vertical;
 }
 .nextvideo{
+    transition: 0.3s ease-in-out;
     position:relative;
-    width: 300px;
+    width: 100%;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     height: fit-content;
     z-index: 0;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
+.nextvideo:hover{
+    border-radius: 10px;
+    height: fit-content;
+    background-color: black;
+    z-index: 1;
+}
+.nextvideo:hover > div{
+    height: fit-content;
+    z-index: 1;
+}
+.nextvideo:hover .nextdivslike{
+    border-radius: 0;
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: fit-content;
+    z-index: 1;
+}
+.nextvideo:hover .nextdivslike img{
+    border-radius: 10px;
+    height: fit-content;
+}
+.nextvideo:hover .nextnaziv{
+    height: fit-content;
+    text-align: left;
+    overflow: hidden;
+    display: block;
+    z-index: 1;
+}
+
 
 @media screen and (max-width: 1280px){
     .desni{
@@ -121,7 +157,6 @@
         width: 100%;
     }
     .nextvideo:hover{
-        transform: scale(1.1);
         height: fit-content;
         background-color: black;
         overflow: hidden;
@@ -136,7 +171,7 @@
         z-index: 1;
     }
     .nextvideo:hover .divslike{
-        width: var(--videoduzina);
+        width: 100%;
         aspect-ratio: 16/9;
         height: fit-content;
         z-index: 1;
