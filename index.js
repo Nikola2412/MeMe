@@ -264,13 +264,13 @@ app.post('/chanel',(req,res)=>{
 
 app.get('/chanel',(req,res)=>{
     const id = req.query.id;
+    const mode = req.query.mode;
     if(id === req.session.id_kanala)
-        res.redirect('/myAcc?mode=video');
+        res.redirect('/myAcc?mode=' + mode);
     else{
         res.render('user',{
             sesia:req.session,
             data: getUser(id),
-            videi: getMbyUser(id),
             myAcc:false
         });
     }
@@ -284,7 +284,6 @@ app.get('/myAcc',(req,res)=>{
         res.render('user',{
             sesia:req.session,
             data: getUser(req.session.id_kanala),
-            videi: getVbyUser(req.session.id_kanala),
             myAcc:true
         });
     }
