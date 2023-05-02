@@ -1,30 +1,4 @@
-.desni{
-    height: calc(100vh - 130px);
-    overflow-y: auto;
-}
-.app{
-    width: 100%;
-}
-.canvas{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50px auto 50px;
-}
-.canvas a{
-    width: 100%;
-    height: 100%;
-    display: none;
-}
-.meme{
-    position: relative;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    max-height: calc(100vh - 130px);
-    object-fit: contain;
-    pointer-events: none;
-}
+/*
 .canvas button{
     border: 1px solid gray;
     padding:8px 16px;
@@ -37,4 +11,25 @@
     text-align:left;
     padding:8px 16px;
     height: 100%;
+}
+*/
+.desni{
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20;
+}
+.desni .memes a{
+    height: fit-content;
+    width: fit-content;
+}
+.desni .memes img{
+    width: 100%;
+    border-radius: 20px;
+}
+.desni .memes{
+    margin: auto;
+    width: 80vw;
+    columns: 4 12rem;
+    gap: 1rem;
 }

@@ -53,7 +53,7 @@
                 <button class="mim" onclick="change('meme')">memes</button>
                 <button class="about" onclick="change('about')" disabled>about</button>
             </div>
-            <div class="videos" style="display: none;">
+            <div class="videos">
                 <!--
                 < for(var i=0; i < videi.length; i++) { %>
                     <div class="video">
@@ -72,13 +72,13 @@
                 -->
             </div>
             <div class="memes">
-                <!-- da se mimovi preko js ubace -->
-                
-                <% for(var i=0; i < videi.length; i++) { %>
-                    <a href="./see?meme=<%=videi[i].id%>">
-                        <img src="./id_memea=<%=videi[i].id%>" alt="">
+                <!--
+                < for(var i=0; i < videi.length; i++) { %>
+                    <a href="./see?meme=<=videi[i].id%>">
+                        <img src="./id_memea=<=videi[i].id%>" alt="">
                     </a>
-                <% } %>
+                < } %>
+                -->
             </div>
         </div>
     </div>

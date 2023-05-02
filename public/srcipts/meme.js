@@ -23,25 +23,8 @@ async function load_pic() {
       console.log("HTTP-Error: " + response.status)
   }
 }
-let canvas = document.querySelector('.canvas').style;
+//let canvas = document.querySelector('.canvas').style;
 let slike = document.querySelectorAll('.canvas a');
-
-
-
-function phone(){
-    canvas.display = 'flex';
-    canvas.flex_direction='row';
-    canvas.flex_wrap='wrap';
-    slike.forEach(slika => {
-        slika.style.width='50%';
-    });
-}
-
-function computer(){
-    canvas.columns = '4 12rem';
-    canvas.gap='5px';
-    
-}
 
 
 /*

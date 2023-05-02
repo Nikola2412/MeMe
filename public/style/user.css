@@ -99,3 +99,17 @@
 .meni button:hover{
     background-color: gray;
 }
+.desni .memes a{
+    height: fit-content;
+    width: fit-content;
+}
+.desni .memes img{
+    width: 100%;
+    border-radius: 20px;
+}
+.desni .memes{
+    margin: auto;
+    width: 80vw;
+    columns: 4 12rem;
+    gap: 1rem;
+}

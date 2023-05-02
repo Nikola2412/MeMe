@@ -22,11 +22,9 @@ pozovi();
 
 
 function addVideo(data){
-    /*
     while (memes.firstChild) {
         memes.removeChild(memes.lastChild);
     }
-    */
     data.forEach(el=>{
         let video = document.createElement('div')
         video.className = 'video';
@@ -54,6 +52,16 @@ function addMeme(data){
     while (videos.firstChild) {
         videos.removeChild(videos.lastChild);
     }
+    data.forEach(el=>{
+        const id = el.id;
+        let link = document.createElement('a')
+        link.href = './see?meme='+el.id;
+        let img = document.createElement('img')
+        img.src='./id_memea='+el.id;
+        img.className= 'meme';
+        link.appendChild(img)
+        memes.appendChild(link)
+    })
     //console.log(data);
 }
 async function pozovi(){
