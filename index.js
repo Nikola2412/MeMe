@@ -206,6 +206,9 @@ app.get('/logout',(req,res)=>{
     res.redirect('/');
 })
 
+app.get('/videos',(req,res)=>{
+    res.send(getV());
+});
 
 app.get('/',(req,res)=>{
     res.render('index',{
