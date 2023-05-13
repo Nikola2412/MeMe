@@ -206,6 +206,11 @@ app.get('/logout',(req,res)=>{
     res.redirect('/');
 })
 
+app.get('/memes',(req,res)=>{
+    console.log("test");
+    res.send(getMemes());
+});
+
 app.get('/videos',(req,res)=>{
     //console.log("test");
     res.send(getV());
@@ -217,6 +222,8 @@ app.get('/',(req,res)=>{
         videi: getV()
     });
 });
+
+
 function getUser(index){
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
     const name = kanalList.find((g)=>g.id===index);
@@ -361,6 +368,7 @@ function getMeme(index){
     
 }
 app.get('/see',(req,res)=>{
+    console.log("iashdiuadgiadsg");
     const id = req.query.meme;
     res.render('meme',{
         sesia:req.session,
