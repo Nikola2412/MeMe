@@ -47,15 +47,13 @@ function getVN(index){
     }
     return data;
 }
+//https://www.youtube.com/watch?v=ZjBLbXUuyWg&t=331s&ab_channel=AbdisalanCodes
+
 function getChunks(index,req,res){
-    //console.log(index);
-    //https://www.youtube.com/watch?v=ZjBLbXUuyWg&t=331s&ab_channel=AbdisalanCodes
     let range = req.headers.range;
-    //console.log(req.range());
     if (!range) {
         range = 'bytes=0-'
     }
-
     const videoPath = `videi/${index}.mp4`;
     const videoSize = fs.statSync(videoPath).size;
 
@@ -70,17 +68,12 @@ function getChunks(index,req,res){
         "Content-Length": contentLength,
         "Content-Type": "video/mp4",
     };
-
     // HTTP Status 206 for Partial Content
-    
     res.writeHead(206, headers);
-
     // create video read stream for this particular chunk
     const videoStream = fs.createReadStream(videoPath, { start, end });
-
     // Stream the video chunk to the client
     videoStream.pipe(res);
-    
 }
 function getV(){
     const temp = [];
@@ -136,15 +129,10 @@ app.post('/create',(req,res)=>{
 })
 
 app.post('/auth', function(request, response) {
-	// Capture the input fields
-    //console.log(request);
 	let username = request.body.username;
 	let password = request.body.password;
-	// Ensure the input fields exists and are not empty
 	if (username && password) {
         const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
-
-		// Execute SQL query that'll select the account from the database based on the specified username and password
 		const user = kanalList.find((g) => g.name === username);
         if(typeof(user) == 'undefined')
         {
@@ -156,7 +144,7 @@ app.post('/auth', function(request, response) {
             request.session.loggedin = true;
 			request.session.username = username;
             request.session.id_kanala = user.id;
-            response.redirect('/upload');
+            response.redirect('/');
         }
         else{
             response.status(202)
@@ -166,17 +154,10 @@ app.post('/auth', function(request, response) {
 });
 
 app.post('/upload',(req, res) => {
-    //console.log('test');
     const id = uuidv4();
-
-    //console.log(id);
-
     var bitmap = new Buffer.from(Object.values(req.body.meme),'base64');
-    
     const filepath = "memes/"+id+".jpg";
-
     fs.appendFileSync(filepath,bitmap);
-    
     const date = new Date();
     var data = readFileSync("./baza/meme.json");
     var myObject = JSON.parse(data);
@@ -185,7 +166,6 @@ app.post('/upload',(req, res) => {
         "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear(),
         "id_kanala":req.session.id_kanala
     }
-    //console.log(req.session.id_kanala);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
     writeFileSync("./baza/meme.json", newData2);
@@ -256,7 +236,6 @@ function getMbyUser(index){
 app.post('/myAcc',(req,res)=>{
     const id = req.session.id_kanala;
     const mode = req.query.mode;
-    //console.log(id);
     if(mode == 'video')
         res.send(getVbyUser(id))
     else
@@ -264,7 +243,6 @@ app.post('/myAcc',(req,res)=>{
 })
 
 app.post('/chanel',(req,res)=>{
-    //console.log('dasdasd');
     const id = req.query.id;
     const mode = req.query.mode;
     if(mode == 'video')
@@ -368,7 +346,6 @@ function getMeme(index){
     
 }
 app.get('/see',(req,res)=>{
-    console.log("iashdiuadgiadsg");
     const id = req.query.meme;
     res.render('meme',{
         sesia:req.session,
@@ -400,7 +377,6 @@ app.get('/video',(req,res)=>{
 
 app.get('/id_videa=:id',(req,res)=>{
     const id = req.params.id;
-    //console.log(req.headers.range);
     getChunks(id,req,res);
 });
 

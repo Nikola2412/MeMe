@@ -120,14 +120,9 @@ function imageToByteArray(file) {
   });
 }
 function  Upload(){
-  let n = 0;
-  //console.log(files);
   for (let i = 0; i < files.length; i++) {
     const img = files[i].Slika;
     const id = files[i].id;
-    //console.log(document.getElementById('slika ' + id).parentElement);
-    //console.log(id);
-    
     imageToByteArray(img).then(async byteArray => {
       var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
       var theUrl = "/upload";
@@ -144,13 +139,9 @@ function  Upload(){
         } else {
           window.alert("error " + this.status)
         }
-      };
-      
-      //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/status
+      }; 
     }).catch(error => {
       alert(error);
     });
-    
   }
-  //this.location.href = '/';
 }

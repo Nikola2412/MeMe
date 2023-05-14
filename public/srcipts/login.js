@@ -11,6 +11,6 @@ document.forms["loginForm"].addEventListener("submit", async (event) => {
         this.location.href = './'
     }
     else{
-        alert('Username or password is incorect')
+        window.alert('Username or password is incorect')
     }
   });

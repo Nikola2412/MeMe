@@ -17,7 +17,6 @@ const videos = document.querySelector('.videos');
 const memes = document.querySelector('.desni .memes')
 const urlparams = this.location.href.split('?')[1];
 let mode = urlparams.split('mode=')[1];
-//console.log(mode);
 pozovi();
 
 
@@ -62,7 +61,6 @@ function addMeme(data){
         link.appendChild(img)
         memes.appendChild(link)
     })
-    //console.log(data);
 }
 async function pozovi(){
     fetch(this.location.href, {
@@ -87,7 +85,6 @@ async function pozovi(){
 
 function change(set){
     if(set == mode)return;
-
     var url = new URL(window.location.href);
     var params = new window.URLSearchParams(window.location.search);
     params.set('mode', set);
