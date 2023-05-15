@@ -187,7 +187,7 @@ app.get('/logout',(req,res)=>{
 })
 
 app.get('/memes',(req,res)=>{
-    console.log("test");
+    //console.log(getMemes());
     res.send(getMemes());
 });
 
@@ -305,8 +305,22 @@ app.get("/getUsers", (req, res) => {
 */
 
 function getMemes(){
-    var MemesList = readFileSync('./baza/meme.json');
-    return JSON.parse(MemesList);
+    const temp = [];
+    const MemesList = JSON.parse(readFileSync('./baza/meme.json'));
+    const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
+    for(let i=0;i<MemesList.length;i++){
+        const id_kanala = MemesList[i].id_kanala;
+        let name = kanalList.find((g) => g.id == id_kanala).name;
+        let data = 
+        {
+            'id': MemesList[i].id, 
+            'id_kanala':id_kanala,
+            'name':name
+        };
+        temp.push(data);
+    }
+    return temp;
+    //return MemesList;
 }
 
 
