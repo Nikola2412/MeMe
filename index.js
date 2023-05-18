@@ -390,9 +390,76 @@ app.get('/video',(req,res)=>{
 });
 
 app.get('/id_videa=:id',(req,res)=>{
+    console.log('test');
     const id = req.params.id;
     getChunks(id,req,res);
 });
+app.get('/android_id_videa=:id',(req,res)=>{
+    console.log(req.params.id);
+    const id = req.params.id;
+
+    getChunks2(id,req,res);
+});
+function getChunks2(index,req,res){
+    const videoPath = `videi/${index}.mp4`;
+    const videoStat = fs.statSync(videoPath);
+
+    const fileSize = videoStat.size;
+
+    const videoRange = req.headers.range;
+
+    if (videoRange) {
+
+    const parts = videoRange.replace(/bytes=/, "").split("-");
+
+    const start = parseInt(parts[0], 10);
+
+    const end = parts[1]
+
+    ? parseInt(parts[1], 10)
+
+    : fileSize-1;
+
+    const chunksize = (end-start) + 1;
+
+    const file = fs.createReadStream(videoPath, {start, end});
+
+    const head = {
+
+    'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+
+    'Accept-Ranges': 'bytes',
+
+    'Content-Length': chunksize,
+
+    'Content-Type': 'video/mp4',
+
+    };
+
+    res.writeHead(206, head);
+
+    file.pipe(res);
+
+    } else {
+
+    const head = {
+
+    'Content-Length': fileSize,
+
+    'Content-Type': 'video/mp4',
+
+    };
+
+    res.writeHead(200, head);
+
+    fs.createReadStream(videoPath).pipe(res);
+
+    }
+
+    console.log("test");
+
+}
+
 
 /*
 function getMore(){
