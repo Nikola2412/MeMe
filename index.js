@@ -395,7 +395,7 @@ app.get('/id_videa=:id',(req,res)=>{
     getChunks(id,req,res);
 });
 app.get('/android_id_videa=:id',(req,res)=>{
-    console.log(req.params.id);
+    //console.log(req.params.id);
     const id = req.params.id;
 
     getChunks2(id,req,res);
