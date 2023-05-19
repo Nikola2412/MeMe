@@ -390,14 +390,13 @@ app.get('/video',(req,res)=>{
 });
 
 app.get('/id_videa=:id',(req,res)=>{
-    console.log('test');
+    //console.log('test');
     const id = req.params.id;
     getChunks(id,req,res);
 });
 app.get('/android_id_videa=:id',(req,res)=>{
     //console.log(req.params.id);
     const id = req.params.id;
-
     getChunks2(id,req,res);
 });
 function getChunks2(index,req,res){
@@ -455,9 +454,6 @@ function getChunks2(index,req,res){
     fs.createReadStream(videoPath).pipe(res);
 
     }
-
-    console.log("test");
-
 }
 
 
