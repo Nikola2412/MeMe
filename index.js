@@ -152,6 +152,41 @@ app.post('/auth', function(request, response) {
         }
 	}
 });
+app.post('/android_auth', function(request, response) {
+    //console.log("dadasd");
+	let username = request.body.username;
+	let password = request.body.password;
+    console.log(username);
+	if (username && password) {
+        const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
+		const user = kanalList.find((g) => g.name === username);
+        let data = {};
+        if(typeof(user) == 'undefined')
+        {
+            data = {
+                "id":-1
+            }
+        }
+        else if(user.password===password)
+        {
+            request.session.loggedin = true;
+			request.session.username = username;
+            request.session.id_kanala = user.id;
+            data = {
+                "id":user.id
+            }
+            
+        }
+        else{
+            data = {
+                "id":-1
+            }
+        }
+        console.log(data);
+        response.send(data);
+        response.end(); 
+	}
+});
 
 app.post('/upload',(req, res) => {
     const id = uuidv4();
@@ -202,6 +237,10 @@ app.get('/',(req,res)=>{
         videi: getV()
     });
 });
+
+app.post('/',(req,res)=>{
+    res.send(true);
+})
 
 
 function getUser(index){
