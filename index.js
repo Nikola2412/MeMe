@@ -164,7 +164,7 @@ app.post('/android_auth', function(request, response) {
         if(typeof(user) == 'undefined')
         {
             data = {
-                "id":-1
+                "id":"-1"
             }
         }
         else if(user.password===password)
@@ -172,14 +172,14 @@ app.post('/android_auth', function(request, response) {
             request.session.loggedin = true;
 			request.session.username = username;
             request.session.id_kanala = user.id;
+            console.log(typeof(user.id));
             data = {
-                "id":user.id
+                "id":(user.id).toString()
             }
-            
         }
         else{
             data = {
-                "id":-1
+                "id":"-1"
             }
         }
         console.log(data);

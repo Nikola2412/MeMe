@@ -1,7 +1,7 @@
 [
   {
     "name": "Nikola 24",
-    "password": "2412",
+    "password": "24122004",
     "id": "1"
   },
   {
@@ -13,5 +13,10 @@
     "name": "name 3",
     "password": "password 3",
     "id": "3"
+  },
+  {
+    "name": "nikola",
+    "password": "123",
+    "id": "abcd"
   }
 ]
