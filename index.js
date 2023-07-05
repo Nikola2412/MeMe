@@ -232,6 +232,7 @@ app.get('/videos',(req,res)=>{
 });
 
 app.get('/',(req,res)=>{
+    console.log(req);
     res.render('index',{
         sesia: req.session,
         videi: getV()
