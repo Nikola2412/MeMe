@@ -156,7 +156,7 @@ app.post('/android_auth', function(request, response) {
     //console.log("dadasd");
 	let username = request.body.username;
 	let password = request.body.password;
-    console.log(username);
+    //console.log(username);
 	if (username && password) {
         const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
 		const user = kanalList.find((g) => g.name === username);
@@ -172,7 +172,7 @@ app.post('/android_auth', function(request, response) {
             request.session.loggedin = true;
 			request.session.username = username;
             request.session.id_kanala = user.id;
-            console.log(typeof(user.id));
+            //console.log(typeof(user.id));
             data = {
                 "id":(user.id).toString()
             }
@@ -182,7 +182,7 @@ app.post('/android_auth', function(request, response) {
                 "id":"-1"
             }
         }
-        console.log(data);
+        //console.log(data);
         response.send(data);
         response.end(); 
 	}
@@ -333,15 +333,6 @@ app.get('/memes',(req,res)=>{
     const day = date.getDate();
     res.redirect(`/newest-memes`);
 });
-/*
-app.get("/getUsers", (req, res) => {
-    const reqQueryObject = req.query // returns object with all parameters
-    const userId = req.query.userId // returns "12354411"
-    const name = req.query.name // returns "Billy"
-    console.log(userId);
-    
-})
-*/
 
 function getMemes(){
     const temp = [];
