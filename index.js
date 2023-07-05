@@ -194,13 +194,14 @@ app.post('/upload',(req, res) => {
     const filepath = "memes/"+id+".jpg";
     fs.appendFileSync(filepath,bitmap);
     const date = new Date();
-    var data = readFileSync("./baza/meme.json");
+    var data = fs.readFileSync("./baza/meme.json");
     var myObject = JSON.parse(data);
     let newData = { 
         "id":id,
         "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear(),
         "id_kanala":req.session.id_kanala
     }
+    console.log(newData);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
     writeFileSync("./baza/meme.json", newData2);
@@ -232,7 +233,7 @@ app.get('/videos',(req,res)=>{
 });
 
 app.get('/',(req,res)=>{
-    console.log(req);
+    //console.log(req);
     res.render('index',{
         sesia: req.session,
         videi: getV()
