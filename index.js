@@ -358,7 +358,7 @@ function getMemes(){
         };
         temp.push(data);
     }
-    return temp;
+    return temp.reverse();
     //return MemesList;
 }
 
