@@ -207,6 +207,30 @@ app.post('/upload',(req, res) => {
     writeFileSync("./baza/meme.json", newData2);
     res.status(200).send('Picture has been receved!!');
 });
+app.post('/upload_android', async (req, res) => {
+    console.log(req.body.id_kanala);
+    /*
+    const id = uuidv4();
+    var bitmap = new Buffer.from(Object.values(req.body.meme),'base64');
+    const filepath = "memes/"+id+".jpg";
+    fs.appendFileSync(filepath,bitmap);
+    const date = new Date();
+    var data = fs.readFileSync("./baza/meme.json");
+    var myObject = JSON.parse(data);
+    let newData = { 
+        "id":id,
+        "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear(),
+        "id_kanala":req.body.id_kanala
+    }
+    console.log(newData);
+    myObject.push(newData);
+    var newData2 = JSON.stringify(myObject);
+    writeFileSync("./baza/meme.json", newData2);
+    res.status(200).send('Picture has been receved!!');
+
+    */
+});
+  
 
 app.get('/login',(req,res)=>{
     if(req.session.loggedin && req.session.username !=''){
