@@ -364,7 +364,7 @@ function getMemes(){
     const temp = [];
     const MemesList = JSON.parse(readFileSync('./baza/meme.json'));
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
-    for(let i=0;i<MemesList.length;i++){
+    for(let i = MemesList.length - 1;i>Math.max(MemesList.length - 20,0);i--){
         const id_kanala = MemesList[i].id_kanala;
         let name = kanalList.find((g) => g.id == id_kanala).name;
         let data = 
@@ -375,8 +375,8 @@ function getMemes(){
         };
         temp.push(data);
     }
-    return temp.reverse();
-    //return MemesList;
+    //console.log(temp);
+    return temp;
 }
 
 

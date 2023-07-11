@@ -29,7 +29,7 @@
 }
 .desni .memes{
     margin: auto;
-    width: 80vw;
-    columns: 4 12rem;
+    padding: 20px;
+    columns: 4 10rem;
     gap: 1rem;
 }
