@@ -364,7 +364,26 @@ function getMemes(){
     const temp = [];
     const MemesList = JSON.parse(readFileSync('./baza/meme.json'));
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
-    for(let i = MemesList.length - 1;i>Math.max(MemesList.length - 20,0);i--){
+    for(let i = MemesList.length - 1;i>Math.max(MemesList.length - 20 - 1,0);i--){
+        const id_kanala = MemesList[i].id_kanala;
+        let name = kanalList.find((g) => g.id == id_kanala).name;
+        let data = 
+        {
+            'id': MemesList[i].id, 
+            'id_kanala':id_kanala,
+            'name':name
+        };
+        temp.push(data);
+    }
+    //console.log(temp);
+    return temp;
+}
+
+function getMoreMemes(n){
+    const temp = [];
+    const MemesList = JSON.parse(readFileSync('./baza/meme.json'));
+    const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'));
+    for(let i = Math.max(0,MemesList.length - 1 - n); i > Math.max(MemesList.length - 20 - n,0);i--){
         const id_kanala = MemesList[i].id_kanala;
         let name = kanalList.find((g) => g.id == id_kanala).name;
         let data = 
@@ -429,6 +448,11 @@ app.get('/id_memea=:id',(req,res)=>{
     sendImg(imgPath,res,'jpg');
 })
 
+app.get('/more_memes',(req,res)=>{
+    const n = req.query.n;
+    //console.log(req.query);
+    res.send(getMoreMemes(n));
+})
 app.get('/newest-memes',(req,res)=>{
     res.render('memes',{
         sesia:req.session,
