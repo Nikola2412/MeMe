@@ -42,7 +42,7 @@ input.addEventListener("keypress", el=> {
 
 let close = document.querySelector('.close');
 function out(el){
-    if(window.screen.width > 814)
+    if(window.innerWidth > 814)
         return;
     document.querySelectorAll('.nav div').forEach(div=>{
         div.style.display = 'flex';
