@@ -306,7 +306,10 @@ app.post('/myAcc',(req,res)=>{
     else
         res.send(getMbyUser(id))
 })
-
+app.post('/android_chanel',(req,res)=>{
+    const id = req.query.id;
+    res.send(getUser(id))
+})
 app.post('/chanel',(req,res)=>{
     const id = req.query.id;
     const mode = req.query.mode;
