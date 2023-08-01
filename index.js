@@ -201,7 +201,7 @@ app.post('/upload',(req, res) => {
         "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear(),
         "id_kanala":req.session.id_kanala
     }
-    console.log(newData);
+    //console.log(newData);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
     writeFileSync("./baza/meme.json", newData2);
@@ -220,7 +220,7 @@ app.post('/upload_android', async (req, res) => {
         "date":date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear(),
         "id_kanala":req.body.id_kanala
     }
-    console.log(newData);
+    //console.log(newData);
     myObject.push(newData);
     var newData2 = JSON.stringify(myObject);
     writeFileSync("./baza/meme.json", newData2);
