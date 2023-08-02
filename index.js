@@ -362,6 +362,15 @@ app.get('/myAcc',(req,res)=>{
     }
 });
 
+app.get('/myAcc/studio',(req,res)=>{
+    if(typeof req.session.loggedin =='undefined'){
+        res.redirect('/login')
+    }
+    else{
+        res.send("u izradi");
+    }
+});
+
 app.get('/upload',(req,res)=>{
     if(typeof req.session.loggedin =='undefined'){
         res.redirect('login');

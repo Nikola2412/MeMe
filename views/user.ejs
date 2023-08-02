@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./style/user.css">
     <link rel="stylesheet" href="./style/break.css">
     <link rel="stylesheet" href="./style/theme.css">
+    <link rel="stylesheet" href="./style/hover.css">
     <%-include('icons')%>
     <title>Me||Me</title>
 </head>
@@ -47,6 +48,11 @@
                     <img src="./images/profile.png" alt="">
                     <h1><%=data.name%></h1>
                 </div>
+                <% if(myAcc){%>
+                    <div class="edit">
+                        <a href="/myAcc/studio"><h3>Studio</h3></a>
+                    </div>
+                <% } %>
             </div>
             <div class="meni">
                 <button class="vid" onclick="change('video')">videos</button>

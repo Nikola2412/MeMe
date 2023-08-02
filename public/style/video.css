@@ -131,7 +131,6 @@
     margin-right: auto;
     height: fit-content;
     z-index: 0;
-    transition: 0.3s ease-in-out;
 }
 @media screen and (max-width: 815px){
     .video{
