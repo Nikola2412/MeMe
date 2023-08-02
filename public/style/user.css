@@ -1,16 +1,22 @@
 .centar{
     height: fit-content;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 20px;
     padding-left: 50px;
     padding-right: 50px;
 }
 .info,.edit{
-    height: fit-content;
     width: fit-content;
     display: flex;
+    height: fit-content;
     align-items: center;
+}
+.info h1{
+    height: fit-content;
+    white-space: nowrap;
 }
 .edit{
     margin-left: auto;
