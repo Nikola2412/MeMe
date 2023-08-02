@@ -4,9 +4,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: 20px;
     padding-left: 50px;
     padding-right: 50px;
+    margin-bottom: 20px;
 }
 .info,.edit{
     width: fit-content;
@@ -72,10 +72,9 @@
     height: calc(100vh - 100px);
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 20px;
+    padding-top: 0px;
 }
 .videos{
-    margin: 20px;
     padding:20px 0 20px 0;
     width: 100%;
     height: fit-content;
@@ -106,15 +105,16 @@
     position: sticky;
     top: 0px;
     z-index: 3;
-    width: 100%;
+    width: fit-content;
+    max-width: 100%;
     height: fit-content;
-    margin-top: 20px;
-    margin-bottom: 20px;
     display: flex;
-    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     align-items: center;
     overflow-x: auto;
     background-color: black;
+    border-radius: 20px;
 }
 .meni button{
     width: 200px;
