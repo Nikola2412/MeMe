@@ -105,3 +105,6 @@ window.onresize = (event) =>{
     
 }
 */
+document.querySelectorAll('img').forEach(img=>{
+    img.draggable = false;
+})
