@@ -579,3 +579,24 @@ app.post('/video',(req,res)=>{
     res.send(201);
 });
 */
+function getTemplates(){
+    const temp = [];
+    const templates = JSON.parse(readFileSync('./baza/templates.json'));
+    for(let i=0;i<templates.length;i++){
+        let data = 
+        {
+            'id': templates[i].id, 
+        };
+        temp.push(data);
+    }
+    return temp;
+}
+
+
+app.post('/templates',(req,res)=>{
+    res.send(getTemplates())
+});
+
+app.post('/template=:id',(req,res)=>{
+    res.send(req.params.id)
+})
