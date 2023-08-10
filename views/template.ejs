@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="./style/nav.css">
     <link rel="stylesheet" href="./style/main-page.css">
     <link rel="stylesheet" href="./style/scroler.css">
-    <link rel="stylesheet" href="./style/videi.css">
     <link rel="stylesheet" href="./style/break.css">
+    <link rel="stylesheet" href="./style/template.css">
     <link rel="stylesheet" href="./style/theme.css">
     <link rel="stylesheet" href="./style/hover.css">
     <%-include('icons')%>
@@ -22,23 +22,13 @@
         <div class="desni">
             
             <%-include('options')%>
-                <%-include('videi')%>
-                <!--
-                <div class="video">
-                    <div class="divslike">
-                        <video id="" muted></video>
-                    </div>
-                    <div class="opis">
-                        <img class="logo" src="./images/profile.png">
-                        <div class="opis2">
-                            <h3 class="naziv"></h3>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="linija" style="height: 1px; background-color: black; width: 100%;"></div>
-                -->
+            <div class="templates">
+                <% for(var i=0; i < templates.length; i++) { %>
+                    <a class="link"><!-- href="./template=<%=templates[i].id%>">-->
+                        <img class="template" src="./id_template=<%=templates[i].id%>" alt="">
+                    </a>
+                <% } %>
+            </div>
         </div>
     </div>
 </div>

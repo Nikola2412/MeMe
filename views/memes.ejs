@@ -38,35 +38,7 @@
             </div>
     </header>
     <div class="container">
-        <div class="levi produzen" style="margin-left: 0;">
-            <div class="section 1">
-                <ul>
-                    <li>
-                        <a href="/">
-                            <button class="vidoes">
-                                <img src="./ico/cinema.png" alt="">
-                                Vidoes
-                            </button>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/newest-memes">
-                            <button class="memes sada">
-                                <img src="./ico/meme.png"  alt="">
-                                Memes
-                            </button>
-                        </a>   
-                    </li>
-                </ul>
-            </div>
-            <div class="line"></div>
-            <!--
-            <div class="section2">
-                <input id="slider" orient="vertical" type="range" min="0" max="100" value="100">
-            </div>
-            <div class="line"></div>
-            -->
-        </div>
+        <%-include('leftmeni') %>
         <div class="desni">
             <%-include('options')%>
             <div class="memes">
@@ -74,7 +46,7 @@
                 <button class="desno" onclick="plusDivs(-1)">&#10094;</button>
                 -->
                 <% for(var i=0; i < memes.length; i++) { %>
-                    <a class="link" href="./see?meme=<%=memes[i].id%>">
+                    <a class="link" href="./meme=<%=memes[i].id%>">
                         <img class="meme" src="./id_memea=<%=memes[i].id%>" alt="">
                     </a>
                 <% } %>
@@ -88,34 +60,6 @@
 <div class="scripte">
     <script src="./srcipts/js.js"></script>
     <script src="./srcipts/meme.js"></script>
-    <script>
-        /*
-        var slideIndex = 1;
-        showDivs(slideIndex);
-        
-        function plusDivs(n) {
-          showDivs(slideIndex += n);
-        }
-        
-        function showDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("link");
-          if (n > x.length) 
-          {
-            slideIndex = 1
-            //treba da se pozovu novi
-            }
-          if (n < 1) {
-            slideIndex = x.length
-            //slideIndex+=1;
-        }
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-          }
-          x[slideIndex-1].style.display = "block";  
-        }
-        */
-        </script>
 </div>
 </body>
 </html>

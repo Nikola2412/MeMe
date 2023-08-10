@@ -124,7 +124,8 @@ app.post('/create',(req,res)=>{
     req.session.id_kanala = id;
     res.render('index',{
         sesia:req.session,
-        videi: getV()
+        videi: getV(),
+        sada:"video"
     });
 })
 
@@ -276,7 +277,8 @@ app.get('/',(req,res)=>{
     //console.log(req);
     res.render('index',{
         sesia: req.session,
-        videi: getV()
+        videi: getV(),
+        sada:"video"
     });
 });
 
@@ -344,7 +346,8 @@ app.get('/chanel',(req,res)=>{
         res.render('user',{
             sesia:req.session,
             data: getUser(id),
-            myAcc:false
+            myAcc:false,
+            sada:""
         });
     }
 });
@@ -357,7 +360,8 @@ app.get('/myAcc',(req,res)=>{
         res.render('user',{
             sesia:req.session,
             data: getUser(req.session.id_kanala),
-            myAcc:true
+            myAcc:true,
+            sada:""
         });
     }
 });
@@ -377,7 +381,8 @@ app.get('/upload',(req,res)=>{
     }
     else{
         res.render('upload',{
-            sesia:req.session
+            sesia:req.session,
+            sada:""
         });
     }
 });
@@ -462,11 +467,12 @@ function getMeme(index){
     return data;
     
 }
-app.get('/see',(req,res)=>{
-    const id = req.query.meme;
+app.get('/meme=:id',(req,res)=>{
+    const id = req.params.id;
     res.render('meme',{
         sesia:req.session,
-        meme: getMeme(id)
+        meme: getMeme(id),
+        sada:""
     });
 })
 
@@ -485,6 +491,7 @@ app.get('/newest-memes',(req,res)=>{
     res.render('memes',{
         sesia:req.session,
         memes: getMemes(),
+        sada:"meme"
     });
 });
 
@@ -592,11 +599,20 @@ function getTemplates(){
     return temp;
 }
 
+app.get('/templates',(req,res)=>{
+    res.render('template',{
+        sesia:req.session,
+        templates: getTemplates(),
+        sada:"template"
+    });
+})
 
 app.post('/templates',(req,res)=>{
     res.send(getTemplates())
 });
 
-app.post('/template=:id',(req,res)=>{
-    res.send(req.params.id)
+app.get('/id_template=:id',(req,res)=>{
+    const id = req.params.id;
+    const imgPath = `templates/${id}.`;
+    sendImg(imgPath,res,'jpg');
 })
