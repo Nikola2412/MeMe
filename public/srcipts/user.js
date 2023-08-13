@@ -54,7 +54,7 @@ function addMeme(data){
     data.forEach(el=>{
         const id = el.id;
         let link = document.createElement('a')
-        link.href = './see?meme='+el.id;
+        link.href = './meme='+el.id;
         let img = document.createElement('img')
         img.src='./id_memea='+el.id;
         img.className= 'meme';
