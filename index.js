@@ -125,7 +125,7 @@ app.post('/create',(req,res)=>{
     res.render('index',{
         sesia:req.session,
         videi: getV(),
-        sada:"video"
+        sada:"home"
     });
 })
 
@@ -278,7 +278,7 @@ app.get('/',(req,res)=>{
     res.render('index',{
         sesia: req.session,
         videi: getV(),
-        sada:"video"
+        sada:"home"
     });
 });
 
