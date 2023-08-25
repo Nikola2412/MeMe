@@ -20,14 +20,14 @@ html{
     color: black;
 }
 :root{
-    --visina:calc(100% - 80px);
+    --visina:calc(100% - 50px);
 }
 li{
     list-style: none;
 }
 .container{
     display: flex;
-    max-height: var(--visina)
+    height: var(--visina);
 }
 .container .levi{
     padding:2px;
