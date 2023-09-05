@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/nav.css">
+    <link rel="stylesheet" href="./style/main-page.css">
+    <link rel="stylesheet" href="./style/scroler.css">
+    <link rel="stylesheet" href="./style/break.css">
+    <link rel="stylesheet" href="./style/hover.css">
+    <link rel="stylesheet" href="./style/theme.css">
+    <link rel="stylesheet" href="./style/upload_meme.css">
+    <%-include('icons')%>
+    <title>Me||Me</title>
+
+</head>
+<body>
+    <div class="fixovanje">
+    <header>
+        <div class="nav">
+                <div class="left">
+                    <div class="lines">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                    <a href="/">
+                        <img class="logo" src="./images/logo.png" width="100px"height="30px">
+                    </a>
+                </div>
+                <input class="search" onfocusout="out(this)" type="text" placeholder="Search..">
+                <img class="close" src="./ico/close.png" style="display: none;" width="35" height="35" alt="" srcset="">
+                <div class="right">
+                    <img class = "lupa" src="./ico/magnifier.png" width="35" height="35" alt="">
+                    <ul>
+                        <img class = "nalog" src="./images/profile.png" width="35" height="35" srcset="">
+                    </ul>
+                </div>
+            </div>
+    </header>
+    <div class="container">
+        <%-include('leftmeni') %>
+        <div class="desni">
+            <%-include('options')%>
+            <div class="container2">
+                <div class="drop">
+                    <div id="dropzone">
+                        <input accept="image/*" type='file' id="imgInp"/>
+                        <p>Upload file here</p>
+                    </div>
+                    <div id="preview"></div>
+                    <div>
+                        <button onclick="Upload()" class="send"><p>Upload</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="scripte">
+    <script src="./srcipts/js.js"></script>
+    <script src="./srcipts/upload.js"></script>
+</div>
+</body>
+</html>

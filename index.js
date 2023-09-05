@@ -188,8 +188,26 @@ app.post('/android_auth', function(request, response) {
         response.end(); 
 	}
 });
-
-app.post('/upload',(req, res) => {
+app.post('/upload_video', (req, res) => {
+    /*
+    Nije gotov mora i u json file da se ubace podaci
+    if (!req.files || !req.files.video) {
+      return res.status(400).send('No file uploaded.');
+    }
+    const id = uuidv4();
+    const videoFile = req.files.video;
+    videoFile.name = id;
+    const uploadPath = './videi/' + id;
+  
+    videoFile.mv(uploadPath, (err) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      res.send('File uploaded!');
+    });
+    */
+});
+app.post('/upload_meme',(req, res) => {
     const id = uuidv4();
     var bitmap = new Buffer.from(Object.values(req.body.meme),'base64');
     const filepath = "memes/"+id+".jpg";
@@ -208,7 +226,7 @@ app.post('/upload',(req, res) => {
     writeFileSync("./baza/meme.json", newData2);
     res.status(200).send('Picture has been receved!!');
 });
-app.post('/upload_android', async (req, res) => {
+app.post('/upload_meme_android', async (req, res) => {
     const id = uuidv4();
     var bitmap = new Buffer.from(req.body.meme,'base64');
     const filepath = "memes/"+id+".jpg";
@@ -301,19 +319,18 @@ function getVbyUser(index){
             k.push(vid)
         }
     });
-    return k;
+    return k.reverse();
 }
 function getMbyUser(index){
     let k = [];
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'))
     const MemesList = JSON.parse(readFileSync('./baza/meme.json'))
-    MemesList.forEach(vid=>{
-        if(index == vid.id_kanala){
-            k.push(vid)
+    MemesList.forEach(meme=>{
+        if(index == meme.id_kanala){
+            k.push(meme)
         }
     });
-    //console.log(k);
-    return k;
+    return k.reverse();
 }
 
 app.post('/myAcc',(req,res)=>{
@@ -375,12 +392,23 @@ app.get('/myAcc/studio',(req,res)=>{
     }
 });
 
-app.get('/upload',(req,res)=>{
+app.get('/upload_meme',(req,res)=>{
     if(typeof req.session.loggedin =='undefined'){
         res.redirect('login');
     }
     else{
-        res.render('upload',{
+        res.render('upload_meme',{
+            sesia:req.session,
+            sada:""
+        });
+    }
+});
+app.get('/upload_video',(req,res)=>{
+    if(typeof req.session.loggedin =='undefined'){
+        res.redirect('login');
+    }
+    else{
+        res.render('upload_video',{
             sesia:req.session,
             sada:""
         });
