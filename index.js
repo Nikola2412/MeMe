@@ -446,7 +446,7 @@ function getMoreMemes(n){
     const temp = [];
     const MemesList = JSON.parse(readFileSync('./baza/meme.json'));
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'));
-    for(let i = Math.max(0,MemesList.length - 1 - n); i >= Math.max(MemesList.length - 20 - n,0);i--){
+    for(let i = MemesList.length - 1 - n; i >= Math.max(MemesList.length - 20 - n,0);i--){
         const id_kanala = MemesList[i].id_kanala;
         let name = kanalList.find((g) => g.id == id_kanala).name;
         let data = 
@@ -464,7 +464,7 @@ function getMoreVideos(n){
     const temp = [];
     const videoList = JSON.parse(readFileSync('./baza/videoList.json'));
     const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'));
-    for(let i = Math.max(0,videoList.length - 1 - n); i >= Math.max(videoList.length - 20 - n,0);i--){
+    for(let i = videoList.length - 1 - n; i >= Math.max(videoList.length - 20 - n,0);i--){
         const id_kanala = videoList[i].id_kanala;
         let name = kanalList.find((g) => g.id == id_kanala).name;
         let data = 
