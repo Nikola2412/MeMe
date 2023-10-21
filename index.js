@@ -288,7 +288,9 @@ app.get('/memes',(req,res)=>{
 
 app.get('/videos',(req,res)=>{
     //console.log("test");
-    res.send(getV());
+    const n = req.query.n;
+    //console.log(req.query);
+    res.send(getMoreVideos(n));
 });
 
 app.get('/',(req,res)=>{
@@ -450,6 +452,24 @@ function getMoreMemes(n){
         let data = 
         {
             'id': MemesList[i].id, 
+            'id_kanala':id_kanala,
+            'name':name
+        };
+        temp.push(data);
+    }
+    //console.log(temp);
+    return temp;
+}
+function getMoreVideos(n){
+    const temp = [];
+    const videoList = JSON.parse(readFileSync('./baza/videoList.json'));
+    const kanalList = JSON.parse(readFileSync('./baza/kanalList.json'));
+    for(let i = Math.max(0,videoList.length - 1 - n); i > Math.max(videoList.length - 20 - n,0);i--){
+        const id_kanala = videoList[i].id_kanala;
+        let name = kanalList.find((g) => g.id == id_kanala).name;
+        let data = 
+        {
+            'id': videoList[i].id, 
             'id_kanala':id_kanala,
             'name':name
         };
