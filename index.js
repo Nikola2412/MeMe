@@ -664,3 +664,20 @@ app.get('/id_template=:id',(req,res)=>{
     const imgPath = `templates/${id}.`;
     sendImg(imgPath,res,'jpg');
 })
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function sendRendomId(){
+    const MemesList = JSON.parse(readFileSync('./baza/meme.json'));
+    const rendomNumber = getRandomInt(0,MemesList.length - 1)
+
+    return MemesList[rendomNumber].id;
+}
+
+app.get('/get_rendom_meme',(req,res)=>{
+    const number = sendRendomId();
+    console.log(number);
+    res.send(number);
+})
