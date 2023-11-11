@@ -635,16 +635,7 @@ app.post('/video',(req,res)=>{
 });
 */
 function getTemplates(){
-    const temp = [];
-    const templates = JSON.parse(readFileSync('./baza/templates.json'));
-    for(let i=0;i<templates.length;i++){
-        let data = 
-        {
-            'id': templates[i].id, 
-        };
-        temp.push(data);
-    }
-    return temp;
+    return JSON.parse(readFileSync('./baza/templates.json'));
 }
 
 app.get('/templates',(req,res)=>{
@@ -678,6 +669,6 @@ function sendRendomId(){
 
 app.get('/get_rendom_meme',(req,res)=>{
     const number = sendRendomId();
-    console.log(number);
-    res.send(number);
+    //console.log(number);
+    res.send({"id":number});
 })
