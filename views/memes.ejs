@@ -42,17 +42,11 @@
         <div class="desni">
             <%-include('options')%>
             <div class="memes">
-                <!--
-                <button class="desno" onclick="plusDivs(-1)">&#10094;</button>
-                -->
                 <% for(var i=0; i < memes.length; i++) { %>
                     <a class="link" href="./meme=<%=memes[i].id%>">
                         <img class="meme" src="./id_memea=<%=memes[i].id%>" alt="">
                     </a>
                 <% } %>
-                <!--
-                <button class="levo" onclick="plusDivs(1)">&#10095;</button>
-                -->
             </div>
         </div>
     </div>

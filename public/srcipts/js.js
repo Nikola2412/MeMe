@@ -104,7 +104,8 @@ window.onresize = (event) =>{
     document.querySelector('.lupa').style.display =  'none';
     
 }
-*/
+
 document.querySelectorAll('img').forEach(img=>{
     img.draggable = false;
 })
+*/
