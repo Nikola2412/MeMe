@@ -122,11 +122,7 @@ app.post('/create',(req,res)=>{
     req.session.loggedin = true;
 	req.session.username = username;
     req.session.id_kanala = id;
-    res.render('index',{
-        sesia:req.session,
-        videi: getV(),
-        sada:"home"
-    });
+    res.redirect('/');
 })
 
 app.post('/auth', function(request, response) {
@@ -297,7 +293,7 @@ app.get('/',(req,res)=>{
     //console.log(req);
     res.render('index',{
         sesia: req.session,
-        videi: getV(),
+        videi: getMoreVideos(0),
         sada:"home"
     });
 });
@@ -471,6 +467,7 @@ function getMoreVideos(n){
         {
             'id': videoList[i].id, 
             'id_kanala':id_kanala,
+            'ime':videoList[i].ime,
             'name':name
         };
         temp.push(data);

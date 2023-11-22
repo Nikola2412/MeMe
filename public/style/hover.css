@@ -1,6 +1,6 @@
 @media screen and (min-width: 815px){
     .video:hover{
-        /*transform: scale(1.1);*/
+        transform: scale(1.03);
         border-radius: 10px;
         height: fit-content;
         background-color: black;

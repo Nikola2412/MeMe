@@ -1,18 +1,18 @@
 [
     {
-     "id_kanala": "1",
-     "ime": "abcdef",
-     "id": "1"
+        "id_kanala": "1",
+        "ime": "abcdef",
+        "id": "1"
     },
     {
-     "id_kanala": "2",
-     "ime": "ime 2",
-     "id": "2"
+        "id_kanala": "2",
+        "ime": "ime 2",
+        "id": "2"
     },
     {
-     "id_kanala": "3",
-     "ime": "ime 3",
-     "id": "3"
+        "id_kanala": "3",
+        "ime": "ime 3",
+        "id": "3"
     },
     {
         "id_kanala": "1",
@@ -63,5 +63,20 @@
         "id_kanala": "1",
         "ime": "dsaduiasd",
         "id": "13"
+    },
+    {
+        "id_kanala": "1",
+        "ime": "dsaduiasd",
+        "id": "14"
+    },
+    {
+        "id_kanala": "1",
+        "ime": "dsaduiasd",
+        "id": "15"
+    },
+    {
+        "id_kanala": "1",
+        "ime": "helis",
+        "id": "16"
     }
 ]
