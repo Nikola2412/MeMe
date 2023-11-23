@@ -17,7 +17,6 @@ html{
 .levi,.desni,.video,.search{
     transition: 0.3s ease-in-out;
     text-decoration: none;
-    color: black;
 }
 :root{
     --visina:calc(100% - 50px);

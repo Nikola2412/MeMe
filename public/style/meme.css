@@ -6,7 +6,6 @@
     margin: auto;
 }
 .meme{
-    height: calc(100% - 50px);
     max-width: 100%;
     width: fit-content;
     border-radius: 20px;

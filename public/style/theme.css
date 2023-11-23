@@ -1,7 +1,7 @@
 
 @media (prefers-color-scheme: dark) {
     body{
-        background-color: black;
+        background-color: #0f0f0f;
     }
     p,h1,h2,h3,a,h1{
         color: white;
@@ -10,22 +10,21 @@
         background-color: white;
     }
     .levi button,.options button{
-        background-color: black;
+        background-color: #0f0f0f;
         color: white;
     }
     .search{
         border:2px solid gray;
-        background-color: black;
+        background-color: #0f0f0f;
         color: gray;
     }
-    
-    .lupa,.close,.levi img,.options img{
+    .lupa,.close,.levi img,.options img,.arrow{
         filter: invert(100%);
     }
 }
 @media (prefers-color-scheme: light) {
     body{
-        background-color: black;
+        background-color: #0f0f0f;
     }
     p,h1,h2,h3,a,h1{
         color: white;
@@ -43,7 +42,7 @@
         color: gray;
     }
     
-    .lupa,.close,.levi img,.options img{
+    .lupa,.close,.levi img,.options img,.arrow{
         filter: invert(100%);
     }
 }

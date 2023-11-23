@@ -544,7 +544,7 @@ app.get('/video',(req,res)=>{
     const id = req.query.id;
     res.render('video',{
         sesia:req.session,
-        videi: getV(),
+        videi: getMoreVideos(0),
         video: getVN(id)
     });
 });

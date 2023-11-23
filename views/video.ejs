@@ -62,22 +62,37 @@
         <div class="desni">
             <%-include('options')%>
             <div class="video">
-                <div class="divslike">
-                    <video src="/id_videa=<%=video.id%>" controls></video>
+                <div class="levi_video">
+                    <div class="divslike">
+                        <video src="/id_videa=<%=video.id%>" controls></video>
+                    </div>
+                    <div class="opis">
+                        <h3 class="naziv"><%=video.ime%></h3>
+                        <div class="opis2">
+                            <a href="/chanel?id=<%=video.id_kanala%>&mode=video">
+                                <img class="kanal_logo" src="./images/profile.png">
+                                <p><%=video.name%></p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="opis">
-                    <h3 class="naziv"><%=video.ime%></h3>
-                    <div class="opis2">
-                        <a href="/chanel?id=<%=video.id_kanala%>&mode=video">
-                            <img class="kanal_logo" src="./images/profile.png">
-                            <p><%=video.name%></p>
-                        </a>
+                <div class="more_from_this">
+                    <button class="title">
+                        <h3>From this creator</h3>
+                        <img class="arrow" src="./ico/up-arrow.png">
+                    </button>
+                    <div class="videos_from">
+                        
                     </div>
                 </div>
             </div>
-            <div class="next">
-                <%-include('nextvidei')%>
+            <div class="next_section">
+                <h1>More videos</h1>
+                <div class="next">
+                    <%-include('nextvidei')%>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
