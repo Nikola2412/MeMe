@@ -3,7 +3,6 @@
         transform: scale(1.03);
         border-radius: 10px;
         height: fit-content;
-        background-color: black;
         overflow: hidden;
         z-index: 2;
     }

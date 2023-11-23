@@ -14,7 +14,7 @@
         color: white;
     }
     .search{
-        border:2px solid gray;
+        border:1px solid gray;
         background-color: #0f0f0f;
         color: gray;
     }
@@ -24,25 +24,23 @@
 }
 @media (prefers-color-scheme: light) {
     body{
-        background-color: #0f0f0f;
-    }
-    p,h1,h2,h3,a,h1{
-        color: white;
-    }
-    .lines div{
         background-color: white;
     }
-    .levi button,.options button{
+    p,h1,h2,h3,a,h1{
+        color: black;
+    }
+    .lines div{
         background-color: black;
-        color: white;
+    }
+    .levi button,.options button{
+        background-color: white;
+        color: black;
     }
     .search{
-        border:2px solid gray;
-        background-color: black;
+        border:1px solid gray;
+        background-color: white;
         color: gray;
     }
     
-    .lupa,.close,.levi img,.options img,.arrow{
-        filter: invert(100%);
-    }
+    
 }
