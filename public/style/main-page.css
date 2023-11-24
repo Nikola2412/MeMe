@@ -18,15 +18,12 @@ html{
     transition: 0.3s ease-in-out;
     text-decoration: none;
 }
-:root{
-    --visina:calc(100% - 50px);
-}
 li{
     list-style: none;
 }
 .container{
     display: flex;
-    height: var(--visina);
+    /*height: calc(100% - 50px);*/
 }
 .container .levi{
     padding:2px;

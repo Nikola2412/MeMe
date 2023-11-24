@@ -545,7 +545,8 @@ app.get('/video',(req,res)=>{
     res.render('video',{
         sesia:req.session,
         videi: getMoreVideos(0),
-        video: getVN(id)
+        video: getVN(id),
+        sada:""
     });
 });
 

@@ -36,29 +36,7 @@
             </div>
     </header>
     <div class="container">
-        <div class="levi produzen" style="margin-left: 0;">
-            <div class="section 1">
-                <ul>
-                    <li>
-                        <a href="/">
-                            <button class="vidoes">
-                                <img src="./ico/cinema.png" alt="">
-                                Vidoes
-                            </button>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/newest-memes">
-                            <button class="memes">
-                                <img src="./ico/meme.png"  alt="">
-                                Memes
-                            </button>
-                        </a>   
-                    </li>
-                </ul>
-            </div>
-            <div class="line"></div>
-        </div>
+        <%-include('leftmeni') %>
         <div class="desni">
             <%-include('options')%>
             <div class="video">
@@ -71,7 +49,7 @@
                         <div class="opis2">
                             <a href="/chanel?id=<%=video.id_kanala%>&mode=video">
                                 <img class="kanal_logo" src="./images/profile.png">
-                                <p><%=video.name%></p>
+                                <h2><%=video.name%></h2>
                             </a>
                         </div>
                     </div>
@@ -87,7 +65,7 @@
                 </div>
             </div>
             <div class="next_section">
-                <h1>More videos</h1>
+                <h1>More videos:</h1>
                 <div class="next">
                     <%-include('nextvidei')%>
                 </div>
