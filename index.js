@@ -283,9 +283,9 @@ app.get('/memes',(req,res)=>{
 });
 
 app.get('/videos',(req,res)=>{
-    //console.log("test");
     const n = req.query.n;
-    //console.log(req.query);
+    //console.log("req.query");
+    //console.log(getMoreVideos(n));
     res.send(getMoreVideos(n));
 });
 
