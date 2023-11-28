@@ -66,7 +66,7 @@ close.addEventListener('click',el=>{
 document.querySelector('.nalog').addEventListener('click',el=>{
     let options = document.querySelector('.desni .options');
     if(options.style.marginRight=='20px')
-        options.style.marginRight = '-150px';
+        options.style.marginRight = '-170px';
     else{
         options.style.marginRight = '20px';
     }

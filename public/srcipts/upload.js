@@ -56,7 +56,7 @@ dropzone.addEventListener("drop", (event) => {
       });
       reader.readAsDataURL(file);
     }
-    console.log(files);
+    //console.log(files);
   });
 const imgInp = document.getElementById('imgInp');
 dropzone.addEventListener(
@@ -125,7 +125,7 @@ function  Upload(){
     const id = files[i].id;
     imageToByteArray(img).then(async byteArray => {
       var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-      var theUrl = "/upload";
+      var theUrl = "/upload_meme";
       xmlhttp.open("POST", theUrl);
       xmlhttp.setRequestHeader("Content-Type", "application/json");
       xmlhttp.send(JSON.stringify({
