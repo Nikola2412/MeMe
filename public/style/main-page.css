@@ -117,7 +117,6 @@ ul button{
     z-index: 10;
     right: 0;
     margin-right: -170px;
-    margin-top: -30px;
     height: fit-content;
     width: fit-content;
 }
@@ -131,5 +130,4 @@ img {
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
-    user-drag: none;
   }
