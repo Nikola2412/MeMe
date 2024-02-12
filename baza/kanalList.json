@@ -17,6 +17,11 @@
   {
     "name": "nikola",
     "password": "123",
-    "id": "abcd"
+    "id": "4"
+  },
+  {
+    "name": "DraganPolo",
+    "password": "kanister",
+    "id": "5"
   }
 ]
