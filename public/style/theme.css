@@ -19,7 +19,10 @@
         color: gray;
     }
     .lupa,.close,.levi img,.options img,.arrow{
-        filter: invert(100%);
+        filter: invert(90%);
+    }
+    .sada img{
+        filter: invert(20%)!important;
     }
 }
 @media (prefers-color-scheme: light) {
@@ -41,6 +44,11 @@
         background-color: white;
         color: gray;
     }
-    
+    .lupa,.close,.levi img,.options img,.arrow{
+        filter: invert(20%);
+    }
+    .sada img{
+        filter: invert(90%)!important;
+    }
     
 }

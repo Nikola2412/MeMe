@@ -43,7 +43,8 @@
     margin-right: auto;
 }
 .videos_from{
-    border: 2px solid gray;
+    border-top: 2px solid gray;
+    border-left: 2px solid gray;
     border-radius: 0 0 20px 0px;
     height: 100%;
     width: 100%;
@@ -94,11 +95,14 @@
     text-align: left;
 }
 .next_section{
-    border: 2px solid gray;
     border-radius: 20px;
-    padding-top: 50px;
+    margin-top: 20px;
     width: 100%;
     height: fit-content;
+    overflow: visible;
+}
+.next_section h1{
+    margin: 10px;
 }
 .next{
     z-index: 0;

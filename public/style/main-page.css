@@ -80,7 +80,7 @@ ul button{
     
 }
 .levi ul button:hover, .sada{
-    background-color: gray !important;
+    background-color: rgb(173, 173, 173) !important;
 }
 
 .skracen{
