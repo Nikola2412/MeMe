@@ -18,7 +18,7 @@
         background-color: #0f0f0f;
         color: gray;
     }
-    .lupa,.close,.levi img,.options img,.arrow{
+    .lupa,.close,.levi img,.options img,.arrow,.logo{
         filter: invert(90%);
     }
     .sada img{
@@ -44,7 +44,7 @@
         background-color: white;
         color: gray;
     }
-    .lupa,.close,.levi img,.options img,.arrow{
+    .lupa,.close,.levi img,.options img,.arrow,.logo{
         filter: invert(20%);
     }
     .sada img{
