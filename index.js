@@ -546,7 +546,8 @@ app.get('/video',(req,res)=>{
         sesia:req.session,
         videi: getMoreVideos(0),
         video: getVN(id),
-        sada:""
+        sada:"",
+        mode:"skracen"
     });
 });
 

@@ -21,9 +21,8 @@
     margin-left: auto;
     margin-right: auto;
     z-index: 10;
-    border: 2px solid gray;
     display: grid;
-    grid-template-columns: auto 30%;
+    grid-template-columns: auto 350px;
 }
 .more_from_this{
     display: flex;
@@ -43,9 +42,6 @@
     margin-right: auto;
 }
 .videos_from{
-    border-top: 2px solid gray;
-    border-left: 2px solid gray;
-    border-radius: 0 0 20px 0px;
     height: 100%;
     width: 100%;
 }
