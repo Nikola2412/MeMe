@@ -51,11 +51,9 @@
 }
 
 .desni{
-    z-index: 0;
     padding: 10px;
     width: 100%;
     overflow-y: auto;
-    overflow-x:hidden;
 }
 .kanal_logo{
     border-radius: 50%;
@@ -95,17 +93,12 @@
     margin-top: 20px;
     width: 100%;
     height: fit-content;
-    overflow: visible;
 }
 .next_section h1{
     margin: 10px;
 }
 .next{
-    z-index: 0;
-    width: 100%;
-    height: fit-content;
-    overflow-y: auto;
-    overflow-x:hidden;
+    padding: 10px;
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
@@ -115,7 +108,6 @@
     height: fit-content;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
 }
 .nextdivslike img{
     display: block;
