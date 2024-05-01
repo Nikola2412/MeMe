@@ -513,16 +513,12 @@ function getMeme(index){
     
 }
 app.get('/meme=:id',(req,res)=>{
-    if(req.headers['user-agent'].match('Android')!=null) 
-        res.sendFile(path.join(__dirname, 'assetlinks.json'));
-    else{
-        const id = req.params.id;
-        res.render('meme',{
-            sesia:req.session,
-            meme: getMeme(id),
-            sada:""
-        });
-    }
+    const id = req.params.id;
+    res.render('meme',{
+        sesia:req.session,
+        meme: getMeme(id),
+        sada:""
+    });
 })
 
 app.get('/id_memea=:id',(req,res)=>{
