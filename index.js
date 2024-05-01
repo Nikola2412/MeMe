@@ -514,7 +514,7 @@ function getMeme(index){
 }
 app.get('/meme=:id',(req,res)=>{
     if(req.headers['user-agent'].match('Android')!=null) 
-        res.sendFile(path.join(__dirname, 'assetlinks.json'));
+        res.sendFile(path.join(__dirname, '.well-known', 'assetlinks.json'));
     else{
         const id = req.params.id;
         res.render('meme',{
