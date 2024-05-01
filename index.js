@@ -512,17 +512,19 @@ function getMeme(index){
     return data;
     
 }
+
+app.get('/.well-known/assetlinks.json', (req, res) => {
+    const assetlinksPath = path.join(__dirname, '.well-known', 'assetlinks.json');
+    res.sendFile(assetlinksPath);
+});
+
 app.get('/meme=:id',(req,res)=>{
-    if(req.headers['user-agent'].match('Android')!=null) 
-        res.sendFile(path.join(__dirname, '.well-known', 'assetlinks.json'));
-    else{
-        const id = req.params.id;
-        res.render('meme',{
-            sesia:req.session,
-            meme: getMeme(id),
-            sada:""
-        });
-    }
+    const id = req.params.id;
+    res.render('meme',{
+        sesia:req.session,
+        meme: getMeme(id),
+        sada:""
+    });
 })
 
 app.get('/id_memea=:id',(req,res)=>{
