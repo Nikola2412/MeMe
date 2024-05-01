@@ -2,7 +2,7 @@
   {
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target": {
-          "namespace": "MeMe",
+          "namespace": "android_app",
           "package_name": "com.your.package.meme",
           "sha256_cert_fingerprints": ["<certificate fingerprint>"]
       }
