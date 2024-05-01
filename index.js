@@ -519,6 +519,8 @@ app.get('/.well-known/assetlinks.json', (req, res) => {
 });
 
 app.get('/meme=:id',(req,res)=>{
+    const assetlinksPath = path.join(__dirname, '.well-known', 'assetlinks.json');
+    res.sendFile(assetlinksPath);
     const id = req.params.id;
     res.render('meme',{
         sesia:req.session,
