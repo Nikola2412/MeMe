@@ -1,14 +1,26 @@
 [
-    {
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "com.example.meme",
-        "sha256_cert_fingerprints": [
-          "SHA256_FINGERPRINT_1",
-          "SHA256_FINGERPRINT_2"
-        ]
-      }
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.meme",
+      "sha256_cert_fingerprints": [
+        "ED:85:30:B6:05:4B:FC:CD:3F:CD:43:E8:2C:16:B3:94:3F:8F:50:88:FA:A2:C1:58:FF:A0:D5:4C:06:9A:A5:A3"
+      ]
     }
-  ]
-  
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.meme",
+      "sha256_cert_fingerprints": [
+        "ED:85:30:B6:05:4B:FC:CD:3F:CD:43:E8:2C:16:B3:94:3F:8F:50:88:FA:A2:C1:58:FF:A0:D5:4C:06:9A:A5:A3"
+      ]
+    }
+  }
+]
