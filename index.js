@@ -531,6 +531,7 @@ app.get('/meme=:id',(req,res)=>{
 })
 
 app.get('/id_memea=:id',(req,res)=>{
+    console.log(req.params.id);
     const id = req.params.id;
     const imgPath = `memes/${id}.`;
     sendImg(imgPath,res,'jpg');
