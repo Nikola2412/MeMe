@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nikola2412/YouTube.git"
+    "url": "git+https://github.com/Nikola2412/MeMe.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nikola2412/YouTube/issues"
+    "url": "https://github.com/Nikola2412/MeMe/issues"
   },
-  "homepage": "https://github.com/Nikola2412/YouTube#readme",
+  "homepage": "https://github.com/Nikola2412/MeMe#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
     "cookie-parser": "^1.4.6",
